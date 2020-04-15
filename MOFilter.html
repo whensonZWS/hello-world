@@ -11,9 +11,6 @@ body {
 	margin:0px;
 	padding:0px;
 	background-color:#000;
-	background-image:url('../images/bg-body.jpg');
-	background-repeat:repeat-x;
-	background-attachment: fixed;
 	font-family:Verdana, Geneva, sans-serif;
 	font-size:12px;
 	color:#CCC;
@@ -103,10 +100,10 @@ h1 {
 h2 {
 	float:none;
 	margin:0px;
-	padding:20px 0px 25px 0px;
+	padding:5px 0px 5px 0px;
 	font-family:Arial, Helvetica, sans-serif;
 	font-weight:normal;
-	font-size:18px;
+	font-size:15px;
 	color:#fff;
 }
 
@@ -494,6 +491,7 @@ margin-bottom: 0.1em;
 
 .container {
   margin-top: 20px;
+  width:100%
   
 }
 
@@ -505,7 +503,7 @@ margin-bottom: 0.1em;
   outline: none;
   /*padding: 12px 16px;*/
   width: 100px;
-  line-height: 50px;
+  line-height: 40px;
   text-align: center;
   margin: 2px;
   background-color: #f1f1f1;
@@ -525,7 +523,8 @@ margin-bottom: 0.1em;
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black;
+  
+
 }
 
 .tooltip .tooltiptext {
@@ -561,366 +560,421 @@ margin-bottom: 0.1em;
   opacity: 0.9;
 }
 
+.infobox
+{
+	diplay: block;
+	width:25%;
+	height:20%;
+	position:fixed;
+	top:25px;
+	left:initial;
+	font-size:18px;
+	right:10%;
+	background-color: #111111;
+	opacity: 0.9;
+	
+}
 
 
 </style>
 <body>
 
+	
 <div id="myBtnContainer">
-<div id="infobox" style="diplay: block;width:40%;
-  position:relative;
-  top:55px;
-  left:initial;
-  right:10%;" align="center" >
-infobox
-</div>
-<p>Faction</p>
+<h2>Faction</h2>
 <button class="btn" onClick="filterSelection('na')"> Soviet</button>
 <button class="btn" onClick="filterSelection('ga')"> Ally</button>
 <button class="btn" onClick="filterSelection('ya')"> Epsilon</button>
 <button class="btn" onClick="filterSelection('fa')"> Foehn</button>
-<p>Type</p>
+<h2>Type</h2>
 <button class="btn" onClick="filterSelection('veh')"> Vehicle</button>
 <button class="btn" onClick="filterSelection('inf')"> Infantry</button>
 <button class="btn" onClick="filterSelection('bud')"> Building</button>
-<p>Tech Level</p>
+<h2>Tech Level</h2>
 <button class="btn" onClick="filterSelection('t1')"> T1</button>
 <button class="btn" onClick="filterSelection('t2')"> T2</button>
 <button class="btn" onClick="filterSelection('t3')"> T3</button>
+<button class="btn" onClick="filterSelection('t4')"> Stolen</button>
+<button class="btn" onClick="filterSelection('t5')"> Hidden</button>
+<button class="btn" onClick="filterSelection('sy')"> Nano Sync</button>
 </div>
+
+
+
 
 <div class="container" id="mc">
 	
-	
-</div>	
+</div>
+
+
+<div class="infobox" align="center" >
+Information
+<div id="infobox" style="font-size: 15px; padding: 0px 5px;" align="left" >
+</div>
+</div>
+
 
 <p id="sss"></p>
 	
 
 </body>
 <script>
-/*
-manualAdd("BoidBlitzSpecial","Boid Blitz","fa t3","http://mentalomega.com/images/cameo/bbtzicon.png","let's send them a message");
-manualAdd("FATRAP","Foehn WindTrap","fa bud t1","http://mentalomega.com/images/cameo/wtrpicon.png");
-manualAdd("FABARR","Foehn Barracks","fa bud t1","http://mentalomega.com/images/cameo/fbaricon.png");
-manualAdd("FAREFN","Foehn Ore Refinery","fa bud t1","http://mentalomega.com/images/cameo/freficon.png");
-manualAdd("FAWEAP","Foehn War Factory","fa bud t1","http://mentalomega.com/images/cameo/fwepicon.png");
-manualAdd("FAYARD","Foehn Naval Yard","fa bud t1","http://mentalomega.com/images/cameo/fyrdicon.png");
-manualAdd("FACLDP","Foehn Cloud Piercer","fa bud t2","http://mentalomega.com/images/cameo/cldpicon.png");
-manualAdd("FACYBR","Foehn Cyberkernel","fa bud t2","http://mentalomega.com/images/cameo/cbrkicon.png");
-manualAdd("FANANO","Foehn Nanofiber Loom","fa bud t2","http://mentalomega.com/images/cameo/loomicon.png");
-manualAdd("FABARR","Foehn Cloud Piercer Expansion","fa bud t3","http://mentalomega.com/images/cameo/cldpicon.png");
-manualAdd("FATRAP","Foehn Cyberkernel Expansion","fa bud t3","http://mentalomega.com/images/cameo/cbrkicon.png");
-manualAdd("FABARR","Foehn Nanofiber Loom Expansion","fa bud t3","http://mentalomega.com/images/cameo/loomicon.png");
-manualAdd("FAREPR","Foehn Reprocessor","fa bud t3","http://mentalomega.com/images/cameo/repricon.png");
-manualAdd("FAELEV","Foehn Tempest Architect","fa bud t3","http://mentalomega.com/images/cameo/elevicon.png");
-manualAdd("FABLST","Foehn Blast Furnace","fa bud t3","http://mentalomega.com/images/cameo/blsticon.png");
 
-manualAdd("MTNK","Cavalier Medium Tank","ga veh t1","http://mentalomega.com/images/cameo/gtnkicon.png");
-manualAdd("ETNK","Bulldog Light Tank","ga veh t1","http://mentalomega.com/images/cameo/etnkicon.png");
-manualAdd("kTNK","Kappa Hover Tank","ga veh t1","http://mentalomega.com/images/cameo/predicon.png");
-manualAdd("ROBO","Robot Tank","ga veh t1","http://mentalomega.com/images/cameo/roboicon.png");
-manualAdd("MECHA","Mecha Tengu","ga veh");
-manualAdd("FV","Stryker IFV","ga veh t1","http://mentalomega.com/images/cameo/strkicon.png");
-manualAdd("AMC","Archon AMC","ga veh t1","http://mentalomega.com/images/cameo/archicon.png");
-*/
-manualAdd('E1','G.I. ','ga inf t1','http://mentalomega.com/images/cameo/giicon.png')
-manualAdd('ADOG','Allied Attack Dog ','ga inf t1','http://mentalomega.com/images/cameo/adogicon.png')
-manualAdd('ENGINEER','Allied Engineer ','ga inf t1','http://mentalomega.com/images/cameo/engnicon.png')
-manualAdd('AMEDIC','Field Medic ','ga inf t2','http://mentalomega.com/images/cameo/mediicon.png')
-manualAdd('GGI','Guardian G.I. ','ga inf t1','http://mentalomega.com/images/cameo/gdgiicon.png')
-manualAdd('ENFO','Siege Cadre ','ga inf t2','http://mentalomega.com/images/cameo/enfoicon.png')
-manualAdd('JUMPJET','Rocketeer ','ga inf t2','http://mentalomega.com/images/cameo/jjeticon.png')
-manualAdd('SPY','Spy ','ga inf t3','http://mentalomega.com/images/cameo/spyicon.png')
-manualAdd('GHOST','Navy SEAL ','ga inf t2','http://mentalomega.com/images/cameo/sealicon.png')
-manualAdd('TANY','Tanya ','ga inf t3','http://mentalomega.com/images/cameo/tanyicon.png')
-manualAdd('SUPR','Suppressor ','ga inf t3','http://mentalomega.com/images/cameo/supricon.png')
-manualAdd('ARMR','Norio ','ga inf t3','http://mentalomega.com/images/cameo/armricon.png')
-manualAdd('CLEG','Chrono Legionnaire ','ga inf t3','http://mentalomega.com/images/cameo/clegicon.png')
-manualAdd('SNIPE','Sniper ','ga inf t3','http://mentalomega.com/images/cameo/snipicon.png')
-manualAdd('RIOT','Riot Trooper ','ga inf t3','http://mentalomega.com/images/cameo/rioticon.png')
-manualAdd('SIEG','Siegfried ','ga inf t3','http://mentalomega.com/images/cameo/siegicon.png')
-manualAdd('E2','Conscript ','na inf t1','http://mentalomega.com/images/cameo/e2icon.png')
-manualAdd('DOG','Soviet Attack Dog ','na inf t1','http://mentalomega.com/images/cameo/dogicon.png')
-manualAdd('FLAKT','Flak Trooper ','na inf t1','http://mentalomega.com/images/cameo/flkticon.png')
-manualAdd('SENGINEER','Soviet Engineer ','na inf t1','http://mentalomega.com/images/cameo/sengicon.png')
-manualAdd('SHK','Tesla Trooper ','na inf t2','http://mentalomega.com/images/cameo/shkicon.png')
-manualAdd('FLAMER','Pyro ','na inf t2','http://mentalomega.com/images/cameo/pyroicon.png')
-manualAdd('GYRO','Gyrocopter ','na inf t3','http://mentalomega.com/images/cameo/gyroicon.png')
-manualAdd('MOTOR','Mortar Quad ','na inf t2','http://mentalomega.com/images/cameo/quadicon.png')
-manualAdd('IVAN','Crazy Ivan ','na inf t2','http://mentalomega.com/images/cameo/ivanicon.png')
-manualAdd('ARSO','Arsonist ','na inf t3','http://mentalomega.com/images/cameo/arsoicon.png')
-manualAdd('SBTR','Saboteur ','na inf t3','http://mentalomega.com/images/cameo/sbtricon.png')
-manualAdd('MORALES','Morales ','na inf t3','http://mentalomega.com/images/cameo/moraicon.png')
-manualAdd('VOLKOV','Volkov ','na inf t3','http://mentalomega.com/images/cameo/volkicon.png')
-manualAdd('CHITZ','Chitzkoi ','na inf t3','http://mentalomega.com/images/cameo/hhndicon.png')
-manualAdd('YUNRU','Yunru ','na inf t3','http://mentalomega.com/images/cameo/yunricon.png')
-manualAdd('DESO','Desolator ','na inf t3','http://mentalomega.com/images/cameo/desoicon.png')
-manualAdd('DESOR','Eradicator ','na inf t3','http://mentalomega.com/images/cameo/desricon.png')
-manualAdd('INIT','Initiate ','ya inf t1','http://mentalomega.com/images/cameo/initicon.png')
-manualAdd('HARP','Archer ','ya inf t1','http://mentalomega.com/images/cameo/harpicon.png')
-manualAdd('YDOG','Spook ','ya inf t1','http://mentalomega.com/images/cameo/spokicon.png')
-manualAdd('YENGINEER','Epsilon Engineer ','ya inf t1','http://mentalomega.com/images/cameo/yengicon.png')
-manualAdd('BRUTE','Brute ','ya inf t2','http://mentalomega.com/images/cameo/bruticon.png')
-manualAdd('INTRUDER','Infiltrator ','ya inf t3','http://mentalomega.com/images/cameo/intricon.png')
-manualAdd('STALKER','Stalker ','ya inf t3','http://mentalomega.com/images/cameo/stlkicon.png')
-manualAdd('KAOS','Bloatick ','ya inf t2','http://mentalomega.com/images/cameo/weavicon.png')
-manualAdd('HIJACKER','Hijacker ','ya inf t3','http://mentalomega.com/images/cameo/hjkricon.png')
-manualAdd('VIRUS','Virus ','ya inf t3','http://mentalomega.com/images/cameo/vrusicon.png')
-manualAdd('YURI','Epsilon Adept ','ya inf t3','http://mentalomega.com/images/cameo/yclnicon.png')
-manualAdd('YURIPR','Epsilon Elite ','ya inf t3','http://mentalomega.com/images/cameo/yypricon.png')
-manualAdd('ASSN','Rahn ','ya inf t3','http://mentalomega.com/images/cameo/assnicon.png')
-manualAdd('UNDER','Malver ','ya inf t3','http://mentalomega.com/images/cameo/undricon.png')
-manualAdd('LIBRA','Libra ','ya inf t3','http://mentalomega.com/images/cameo/libricon.png')
-manualAdd('DUNE','Dunerider ','ya inf t2','http://mentalomega.com/images/cameo/razgicon.png')
-manualAdd('KNIGHT','Knightframe ','fa inf t1','http://mentalomega.com/images/cameo/knigicon.png')
-manualAdd('COVE','Lancer ','fa inf t1','http://mentalomega.com/images/cameo/lancicon.png')
-manualAdd('FENGINEER','Foehn Engineer ','fa inf t1','http://mentalomega.com/images/cameo/fengicon.png')
-manualAdd('HUNTR','Huntress ','fa inf t2','http://mentalomega.com/images/cameo/hntricon.png')
-manualAdd('CLAIR','Clairvoyant ','fa inf t3','http://mentalomega.com/images/cameo/clrvicon.png')
-manualAdd('SYNC','Syncronin ','fa inf t3','http://mentalomega.com/images/cameo/sronicon.png')
-manualAdd('ZORB','Zorbtrotter ','fa inf t3','http://mentalomega.com/images/cameo/zorbicon.png')
-manualAdd('ZORB_N','Zorbfloater ','fa inf t3','http://mentalomega.com/images/cameo/')
-manualAdd('BANE','Giantsbane ','fa inf t3','http://mentalomega.com/images/cameo/baneicon.png')
-manualAdd('SIBFIN','Fin ','fa inf t3','http://mentalomega.com/images/cameo/finicon.png')
-manualAdd('SICALI','Alize ','fa inf t3','http://mentalomega.com/images/cameo/alizicon.png')
-manualAdd('EUREKA','Eureka ','fa inf t3','http://mentalomega.com/images/cameo/eureicon.png')
-manualAdd('URAGAN','Uragan ','fa inf t3','http://mentalomega.com/images/cameo/kingicon.png')
-manualAdd('CYCOM','Cyborg Commando ','hidden inf t3','http://mentalomega.com/images/cameo/ccomicon.png')
-manualAdd('MTNK','Cavalier Medium Tank ','ga veh t1','http://mentalomega.com/images/cameo/gtnkicon.png')
-manualAdd('ETNK','Bulldog Light Tank ','ga veh t1','http://mentalomega.com/images/cameo/etnkicon.png')
-manualAdd('KTNK','Kappa Hover Tank ','ga veh t1','http://mentalomega.com/images/cameo/predicon.png')
-manualAdd('ROBO','Robot Tank ','ga veh t1','http://mentalomega.com/images/cameo/roboicon.png')
-manualAdd('FV','Stryker IFV ','ga veh t1','http://mentalomega.com/images/cameo/strkicon.png')
-manualAdd('AMC','Archon AMC ','ga veh t1','http://mentalomega.com/images/cameo/archicon.png')
-manualAdd('TENGU','Tsurugi Powersuit ','ga veh t1','http://mentalomega.com/images/cameo/tsuricon.png')
-manualAdd('LCRF','Voyager Transport ','ga veh t1','http://mentalomega.com/images/cameo/lcrficon.png')
-manualAdd('SHAD','Stallion Transport ','ga veh t2','http://mentalomega.com/images/cameo/shadicon.png')
-manualAdd('ORCA','Harrier ','ga veh t2','http://mentalomega.com/images/cameo/falcicon.png')
-manualAdd('STORM','Stormchild ','ga veh t2','http://mentalomega.com/images/cameo/strmicon.png')
-manualAdd('FORTRESS','Barracuda ','ga veh t3','http://mentalomega.com/images/cameo/stlhicon.png')
-manualAdd('HBIRD','Hummingbird ','ga veh t3','http://mentalomega.com/images/cameo/hbrdicon.png')
-manualAdd('BEAG','Black Eagle ','ga veh t2','http://mentalomega.com/images/cameo/beagicon.png')
-manualAdd('COMA','Warhawk ','ga veh t2','http://mentalomega.com/images/cameo/warhicon.png')
-manualAdd('CRYO','Cryocopter ','ga veh t3','http://mentalomega.com/images/cameo/crycicon.png')
-manualAdd('MGTK','Mirage Tank ','ga veh t2','http://mentalomega.com/images/cameo/rtnkicon.png')
-manualAdd('HOWI','Zephyr Artillery ','ga veh t2','http://mentalomega.com/images/cameo/zephicon.png')
-manualAdd('SREF','Prism Tank ','ga veh t3','http://mentalomega.com/images/cameo/sreficon.png')
-manualAdd('BASS','Athena Cannon ','ga veh t3','http://mentalomega.com/images/cameo/bassicon.png')
-manualAdd('ABRM','Abrams Tank ','ga veh t3','http://mentalomega.com/images/cameo/abrmicon.png')
-manualAdd('BFRT','Battle Tortoise ','ga veh t3','http://mentalomega.com/images/cameo/bfrticon.png')
-manualAdd('AMCV','Allied Construction Vehicle ','ga veh t2','http://mentalomega.com/images/cameo/mcvicon.png')
-manualAdd('DEST','Destroyer ','ga veh t1','http://mentalomega.com/images/cameo/desticon.png')
-manualAdd('DLPH','Dolphin ','ga veh t2','http://mentalomega.com/images/cameo/dlphicon.png')
-manualAdd('AEGIS','Aegis Cruiser ','ga veh t2','http://mentalomega.com/images/cameo/agisicon.png')
-manualAdd('CARRIER','Aircraft Carrier ','ga veh t3','http://mentalomega.com/images/cameo/carricon.png')
-manualAdd('HCRUIS','Battleship ','ga veh t3','http://mentalomega.com/images/cameo/hcrsicon.png')
-manualAdd('CMIN','Chrono Miner ','ga veh t1','http://mentalomega.com/images/cameo/ahrvicon.png')
-manualAdd('AERO','Aeroblaze ','ga veh t3','http://mentalomega.com/images/cameo/aeroicon.png')
-manualAdd('VCARR','Hailstorm ','ga veh t3','http://mentalomega.com/images/cameo/hailicon.png')
-manualAdd('BLZZ','Blizzard Tank ','ga veh t3','http://mentalomega.com/images/cameo/blzzicon.png')
-manualAdd('CHRTNK','Charon Tank ','ga veh t3','http://mentalomega.com/images/cameo/ctnkicon.png')
-manualAdd('THOR','Thor Gunship ','ga veh t3','http://mentalomega.com/images/cameo/thoricon.png')
-manualAdd('DRON','Terror Drone ','na veh t1','http://mentalomega.com/images/cameo/drncicon.png')
-manualAdd('HTK','Halftrack ','na veh t1','http://mentalomega.com/images/cameo/htkicon.png')
-manualAdd('SCAR','Tigr APC ','na veh t1','http://mentalomega.com/images/cameo/lynxicon.png')
-manualAdd('HTNK','Rhino Heavy Tank ','na veh t1','http://mentalomega.com/images/cameo/htnkicon.png')
-manualAdd('CTNK','Qilin Heavy Tank ','na veh t1','http://mentalomega.com/images/cameo/qtnkicon.png')
-manualAdd('JTNK','Jaguar Battle Tank ','na veh t1','http://mentalomega.com/images/cameo/jtnkicon.png')
-manualAdd('SAPC','Zubr Transport ','na veh t1','http://mentalomega.com/images/cameo/sapcicon.png')
-manualAdd('V3','Scud Launcher ','na veh t3','http://mentalomega.com/images/cameo/v3icon.png')
-manualAdd('TTNK','Tesla Cruiser ','na veh t3','http://mentalomega.com/images/cameo/ttnkicon.png')
-manualAdd('FDRON','Fury Drone ','na veh t3','http://mentalomega.com/images/cameo/fdrnicon.png')
-manualAdd('SCHP','Vulture ','na veh t3','http://mentalomega.com/images/cameo/schpicon.png')
-manualAdd('EDRN','Dragonfly ','na veh t3','http://mentalomega.com/images/cameo/edrnicon.png')
-manualAdd('WOLF','Wolfhound ','na veh t3','http://mentalomega.com/images/cameo/wolficon.png')
-manualAdd('ZEP','Kirov Airship ','na veh t3','http://mentalomega.com/images/cameo/zepicon.png')
-manualAdd('SENT','Sentinel ','na veh t3','http://mentalomega.com/images/cameo/senticon.png')
-manualAdd('EMPR','Nuwa Cannon ','na veh t3','http://mentalomega.com/images/cameo/empricon.png')
-manualAdd('BOREK','Borillo ','na veh t2','http://mentalomega.com/images/cameo/boriicon.png')
-manualAdd('ARMA','Armadillo ','na veh t2','http://mentalomega.com/images/cameo/armaicon.png')
-manualAdd('DUST','Dustdevil ','na veh t2','http://mentalomega.com/images/cameo/dusticon.png')
-manualAdd('FOX','Foxtrot ','na veh t2','http://mentalomega.com/images/cameo/foxicon.png')
-manualAdd('CNTR','Centurion Siege Crawler ','na veh t3','http://mentalomega.com/images/cameo/centicon.png')
-manualAdd('SMCV','Soviet Construction Vehicle ','na veh t2','http://mentalomega.com/images/cameo/smcvicon.png')
-manualAdd('MWF','Stalin\'s Fist ','na veh t3','http://mentalomega.com/images/cameo/mwficon.png')
-manualAdd('SWLF','Seawolf ','na veh t2','http://mentalomega.com/images/cameo/swlficon.png')
-manualAdd('SUB','Typhoon Attack Sub ','na veh t1','http://mentalomega.com/images/cameo/subicon.png')
-manualAdd('DRED','Dreadnought ','na veh t3','http://mentalomega.com/images/cameo/dredicon.png')
-manualAdd('AKULA','Akula Missile Sub ','na veh t3','http://mentalomega.com/images/cameo/akulicon.png')
-manualAdd('HARV','War Miner ','na veh t1','http://mentalomega.com/images/cameo/harvicon.png')
-manualAdd('BURA','Buratino ','na veh t3','http://mentalomega.com/images/cameo/buraicon.png')
-manualAdd('APOC','Catastrophe Tank ','na veh t3','http://mentalomega.com/images/cameo/cataicon.png')
-manualAdd('BGGY','Bomb Buggy ','na veh t2','http://mentalomega.com/images/cameo/bggyicon.png')
-manualAdd('DTRUCK','Demolition Truck ','na veh t2','http://mentalomega.com/images/cameo/trkaicon.png')
-manualAdd('LTNK','Lasher Light Tank ','ya veh t1','http://mentalomega.com/images/cameo/ltnkicon.png')
-manualAdd('QTNK','Mantis Light Tank ','ya veh t1','http://mentalomega.com/images/cameo/manticon.png')
-manualAdd('STNK','Opus Custom Tank ','ya veh t1','http://mentalomega.com/images/cameo/stnkicon.png')
-manualAdd('TRIKE','Speeder Trike ','ya veh t2','http://mentalomega.com/images/cameo/trikicon.png')
-manualAdd('COYO','Oxidizer ','ya veh t3','http://mentalomega.com/images/cameo/oxidicon.png')
-manualAdd('STING','Stinger ','ya veh t1','http://mentalomega.com/images/cameo/stngicon.png')
-manualAdd('YTNK','Gatling Tank ','ya veh t1','http://mentalomega.com/images/cameo/ytnkicon.png')
-manualAdd('QUAD','Hazequad ','ya veh t3','http://mentalomega.com/images/cameo/hzqdicon.png')
-manualAdd('DRIL','Driller APC ','ya veh t2','http://mentalomega.com/images/cameo/drilicon.png')
-manualAdd('TELE','Magnetron ','ya veh t3','http://mentalomega.com/images/cameo/teleicon.png')
-manualAdd('MIND','Mastermind ','ya veh t3','http://mentalomega.com/images/cameo/mindicon.png')
-manualAdd('DEVO','Colossus ','ya veh t3','http://mentalomega.com/images/cameo/colsicon.png')
-manualAdd('YAHCR','Gehenna Platform ','ya veh t3','http://mentalomega.com/images/cameo/gehnicon.png')
-manualAdd('PLAG','Plague Splatter ','ya veh t3','http://mentalomega.com/images/cameo/plagicon.png')
-manualAdd('SHADOW','Shadow Tank ','ya veh t2','http://mentalomega.com/images/cameo/shdwicon.png')
-manualAdd('DISK','Invader ','ya veh t2','http://mentalomega.com/images/cameo/diskicon.png')
-manualAdd('BLIGHT','Dybbuk-Attacker ','ya veh t2','http://mentalomega.com/images/cameo/bligicon.png')
-manualAdd('VENOM','Dybbuk-Evolver ','ya veh t3','http://mentalomega.com/images/cameo/evolicon.png')
-manualAdd('BASIL','Basilisk ','ya veh t3','http://mentalomega.com/images/cameo/basiicon.png')
-manualAdd('GOTTER','Aerial Fortress Irkalla ','ya veh t3','http://mentalomega.com/images/cameo/irklicon.png')
-manualAdd('PCV','Epsilon Construction Vehicle ','ya veh t2','http://mentalomega.com/images/cameo/ypcvicon.png')
-manualAdd('YHVR','Mandjet Transport ','ya veh t1','http://mentalomega.com/images/cameo/yhvricon.png')
-manualAdd('SLED','Piranha Minisub ','ya veh t1','http://mentalomega.com/images/cameo/ysubicon.png')
-manualAdd('SQD','Giant Squid ','ya veh t2','http://mentalomega.com/images/cameo/sqdicon.png')
-manualAdd('BSUB','Resheph ','ya veh t3','http://mentalomega.com/images/cameo/reshicon.png')
-manualAdd('NAUT','Nautilus ','ya veh t3','http://mentalomega.com/images/cameo/nauticon.png')
-manualAdd('YMIN','Ghost Miner ','ya veh t1','http://mentalomega.com/images/cameo/yminicon.png')
-manualAdd('SCAV','Tyrant ','ya veh t3','http://mentalomega.com/images/cameo/scavicon.png')
-manualAdd('MARA','Marauder ','ya veh t2','http://mentalomega.com/images/cameo/maraicon.png')
-manualAdd('ROACH','Bison Tank ','fa veh t1','http://mentalomega.com/images/cameo/roacicon.png')
-manualAdd('LEVI','Leviathan ','fa veh t3','http://mentalomega.com/images/cameo/leviicon.png')
-manualAdd('DRACO','Draco Light Tank ','fa veh t1','http://mentalomega.com/images/cameo/dracicon.png')
-manualAdd('JACKAL','Jackal Racer ','fa veh t1','http://mentalomega.com/images/cameo/jackicon.png')
-manualAdd('TERA','Teratorn ','fa veh t1','http://mentalomega.com/images/cameo/teraicon.png')
-manualAdd('BUZZ','Buzzard ','fa veh t2','http://mentalomega.com/images/cameo/buzzicon.png')
-manualAdd('RACC','Raccoon ','fa veh t2','http://mentalomega.com/images/cameo/raccicon.png')
-manualAdd('MSA','SODAR Array ','fa veh t2','http://mentalomega.com/images/cameo/sodaicon.png')
-manualAdd('TARCHIA','Tarchia Cannon ','fa veh t3','http://mentalomega.com/images/cameo/tarcicon.png')
-manualAdd('MAD','M.A.D.M.A.N. ','fa veh t3','http://mentalomega.com/images/cameo/mdmnicon.png')
-manualAdd('SHRAY','Shadray Sonic Tank ','fa veh t3','http://mentalomega.com/images/cameo/shryicon.png')
-manualAdd('FMCV','Foehn Construction Vehicle ','fa veh t2','http://mentalomega.com/images/cameo/fmcvicon.png')
-manualAdd('VIPER','Pteranodon ','fa veh t3','http://mentalomega.com/images/cameo/ptericon.png')
-manualAdd('DIVER','Diverbee ','fa veh t3','http://mentalomega.com/images/cameo/divricon.png')
-manualAdd('SEAT','Warturtle Transport ','fa veh t1','http://mentalomega.com/images/cameo/seaticon.png')
-manualAdd('SWORD','Swordfish ','fa veh t1','http://mentalomega.com/images/cameo/swrdicon.png')
-manualAdd('SHARK','Angelshark ','fa veh t2','http://mentalomega.com/images/cameo/shrkicon.png')
-manualAdd('MANTA','Whipray ','fa veh t2','http://mentalomega.com/images/cameo/whipicon.png')
-manualAdd('MEGA','Megalodon ','fa veh t3','http://mentalomega.com/images/cameo/mgldicon.png')
-manualAdd('ROADR','Roadrunner ','fa veh t3','http://mentalomega.com/images/cameo/rdrnicon.png')
-manualAdd('PROME','Mastodon ','fa veh t3','http://mentalomega.com/images/cameo/masticon.png')
-manualAdd('BOID','Boidmachine ','fa veh t3','http://mentalomega.com/images/cameo/boidicon.png')
-manualAdd('GHTNK','Gharial ','fa veh t3','http://mentalomega.com/images/cameo/gharicon.png')
-manualAdd('CYCL','Cyclops Walker ','fa veh t1','http://mentalomega.com/images/cameo/ccloicon.png')
-manualAdd('NMIN','Minermite ','fa veh t1','http://mentalomega.com/images/cameo/nminicon.png')
-manualAdd('SWPR','Sweeper ','fa veh t2','http://mentalomega.com/images/cameo/swpricon.png')
-manualAdd('CONF','Irritator ','fa veh t2','http://mentalomega.com/images/cameo/irrticon.png')
-manualAdd('HURR','Alanqa Skystation ','fa veh t3','http://mentalomega.com/images/cameo/alnqicon.png')
-manualAdd('QUETZ','Quetzal ','fa veh t3','http://mentalomega.com/images/cameo/qutzicon.png')
-manualAdd('GAPOWR','Power Plant ','ga bud t1','http://mentalomega.com/images/cameo/powricon.png')
-manualAdd('GAPOWRUP','Power Turbine ','ga bud t2','http://mentalomega.com/images/cameo/pwupicon.png')
-manualAdd('GAPILE','Allied Barracks ','ga bud t1','http://mentalomega.com/images/cameo/brrkicon.png')
-manualAdd('GAREFN','Allied Ore Refinery ','ga bud t1','http://mentalomega.com/images/cameo/reficon.png')
-manualAdd('GAWEAP','Allied War Factory ','ga bud t1','http://mentalomega.com/images/cameo/gwepicon.png')
-manualAdd('GAAIRC','Allied Airforce Command Headquarters ','ga bud t2','http://mentalomega.com/images/cameo/heliicon.png')
-manualAdd('GAHPAD','Runway ','ga bud t3','http://mentalomega.com/images/cameo/hpadicon.png')
-manualAdd('GAYARD','Allied Naval Shipyard ','ga bud t1','http://mentalomega.com/images/cameo/ayaricon.png')
-manualAdd('GATECH','Allied Tech Center ','ga bud t3','http://mentalomega.com/images/cameo/techicon.png')
-manualAdd('GACLAB','Experimental Warpshop ','ga bud t3','http://mentalomega.com/images/cameo/ewrpicon.png')
-manualAdd('GAOREP','Ore Purifier ','ga bud t3','http://mentalomega.com/images/cameo/gorep.png')
-manualAdd('GAMERC','Mercury Network Uplink ','ga bud t2','http://mentalomega.com/images/cameo/asaticon.png')
-manualAdd('GASCPF','Robot Ops Control Center ','ga bud t2','http://mentalomega.com/images/cameo/rbccicon.png')
-manualAdd('GASCEA','Shield Command ','ga bud t2','http://mentalomega.com/images/cameo/sceaicon.png')
-manualAdd('GAAIRC_D','Allied Drop Control ','ga bud t2','http://mentalomega.com/images/cameo/grdcicon.png')
-manualAdd('GAWALL','Allied Concrete Wall ','ga bud t1','http://mentalomega.com/images/cameo/wallicon.png')
-manualAdd('GAGATE_C','Allied Gate NS ','ga bud t1','http://mentalomega.com/images/cameo/agtbicon.png')
-manualAdd('GAGATE_D','Allied Gate EW ','ga bud t1','http://mentalomega.com/images/cameo/agtaicon.png')
-manualAdd('GAPILL','Pillbox ','ga bud t1','http://mentalomega.com/images/cameo/pillicon.png')
-manualAdd('GAPOST','Coordnode ','ga bud t3','http://mentalomega.com/images/cameo/cfenicon.png')
-manualAdd('GAGUN','Gun Turret ','ga bud t1','http://mentalomega.com/images/cameo/gunticon.png')
-manualAdd('NASAM','Patriot Missile Site ','ga bud t2','http://mentalomega.com/images/cameo/samicon.png')
-manualAdd('GASONIC','Skyray Cannon ','ga bud t3','http://mentalomega.com/images/cameo/skyricon.png')
-manualAdd('ATESLA','Prism Tower ','ga bud t2','http://mentalomega.com/images/cameo/prisicon.png')
-manualAdd('GTGCAN','Grand Cannon ','ga bud t3','http://mentalomega.com/images/cameo/gcanicon.png')
-manualAdd('GAGAP','Gap Generator ','ga bud t3','http://mentalomega.com/images/cameo/gapicon.png')
-manualAdd('GACSPH','Chronosphere ','ga bud t3','http://mentalomega.com/images/cameo/csphicon.png')
-manualAdd('GAWEAT','Weather Controller ','ga bud t3','http://mentalomega.com/images/cameo/wethicon.png')
-manualAdd('NAPOWR','Tesla Reactor ','na bud t1','http://mentalomega.com/images/cameo/npwricon.png')
-manualAdd('NAHAND','Soviet Barracks ','na bud t1','http://mentalomega.com/images/cameo/handicon.png')
-manualAdd('NAREFN','Soviet Ore Refinery ','na bud t1','http://mentalomega.com/images/cameo/nreficon.png')
-manualAdd('NAWEAP','Soviet War Factory ','na bud t1','http://mentalomega.com/images/cameo/nwepicon.png')
-manualAdd('NAAIR','Soviet Airbase ','na bud t2','http://mentalomega.com/images/cameo/sairicon.png')
-manualAdd('NAYARD','Soviet Naval Shipyard ','na bud t1','http://mentalomega.com/images/cameo/yardicon.png')
-manualAdd('NARADR','Field Bureau ','na bud t2','http://mentalomega.com/images/cameo/npriicon.png')
-manualAdd('NAEMPS','EMP Control Station ','na bud t3','http://mentalomega.com/images/cameo/nempicon.png')
-manualAdd('NATEK','Chinese Atomheart ','na bud t3','http://mentalomega.com/images/cameo/ntekicon.png')
-manualAdd('NATECHC','Latin Battle Lab ','na bud t3','http://mentalomega.com/images/cameo/nateicon.png')
-manualAdd('NATECHR','Russian Palace ','na bud t3','http://mentalomega.com/images/cameo/ntchicon.png')
-manualAdd('NAINDP','Industrial Plant ','na bud t3','http://mentalomega.com/images/cameo/indpicon.png')
-manualAdd('NANRCT','Soviet Nuclear Reactor ','na bud t2','http://mentalomega.com/images/cameo/nrcticon.png')
-manualAdd('NAWALL','Soviet Fortress Wall ','na bud t1','http://mentalomega.com/images/cameo/nwalicon.png')
-manualAdd('NAGATE_A','Soviet Gate NS ','na bud t1','http://mentalomega.com/images/cameo/ngaticon.png')
-manualAdd('NAGATE_B','Soviet Gate EW ','na bud t1','http://mentalomega.com/images/cameo/ngtbicon.png')
-manualAdd('NALASR','Sentry Gun ','na bud t1','http://mentalomega.com/images/cameo/plticon.png')
-manualAdd('NAMORT','Smoke Turret ','na bud t3','http://mentalomega.com/images/cameo/nmoricon.png')
-manualAdd('NASCOM','Sensor Tower ','na bud t3','http://mentalomega.com/images/cameo/ncomicon.png')
-manualAdd('NAFLAK','Flak Cannon ','na bud t2','http://mentalomega.com/images/cameo/flakicon.png')
-manualAdd('TESLA','Tesla Coil ','na bud t2','http://mentalomega.com/images/cameo/tslaicon.png')
-manualAdd('NAHAMM','Hammer Defense ','na bud t3','http://mentalomega.com/images/cameo/nhmmicon.png')
-manualAdd('NADRON','Repair Crane ','na bud t3','http://mentalomega.com/images/cameo/rfixicon.png')
-manualAdd('NABNKR','Battle Bunker ','na bud t1','http://mentalomega.com/images/cameo/bnkricon.png')
-manualAdd('NAIRON','Iron Curtain Device ','na bud t3','http://mentalomega.com/images/cameo/ironicon.png')
-manualAdd('NAIRDM','Iron Guard ','na bud t3','http://mentalomega.com/images/cameo/irdmicon.png')
-manualAdd('NAMISL','Tactical Nuke Silo ','na bud t3','http://mentalomega.com/images/cameo/msslicon.png')
-manualAdd('YACXST','Fake Construction Yard ','ya bud t3','http://mentalomega.com/images/cameo/fycyicon.png')
-manualAdd('YAPOWR','Bio Reactor ','ya bud t1','http://mentalomega.com/images/cameo/ypwricon.png')
-manualAdd('YABRCK','Epsilon Barracks ','ya bud t1','http://mentalomega.com/images/cameo/brckicon.png')
-manualAdd('YARIREFN','Epsilon Ore Refinery ','ya bud t1','http://mentalomega.com/images/cameo/yreficon.png')
-manualAdd('YAWEAP','Epsilon War Factory ','ya bud t1','http://mentalomega.com/images/cameo/ywepicon.png')
-manualAdd('YAPSIS','Radar Spire ','ya bud t2','http://mentalomega.com/images/cameo/psisicon.png')
-manualAdd('YAAIRF','Aerodome ','ya bud t2','http://mentalomega.com/images/cameo/aerdicon.png')
-manualAdd('YAYARD','Epsilon Naval Shipyard ','ya bud t1','http://mentalomega.com/images/cameo/yyrdicon.png')
-manualAdd('YATECH','Epsilon Pandora Hub ','ya bud t2','http://mentalomega.com/images/cameo/ytchicon.png')
-manualAdd('YACVLT','Chemplug ','ya bud t3','http://mentalomega.com/images/cameo/plgcicon.png')
-manualAdd('YAPVLT','Psychplug ','ya bud t3','http://mentalomega.com/images/cameo/plgpicon.png')
-manualAdd('YAGVLT','Geneplug ','ya bud t3','http://mentalomega.com/images/cameo/plggicon.png')
-manualAdd('YAMPSI','Mind Reader ','ya bud t2','http://mentalomega.com/images/cameo/mpsiicon.png')
-manualAdd('YAGRND','Grinder ','ya bud t3','http://mentalomega.com/images/cameo/grndicon.png')
-manualAdd('NACLON','Cloning Vats ','ya bud t3','http://mentalomega.com/images/cameo/clonicon.png')
-manualAdd('GAFWLL','Epsilon Citadel Wall ','ya bud t1','http://mentalomega.com/images/cameo/citwicon.png')
-manualAdd('YAGATE_A','Epsilon Gate NS ','ya bud t1','http://mentalomega.com/images/cameo/ygaticon.png')
-manualAdd('YAGATE_B','Epsilon Gate EW ','ya bud t1','http://mentalomega.com/images/cameo/ygtbicon.png')
-manualAdd('YAGGUN','Gatling Cannon ','ya bud t1','http://mentalomega.com/images/cameo/ggunicon.png')
-manualAdd('YARAIL','Inferno Tower ','ya bud t2','http://mentalomega.com/images/cameo/infticon.png')
-manualAdd('YAPSYT','Psychic Tower ','ya bud t3','http://mentalomega.com/images/cameo/psyticon.png')
-manualAdd('YAHADE','Antares Battery ','ya bud t3','http://mentalomega.com/images/cameo/antaicon.png')
-manualAdd('YARIFT','Chimera Core ','ya bud t3','http://mentalomega.com/images/cameo/rifticon.png')
-manualAdd('NATBNK','Tank Bunker ','ya bud t1','http://mentalomega.com/images/cameo/tbnkicon.png')
-manualAdd('YAGNTC','Rage Inductor ','ya bud t3','http://mentalomega.com/images/cameo/gntcicon.png')
-manualAdd('YAPPET','Psychic Dominator ','ya bud t3','http://mentalomega.com/images/cameo/pupticon.png')
-manualAdd('YAPPXT','Fake Psychic Dominator ','ya bud t3','http://mentalomega.com/images/cameo/pxpticon.png')
-manualAdd('FATRAP','Foehn Windtrap ','fa bud t1','http://mentalomega.com/images/cameo/wtrpicon.png')
-manualAdd('FAWALL','Foehn Bastion Wall ','fa bud t1','http://mentalomega.com/images/cameo/fwalicon.png')
-manualAdd('FABARR','Foehn Barracks ','fa bud t1','http://mentalomega.com/images/cameo/fbaricon.png')
-manualAdd('FABARR_B','Foehn Knightfall Protocol ','fa bud t3','http://mentalomega.com/images/cameo/fbruicon.png')
-manualAdd('FAREFN','Foehn Ore Refinery ','fa bud t1','http://mentalomega.com/images/cameo/freficon.png')
-manualAdd('FAYARD','Foehn Naval Shipyard ','fa bud t1','http://mentalomega.com/images/cameo/fyrdicon.png')
-manualAdd('FAWEAP','Foehn War Factory ','fa bud t1','http://mentalomega.com/images/cameo/fwepicon.png')
-manualAdd('FAINHI','Foehn Signal Inhibitor ','fa bud t3','http://mentalomega.com/images/cameo/inhiicon.png')
-manualAdd('FACOMP','Foehn Neutralizer ','fa bud t3','http://mentalomega.com/images/cameo/fequicon.png')
-manualAdd('FACOAT','Foehn Nanocoat Regulator ','fa bud t2','http://mentalomega.com/images/cameo/coaticon.png')
-manualAdd('FASONI','Foehn Sonic Emitter ','fa bud t1','http://mentalomega.com/images/cameo/semiicon.png')
-manualAdd('FARAIL','Foehn Railgun Tower ','fa bud t2','http://mentalomega.com/images/cameo/rtowicon.png')
-manualAdd('FAGUAR','Foehn Shrike Nest ','fa bud t2','http://mentalomega.com/images/cameo/grdnicon.png')
-manualAdd('FANANO','Foehn Nanofiber Loom ','fa bud t2','http://mentalomega.com/images/cameo/loomicon.png')
-manualAdd('FANANO_B','Foehn Nanofiber Loom Expansion ','fa bud t3','http://mentalomega.com/images/cameo/loomeicon.png')
-manualAdd('FACYBR','Foehn Cyberkernel ','fa bud t2','http://mentalomega.com/images/cameo/cbrkicon.png')
-manualAdd('FACYBR_B','Foehn Cyberkernel Expansion ','fa bud t3','http://mentalomega.com/images/cameo/cybreicon.png')
-manualAdd('FACLDP','Foehn Cloud Piercer ','fa bud t2','http://mentalomega.com/images/cameo/cldpicon.png')
-manualAdd('FACLDP_B','Foehn Cloud Piercer Expansion ','fa bud t3','http://mentalomega.com/images/cameo/cldpeicon.png')
-manualAdd('FAREPR','Foehn Reprocessor ','fa bud t3','http://mentalomega.com/images/cameo/repricon.png')
-manualAdd('FABLST','Foehn Blast Furnace ','fa bud t3','http://mentalomega.com/images/cameo/blsticon.png')
-manualAdd('FAELEV','Foehn Tempest Architect ','fa bud t3','http://mentalomega.com/images/cameo/elevicon.png')
-manualAdd('FABTRC','Foehn Blast Trench ','fa bud t3','http://mentalomega.com/images/cameo/btrcicon.png')
-manualAdd('FAHARB','Harbinger Tower ','fa bud t3','http://mentalomega.com/images/cameo/hrbticon.png')
-manualAdd('FAAVAL','Foehn Plasmerizer ','fa bud t3','http://mentalomega.com/images/cameo/avalicon.png')
-manualAdd('FAMMIN','Foehn M.A.D. Mine ','fa bud t3','http://mentalomega.com/images/cameo/madmicon.png')
+function initiate(){
+manualAdd('E1','G.I. ','ga inf t1','http://mentalomega.com/images/cameo/giicon.png','Name:G.I.<br>ini:E1<br>VoiceAttack:GIAttackCommand')
+manualAdd('ADOG','Allied Attack Dog ','ga inf t1','http://mentalomega.com/images/cameo/adogicon.png','Name:Allied Attack Dog<br>ini:ADOG<br>VoiceAttack:DogAttackCommand')
+manualAdd('ENGINEER','Allied Engineer ','ga inf t1','http://mentalomega.com/images/cameo/engnicon.png','Name:Allied Engineer<br>ini:ENGINEER<br>VoiceAttack:EngAllMove')
+manualAdd('AMEDIC','Field Medic ','ga inf t2','http://mentalomega.com/images/cameo/mediicon.png','Name:Field Medic<br>ini:AMEDIC<br>VoiceAttack:MedicAttackCommand')
+manualAdd('GGI','Guardian G.I. ','ga inf t1','http://mentalomega.com/images/cameo/gdgiicon.png','Name:Guardian G.I.<br>ini:GGI<br>VoiceAttack:GuardianGIAttackCommand')
+manualAdd('ENFO','Siege Cadre ','ga inf t2','http://mentalomega.com/images/cameo/enfoicon.png','Name:Siege Cadre<br>ini:ENFO<br>VoiceAttack:SiegeCadreAttackCommand')
+manualAdd('JUMPJET','Rocketeer ','ga inf t2','http://mentalomega.com/images/cameo/jjeticon.png','Name:Rocketeer<br>ini:JUMPJET<br>VoiceAttack:RocketeerAttackCommand')
+manualAdd('SPY','Spy ','ga inf t3','http://mentalomega.com/images/cameo/spyicon.png','Name:Spy<br>ini:SPY<br>VoiceAttack:SpyAttackCommand')
+manualAdd('GHOST','Navy SEAL ','ga inf t2','http://mentalomega.com/images/cameo/sealicon.png','Name:Navy SEAL<br>ini:GHOST<br>VoiceAttack:SealAttackCommand')
+manualAdd('TANY','Tanya ','ga inf t3','http://mentalomega.com/images/cameo/tanyicon.png','Name:Tanya<br>ini:TANY<br>VoiceAttack:TanyaPrimeAttackCommand')
+manualAdd('SUPR','Suppressor ','ga inf t3','http://mentalomega.com/images/cameo/supricon.png','Name:Suppressor<br>ini:SUPR<br>VoiceAttack:SuppressorAttackCommand')
+manualAdd('ARMR','Norio ','ga inf t3','http://mentalomega.com/images/cameo/armricon.png','Name:Norio<br>ini:ARMR<br>VoiceAttack:ArmormanAttackCommand')
+manualAdd('CLEG','Chrono Legionnaire ','ga inf t3','http://mentalomega.com/images/cameo/clegicon.png','Name:Chrono Legionnaire<br>ini:CLEG<br>VoiceAttack:ChronoLegionAttackCommand')
+manualAdd('SNIPE','Sniper ','ga inf t3','http://mentalomega.com/images/cameo/snipicon.png','Name:Sniper<br>ini:SNIPE<br>VoiceAttack:SniperAttackCommand')
+manualAdd('RIOT','Riot Trooper ','ga inf t3','http://mentalomega.com/images/cameo/rioticon.png','Name:Riot Trooper<br>ini:RIOT<br>VoiceAttack:RiotTrooperAttackCommand')
+manualAdd('SIEG','Siegfried ','ga inf t3','http://mentalomega.com/images/cameo/siegicon.png','Name:Siegfried<br>ini:SIEG<br>VoiceAttack:SiegfriedAttackCommand')
+manualAdd('E2','Conscript ','na inf t1','http://mentalomega.com/images/cameo/e2icon.png','Name:Conscript<br>ini:E2<br>VoiceAttack:ConscriptAttackCommand')
+manualAdd('DOG','Soviet Attack Dog ','na inf t1','http://mentalomega.com/images/cameo/dogicon.png','Name:Soviet Attack Dog<br>ini:DOG<br>VoiceAttack:DogAttackCommand')
+manualAdd('FLAKT','Flak Trooper ','na inf t1','http://mentalomega.com/images/cameo/flkticon.png','Name:Flak Trooper<br>ini:FLAKT<br>VoiceAttack:FlakTroopAttackCommand')
+manualAdd('SENGINEER','Soviet Engineer ','na inf t1','http://mentalomega.com/images/cameo/sengicon.png','Name:Soviet Engineer<br>ini:SENGINEER<br>VoiceAttack:EngSovMove')
+manualAdd('SHK','Tesla Trooper ','na inf t2','http://mentalomega.com/images/cameo/shkicon.png','Name:Tesla Trooper<br>ini:SHK<br>VoiceAttack:TeslaTroopAttackCommand')
+manualAdd('FLAMER','Pyro ','na inf t2','http://mentalomega.com/images/cameo/pyroicon.png','Name:Pyro<br>ini:FLAMER<br>VoiceAttack:PyroAttackCommand')
+manualAdd('GYRO','Gyrocopter ','na inf t3','http://mentalomega.com/images/cameo/gyroicon.png','Name:Gyrocopter<br>ini:GYRO<br>VoiceAttack:GyrocopterAttackCommand')
+manualAdd('MOTOR','Mortar Quad ','na inf t2','http://mentalomega.com/images/cameo/quadicon.png','Name:Mortar Quad<br>ini:MOTOR<br>VoiceAttack:MortarQuadAttackCommand')
+manualAdd('IVAN','Crazy Ivan ','na inf t2','http://mentalomega.com/images/cameo/ivanicon.png','Name:Crazy Ivan<br>ini:IVAN<br>VoiceAttack:CrazyIvanAttackCommand')
+manualAdd('ARSO','Arsonist ','na inf t3','http://mentalomega.com/images/cameo/arsoicon.png','Name:Arsonist<br>ini:ARSO<br>VoiceAttack:ArsonistDisguise')
+manualAdd('SBTR','Saboteur ','na inf t3','http://mentalomega.com/images/cameo/sbtricon.png','Name:Saboteur<br>ini:SBTR<br>VoiceAttack:SaboteurAttackCommand')
+manualAdd('MORALES','Morales ','na inf t3','http://mentalomega.com/images/cameo/moraicon.png','Name:Morales<br>ini:MORALES<br>VoiceAttack:MoralesAttackCommand')
+manualAdd('VOLKOV','Volkov ','na inf t3','http://mentalomega.com/images/cameo/volkicon.png','Name:Volkov<br>ini:VOLKOV<br>VoiceAttack:VolkovAttackCommand')
+manualAdd('CHITZ','Chitzkoi ','na inf t3','http://mentalomega.com/images/cameo/hhndicon.png','Name:Chitzkoi<br>ini:CHITZ<br>VoiceAttack:ChitzkoiAttackCommand')
+manualAdd('YUNRU','Yunru ','na inf t3','http://mentalomega.com/images/cameo/yunricon.png','Name:Yunru<br>ini:YUNRU<br>VoiceAttack:YunruAttackCommand')
+manualAdd('DESO','Desolator ','na inf t3','http://mentalomega.com/images/cameo/desoicon.png','Name:Desolator<br>ini:DESO<br>VoiceAttack:DesolatorAttackCommand')
+manualAdd('DESOR','Eradicator ','na inf t3','http://mentalomega.com/images/cameo/desricon.png','Name:Eradicator<br>ini:DESOR<br>VoiceAttack:DesolatorAttackCommand')
+manualAdd('INIT','Initiate ','ya inf t1','http://mentalomega.com/images/cameo/initicon.png','Name:Initiate<br>ini:INIT<br>VoiceAttack:InitiateAttackCommand')
+manualAdd('HARP','Archer ','ya inf t1','http://mentalomega.com/images/cameo/harpicon.png','Name:Archer<br>ini:HARP<br>VoiceAttack:HarpoonAttackCommand')
+manualAdd('YDOG','Spook ','ya inf t1','http://mentalomega.com/images/cameo/spokicon.png','Name:Spook<br>ini:YDOG<br>VoiceAttack:SpookAttackCommand')
+manualAdd('YENGINEER','Epsilon Engineer ','ya inf t1','http://mentalomega.com/images/cameo/yengicon.png','Name:Epsilon Engineer<br>ini:YENGINEER<br>VoiceAttack:EngYuriCapture')
+manualAdd('BRUTE','Brute ','ya inf t2','http://mentalomega.com/images/cameo/bruticon.png','Name:Brute<br>ini:BRUTE<br>VoiceAttack:BruteAttackCommand')
+manualAdd('INTRUDER','Infiltrator ','ya inf t3','http://mentalomega.com/images/cameo/intricon.png','Name:Infiltrator<br>ini:INTRUDER<br>VoiceAttack:InfiltratorDisguise')
+manualAdd('STALKER','Stalker ','ya inf t3','http://mentalomega.com/images/cameo/stlkicon.png','Name:Stalker<br>ini:STALKER<br>VoiceAttack:StalkerAttackCommand')
+manualAdd('KAOS','Bloatick ','ya inf t2','http://mentalomega.com/images/cameo/weavicon.png','Name:Bloatick<br>ini:KAOS<br>VoiceAttack:WeaverAttackCommand')
+manualAdd('HIJACKER','Hijacker ','ya inf t3','http://mentalomega.com/images/cameo/hjkricon.png','Name:Hijacker<br>ini:HIJACKER<br>VoiceAttack:HijackerAttackCommand')
+manualAdd('VIRUS','Virus ','ya inf t3','http://mentalomega.com/images/cameo/vrusicon.png','Name:Virus<br>ini:VIRUS<br>VoiceAttack:VirusAttackCommand')
+manualAdd('YURI','Epsilon Adept ','ya inf t3','http://mentalomega.com/images/cameo/yclnicon.png','Name:Epsilon Adept<br>ini:YURI<br>VoiceAttack:YuriAttackCommand')
+manualAdd('YURIPR','Epsilon Elite ','ya inf t3','http://mentalomega.com/images/cameo/yypricon.png','Name:Epsilon Elite<br>ini:YURIPR<br>VoiceAttack:YuriAttackCommand')
+manualAdd('ASSN','Rahn ','ya inf t3','http://mentalomega.com/images/cameo/assnicon.png','Name:Rahn<br>ini:ASSN<br>VoiceAttack:RahnAttackCommand')
+manualAdd('UNDER','Malver ','ya inf t3','http://mentalomega.com/images/cameo/undricon.png','Name:Malver<br>ini:UNDER<br>VoiceAttack:UnderminerAttackCommand')
+manualAdd('LIBRA','Libra ','ya inf t3','http://mentalomega.com/images/cameo/libricon.png','Name:Libra<br>ini:LIBRA<br>VoiceAttack:LibraDartsAttackCommand')
+manualAdd('DUNE','Dunerider ','ya inf t2','http://mentalomega.com/images/cameo/razgicon.png','Name:Dunerider<br>ini:DUNE<br>VoiceAttack:GarAttackCommand')
+manualAdd('KNIGHT','Knightframe ','fa inf t1','http://mentalomega.com/images/cameo/knigicon.png','Name:Knightframe<br>ini:KNIGHT<br>VoiceAttack:KnightframeAttackCommand')
+manualAdd('COVE','Lancer ','fa inf t1','http://mentalomega.com/images/cameo/lancicon.png','Name:Lancer<br>ini:COVE<br>VoiceAttack:LancerAttackCommand')
+manualAdd('FENGINEER','Foehn Engineer ','fa inf t1','http://mentalomega.com/images/cameo/fengicon.png','Name:Foehn Engineer<br>ini:FENGINEER<br>VoiceAttack:EngFoeAttackCommand')
+manualAdd('HUNTR','Huntress ','fa inf t2','http://mentalomega.com/images/cameo/hntricon.png','Name:Huntress<br>ini:HUNTR<br>VoiceAttack:HuntressAttackCommand')
+manualAdd('CLAIR','Clairvoyant ','fa inf t3','http://mentalomega.com/images/cameo/clrvicon.png','Name:Clairvoyant<br>ini:CLAIR<br>VoiceAttack:ClairvoyantAttackCommand')
+manualAdd('SYNC','Syncronin ','fa inf t3','http://mentalomega.com/images/cameo/sronicon.png','Name:Syncronin<br>ini:SYNC<br>VoiceAttack:SyncroninAttackCommand')
+manualAdd('ZORB','Zorbtrotter ','fa inf t3','http://mentalomega.com/images/cameo/zorbicon.png','Name:Zorbtrotter<br>ini:ZORB<br>VoiceAttack:ZorbtrotterAttackCommand')
+manualAdd('BANE','Giantsbane ','fa inf t3','http://mentalomega.com/images/cameo/baneicon.png','Name:Giantsbane<br>ini:BANE<br>VoiceAttack:GiantsbaneAttackCommand')
+manualAdd('SIBFIN','Fin ','fa inf t3','http://mentalomega.com/images/cameo/finicon.png','Name:Fin<br>ini:SIBFIN<br>VoiceAttack:SibFinAttackCommand')
+manualAdd('SICALI','Alize ','fa inf t3','http://mentalomega.com/images/cameo/alizicon.png','Name:Alize<br>ini:SICALI<br>VoiceAttack:SibAlizeAttackCommand')
+manualAdd('EUREKA','Eureka ','fa inf t3','http://mentalomega.com/images/cameo/eureicon.png','Name:Eureka<br>ini:EUREKA<br>VoiceAttack:EurekaAttackCommand')
+manualAdd('URAGAN','Uragan ','fa inf t3','http://mentalomega.com/images/cameo/kingicon.png','Name:Uragan<br>ini:URAGAN<br>VoiceAttack:UraganAttackCommand')
+manualAdd('MTNK','Cavalier Medium Tank ','ga veh t1','http://mentalomega.com/images/cameo/gtnkicon.png','Name:Cavalier Medium Tank<br>ini:MTNK<br>VoiceAttack:RottweilerAttackCommand')
+manualAdd('ETNK','Bulldog Light Tank ','ga veh t1','http://mentalomega.com/images/cameo/etnkicon.png','Name:Bulldog Light Tank<br>ini:ETNK<br>VoiceAttack:GenAllVehicleAttackCommand')
+manualAdd('KTNK','Kappa Hover Tank ','ga veh t1','http://mentalomega.com/images/cameo/predicon.png','Name:Kappa Hover Tank<br>ini:KTNK<br>VoiceAttack:PredatorAttackCommand')
+manualAdd('ROBO','Robot Tank ','ga veh t1','http://mentalomega.com/images/cameo/roboicon.png','Name:Robot Tank<br>ini:ROBO<br>VoiceAttack:RobotTankAttackCommand')
+manualAdd('FV','Stryker IFV ','ga veh t1','http://mentalomega.com/images/cameo/strkicon.png','Name:Stryker IFV<br>ini:FV<br>VoiceAttack:IFVAttackCommand')
+manualAdd('AMC','Archon AMC ','ga veh t1','http://mentalomega.com/images/cameo/archicon.png','Name:Archon AMC<br>ini:AMC<br>VoiceAttack:SaberAttackCommand')
+manualAdd('TENGU','Tsurugi Powersuit ','ga veh t1','http://mentalomega.com/images/cameo/tsuricon.png','Name:Tsurugi Powersuit<br>ini:TENGU<br>VoiceAttack:SuitAttackCommand')
+manualAdd('LCRF','Voyager Transport ','ga veh t1','http://mentalomega.com/images/cameo/lcrficon.png','Name:Voyager Transport<br>ini:LCRF<br>VoiceAttack:HoverAlliedMove')
+manualAdd('SHAD','Stallion Transport ','ga veh t2','http://mentalomega.com/images/cameo/shadicon.png','Name:Stallion Transport<br>ini:SHAD<br>VoiceAttack:BlackOpsAttackCommand')
+manualAdd('ORCA','Harrier ','ga veh t2','http://mentalomega.com/images/cameo/falcicon.png','Name:Harrier<br>ini:ORCA<br>VoiceAttack:IntruderAttackCommand')
+manualAdd('STORM','Stormchild ','ga veh t2','http://mentalomega.com/images/cameo/strmicon.png','Name:Stormchild<br>ini:STORM<br>VoiceAttack:StormchildAttackCommand')
+manualAdd('FORTRESS','Barracuda ','ga veh t3','http://mentalomega.com/images/cameo/stlhicon.png','Name:Barracuda<br>ini:FORTRESS<br>VoiceAttack:StealthBomberAttackCommand')
+manualAdd('HBIRD','Hummingbird ','ga veh t3','http://mentalomega.com/images/cameo/hbrdicon.png','Name:Hummingbird<br>ini:HBIRD<br>VoiceAttack:HummingbirdAttackCommand')
+manualAdd('BEAG','Black Eagle ','ga veh t2','http://mentalomega.com/images/cameo/beagicon.png','Name:Black Eagle<br>ini:BEAG<br>VoiceAttack:BlackEagleAttackCommand')
+manualAdd('COMA','Warhawk ','ga veh t2','http://mentalomega.com/images/cameo/warhicon.png','Name:Warhawk<br>ini:COMA<br>VoiceAttack:ComancheLaserAttack')
+manualAdd('CRYO','Cryocopter ','ga veh t3','http://mentalomega.com/images/cameo/crycicon.png','Name:Cryocopter<br>ini:CRYO<br>VoiceAttack:CryocopterAttackCommand')
+manualAdd('MGTK','Mirage Tank ','ga veh t2','http://mentalomega.com/images/cameo/rtnkicon.png','Name:Mirage Tank<br>ini:MGTK<br>VoiceAttack:MirageTankAttackCommand')
+manualAdd('HOWI','Zephyr Artillery ','ga veh t2','http://mentalomega.com/images/cameo/zephicon.png','Name:Zephyr Artillery<br>ini:HOWI<br>VoiceAttack:ZephyrAttackCommand')
+manualAdd('SREF','Prism Tank ','ga veh t3','http://mentalomega.com/images/cameo/sreficon.png','Name:Prism Tank<br>ini:SREF<br>VoiceAttack:PrismTankAttackCommand')
+manualAdd('BASS','Athena Cannon ','ga veh t3','http://mentalomega.com/images/cameo/bassicon.png','Name:Athena Cannon<br>ini:BASS<br>VoiceAttack:AthenaArrayAttackCommand')
+manualAdd('ABRM','Abrams Tank ','ga veh t3','http://mentalomega.com/images/cameo/abrmicon.png','Name:Abrams Tank<br>ini:ABRM<br>VoiceAttack:AbramsAttackCommand')
+manualAdd('BFRT','Battle Tortoise ','ga veh t3','http://mentalomega.com/images/cameo/bfrticon.png','Name:Battle Tortoise<br>ini:BFRT<br>VoiceAttack:BattleFortressAttackCommand')
+manualAdd('AMCV','Allied Construction Vehicle ','ga veh t2','http://mentalomega.com/images/cameo/mcvicon.png','Name:Allied Construction Vehicle<br>ini:AMCV<br>VoiceAttack:MCVAlliedMove')
+manualAdd('DEST','Destroyer ','ga veh t1','http://mentalomega.com/images/cameo/desticon.png','Name:Destroyer<br>ini:DEST<br>VoiceAttack:GenAllWaterAttackCommand')
+manualAdd('DLPH','Dolphin ','ga veh t2','http://mentalomega.com/images/cameo/dlphicon.png','Name:Dolphin<br>ini:DLPH<br>VoiceAttack:DolphinAttackCommand')
+manualAdd('AEGIS','Aegis Cruiser ','ga veh t2','http://mentalomega.com/images/cameo/agisicon.png','Name:Aegis Cruiser<br>ini:AEGIS<br>VoiceAttack:AegisAttackCommand')
+manualAdd('CARRIER','Aircraft Carrier ','ga veh t3','http://mentalomega.com/images/cameo/carricon.png','Name:Aircraft Carrier<br>ini:CARRIER<br>VoiceAttack:AircraftCarrierAttackCommand')
+manualAdd('HCRUIS','Battleship ','ga veh t3','http://mentalomega.com/images/cameo/hcrsicon.png','Name:Battleship<br>ini:HCRUIS<br>VoiceAttack:CruiserAttackCommand')
+manualAdd('CMIN','Chrono Miner ','ga veh t1','http://mentalomega.com/images/cameo/ahrvicon.png','Name:Chrono Miner<br>ini:CMIN<br>VoiceAttack:ChronoMinerMove')
+manualAdd('AERO','Aeroblaze ','ga veh t3','http://mentalomega.com/images/cameo/aeroicon.png','Name:Aeroblaze<br>ini:AERO<br>VoiceAttack:AeroblazeAttackCommand')
+manualAdd('VCARR','Hailstorm ','ga veh t3','http://mentalomega.com/images/cameo/hailicon.png','Name:Hailstorm<br>ini:VCARR<br>VoiceAttack:HailstormAttackCommand')
+manualAdd('BLZZ','Blizzard Tank ','ga veh t3','http://mentalomega.com/images/cameo/blzzicon.png','Name:Blizzard Tank<br>ini:BLZZ<br>VoiceAttack:BlizzardAttackCommand')
+manualAdd('CHRTNK','Charon Tank ','ga veh t3','http://mentalomega.com/images/cameo/ctnkicon.png','Name:Charon Tank<br>ini:CHRTNK<br>VoiceAttack:PrisonAttackCommand')
+manualAdd('THOR','Thor Gunship ','ga veh t3','http://mentalomega.com/images/cameo/thoricon.png','Name:Thor Gunship<br>ini:THOR<br>VoiceAttack:ThorAttackCommand')
+manualAdd('DRON','Terror Drone ','na veh t1','http://mentalomega.com/images/cameo/drncicon.png','Name:Terror Drone<br>ini:DRON<br>VoiceAttack:TerrorDroneAttackCommand')
+manualAdd('HTK','Halftrack ','na veh t1','http://mentalomega.com/images/cameo/htkicon.png','Name:Halftrack<br>ini:HTK<br>VoiceAttack:FlakTrackAttackCommand')
+manualAdd('SCAR','Tigr APC ','na veh t1','http://mentalomega.com/images/cameo/lynxicon.png','Name:Tigr APC<br>ini:SCAR<br>VoiceAttack:TigrAttackCommand')
+manualAdd('HTNK','Rhino Heavy Tank ','na veh t1','http://mentalomega.com/images/cameo/htnkicon.png','Name:Rhino Heavy Tank<br>ini:HTNK<br>VoiceAttack:GenSovVehicleAttackCommand')
+manualAdd('CTNK','Qilin Heavy Tank ','na veh t1','http://mentalomega.com/images/cameo/qtnkicon.png','Name:Qilin Heavy Tank<br>ini:CTNK<br>VoiceAttack:TigerTankAttackCommand')
+manualAdd('JTNK','Jaguar Battle Tank ','na veh t1','http://mentalomega.com/images/cameo/jtnkicon.png','Name:Jaguar Battle Tank<br>ini:JTNK<br>VoiceAttack:JaguarTankAttackCommand')
+manualAdd('SAPC','Zubr Transport ','na veh t1','http://mentalomega.com/images/cameo/sapcicon.png','Name:Zubr Transport<br>ini:SAPC<br>VoiceAttack:HoverSovietMove')
+manualAdd('V3','Scud Launcher ','na veh t3','http://mentalomega.com/images/cameo/v3icon.png','Name:Scud Launcher<br>ini:V3<br>VoiceAttack:V3AttackCommand')
+manualAdd('TTNK','Tesla Cruiser ','na veh t3','http://mentalomega.com/images/cameo/ttnkicon.png','Name:Tesla Cruiser<br>ini:TTNK<br>VoiceAttack:TeslaTankAttackCommand')
+manualAdd('FDRON','Fury Drone ','na veh t3','http://mentalomega.com/images/cameo/fdrnicon.png','Name:Fury Drone<br>ini:FDRON<br>VoiceAttack:FuryDroneAttackCommand')
+manualAdd('SCHP','Vulture ','na veh t3','http://mentalomega.com/images/cameo/schpicon.png','Name:Vulture<br>ini:SCHP<br>VoiceAttack:SeigeChopperAttackAir')
+manualAdd('EDRN','Dragonfly ','na veh t3','http://mentalomega.com/images/cameo/edrnicon.png','Name:Dragonfly<br>ini:EDRN<br>VoiceAttack:DragonflyMove')
+manualAdd('WOLF','Wolfhound ','na veh t3','http://mentalomega.com/images/cameo/wolficon.png','Name:Wolfhound<br>ini:WOLF<br>VoiceAttack:WolfhoundAttackCommand')
+manualAdd('ZEP','Kirov Airship ','na veh t3','http://mentalomega.com/images/cameo/zepicon.png','Name:Kirov Airship<br>ini:ZEP<br>VoiceAttack:KirovAttackCommand')
+manualAdd('SENT','Sentinel ','na veh t3','http://mentalomega.com/images/cameo/senticon.png','Name:Sentinel<br>ini:SENT<br>VoiceAttack:SentinelAttackCommand')
+manualAdd('EMPR','Nuwa Cannon ','na veh t3','http://mentalomega.com/images/cameo/empricon.png','Name:Nuwa Cannon<br>ini:EMPR<br>VoiceAttack:DragonAttackCommand')
+manualAdd('BOREK','Borillo ','na veh t2','http://mentalomega.com/images/cameo/boriicon.png','Name:Borillo<br>ini:BOREK<br>VoiceAttack:BorilloAttackCommand')
+manualAdd('ARMA','Armadillo ','na veh t2','http://mentalomega.com/images/cameo/armaicon.png','Name:Armadillo<br>ini:ARMA<br>VoiceAttack:BorilloAttackCommand')
+manualAdd('DUST','Dustdevil ','na veh t2','http://mentalomega.com/images/cameo/dusticon.png','Name:Dustdevil<br>ini:DUST<br>VoiceAttack:DustdevilAttackCommand')
+manualAdd('FOX','Foxtrot ','na veh t2','http://mentalomega.com/images/cameo/foxicon.png','Name:Foxtrot<br>ini:FOX<br>VoiceAttack:MIGAttackCommand')
+manualAdd('CNTR','Centurion Siege Crawler ','na veh t3','http://mentalomega.com/images/cameo/centicon.png','Name:Centurion Siege Crawler<br>ini:CNTR<br>VoiceAttack:CenturionAttackCommand')
+manualAdd('SMCV','Soviet Construction Vehicle ','na veh t2','http://mentalomega.com/images/cameo/smcvicon.png','Name:Soviet Construction Vehicle<br>ini:SMCV<br>VoiceAttack:MCVSovietMove')
+manualAdd('MWF','Stalin\'s Fist ','na veh t3','http://mentalomega.com/images/cameo/mwficon.png','Name:Stalin\'s Fist<br>ini:MWF<br>VoiceAttack:MWFAttackCommand')
+manualAdd('SWLF','Seawolf ','na veh t2','http://mentalomega.com/images/cameo/swlficon.png','Name:Seawolf<br>ini:SWLF<br>VoiceAttack:SeawolfAttackGround')
+manualAdd('SUB','Typhoon Attack Sub ','na veh t1','http://mentalomega.com/images/cameo/subicon.png','Name:Typhoon Attack Sub<br>ini:SUB<br>VoiceAttack:TyphoonSubAttackCommand')
+manualAdd('DRED','Dreadnought ','na veh t3','http://mentalomega.com/images/cameo/dredicon.png','Name:Dreadnought<br>ini:DRED<br>VoiceAttack:GenSovWaterAttackCommand')
+manualAdd('AKULA','Akula Missile Sub ','na veh t3','http://mentalomega.com/images/cameo/akulicon.png','Name:Akula Missile Sub<br>ini:AKULA<br>VoiceAttack:AkulaAttackCommand')
+manualAdd('HARV','War Miner ','na veh t1','http://mentalomega.com/images/cameo/harvicon.png','Name:War Miner<br>ini:HARV<br>VoiceAttack:WarMinerAttackCommand')
+manualAdd('BURA','Buratino ','na veh t3','http://mentalomega.com/images/cameo/buraicon.png','Name:Buratino<br>ini:BURA<br>VoiceAttack:BuratinoAttackCommand')
+manualAdd('APOC','Catastrophe Tank ','na veh t3','http://mentalomega.com/images/cameo/cataicon.png','Name:Catastrophe Tank<br>ini:APOC<br>VoiceAttack:CatastropheAttackCommand')
+manualAdd('BGGY','Bomb Buggy ','na veh t2','http://mentalomega.com/images/cameo/bggyicon.png','Name:Bomb Buggy<br>ini:BGGY<br>VoiceAttack:DemoBuggyAttackCommand')
+manualAdd('DTRUCK','Demolition Truck ','na veh t2','http://mentalomega.com/images/cameo/trkaicon.png','Name:Demolition Truck<br>ini:DTRUCK<br>VoiceAttack:DemoTruckAttackCommand')
+manualAdd('LTNK','Lasher Light Tank ','ya veh t1','http://mentalomega.com/images/cameo/ltnkicon.png','Name:Lasher Light Tank<br>ini:LTNK<br>VoiceAttack:LasherTankAttackCommand')
+manualAdd('QTNK','Mantis Light Tank ','ya veh t1','http://mentalomega.com/images/cameo/manticon.png','Name:Mantis Light Tank<br>ini:QTNK<br>VoiceAttack:MantisTankAttackCommand')
+manualAdd('STNK','Opus Custom Tank ','ya veh t1','http://mentalomega.com/images/cameo/stnkicon.png','Name:Opus Custom Tank<br>ini:STNK<br>VoiceAttack:OpusAttackCommand')
+manualAdd('TRIKE','Speeder Trike ','ya veh t2','http://mentalomega.com/images/cameo/trikicon.png','Name:Speeder Trike<br>ini:TRIKE<br>VoiceAttack:SpeederAttackCommand')
+manualAdd('COYO','Oxidizer ','ya veh t3','http://mentalomega.com/images/cameo/oxidicon.png','Name:Oxidizer<br>ini:COYO<br>VoiceAttack:OxidizerAttackCommand')
+manualAdd('STING','Stinger ','ya veh t1','http://mentalomega.com/images/cameo/stngicon.png','Name:Stinger<br>ini:STING<br>VoiceAttack:StingerAttackCommand')
+manualAdd('YTNK','Gatling Tank ','ya veh t1','http://mentalomega.com/images/cameo/ytnkicon.png','Name:Gatling Tank<br>ini:YTNK<br>VoiceAttack:GattlingTankAttackCommand')
+manualAdd('QUAD','Hazequad ','ya veh t3','http://mentalomega.com/images/cameo/hzqdicon.png','Name:Hazequad<br>ini:QUAD<br>VoiceAttack:HazequadMove')
+manualAdd('DRIL','Driller APC ','ya veh t2','http://mentalomega.com/images/cameo/drilicon.png','Name:Driller APC<br>ini:DRIL<br>VoiceAttack:DrillerMove')
+manualAdd('TELE','Magnetron ','ya veh t3','http://mentalomega.com/images/cameo/teleicon.png','Name:Magnetron<br>ini:TELE<br>VoiceAttack:MagnetronAttackCommand')
+manualAdd('MIND','Mastermind ','ya veh t3','http://mentalomega.com/images/cameo/mindicon.png','Name:Mastermind<br>ini:MIND<br>VoiceAttack:MasterMindAttackCommand')
+manualAdd('DEVO','Colossus ','ya veh t3','http://mentalomega.com/images/cameo/colsicon.png','Name:Colossus<br>ini:DEVO<br>VoiceAttack:DevourerAttackCommand')
+manualAdd('YAHCR','Gehenna Platform ','ya veh t3','http://mentalomega.com/images/cameo/gehnicon.png','Name:Gehenna Platform<br>ini:YAHCR<br>VoiceAttack:GaiaPlatformAttackCommand')
+manualAdd('PLAG','Plague Splatter ','ya veh t3','http://mentalomega.com/images/cameo/plagicon.png','Name:Plague Splatter<br>ini:PLAG<br>VoiceAttack:PlagueSplatterAttackCommand')
+manualAdd('SHADOW','Shadow Tank ','ya veh t2','http://mentalomega.com/images/cameo/shdwicon.png','Name:Shadow Tank<br>ini:SHADOW<br>VoiceAttack:ShadowAttackCommand')
+manualAdd('DISK','Invader ','ya veh t2','http://mentalomega.com/images/cameo/diskicon.png','Name:Invader<br>ini:DISK<br>VoiceAttack:FloatingDiscAttackCommand')
+manualAdd('BLIGHT','Dybbuk-Attacker ','ya veh t2','http://mentalomega.com/images/cameo/bligicon.png','Name:Dybbuk-Attacker<br>ini:BLIGHT<br>VoiceAttack:BlightAttackCommand')
+manualAdd('VENOM','Dybbuk-Evolver ','ya veh t3','http://mentalomega.com/images/cameo/evolicon.png','Name:Dybbuk-Evolver<br>ini:VENOM<br>VoiceAttack:PurgerAttackCommand')
+manualAdd('BASIL','Basilisk ','ya veh t3','http://mentalomega.com/images/cameo/basiicon.png','Name:Basilisk<br>ini:BASIL<br>VoiceAttack:BasiliskAttackCommand')
+manualAdd('GOTTER','Aerial Fortress Irkalla ','ya veh t3','http://mentalomega.com/images/cameo/irklicon.png','Name:Aerial Fortress Irkalla<br>ini:GOTTER<br>VoiceAttack:IrkallaAttackCommand')
+manualAdd('PCV','Epsilon Construction Vehicle ','ya veh t2','http://mentalomega.com/images/cameo/ypcvicon.png','Name:Epsilon Construction Vehicle<br>ini:PCV<br>VoiceAttack:MCVYuriMove')
+manualAdd('YHVR','Mandjet Transport ','ya veh t1','http://mentalomega.com/images/cameo/yhvricon.png','Name:Mandjet Transport<br>ini:YHVR<br>VoiceAttack:HoverYuriMove')
+manualAdd('SLED','Piranha Minisub ','ya veh t1','http://mentalomega.com/images/cameo/ysubicon.png','Name:Piranha Minisub<br>ini:SLED<br>VoiceAttack:PiranhaAttackCommand')
+manualAdd('SQD','Giant Squid ','ya veh t2','http://mentalomega.com/images/cameo/sqdicon.png','Name:Giant Squid<br>ini:SQD<br>VoiceAttack:SquidAttackCommand')
+manualAdd('BSUB','Resheph ','ya veh t3','http://mentalomega.com/images/cameo/reshicon.png','Name:Resheph<br>ini:BSUB<br>VoiceAttack:ReshephAttackCommand')
+manualAdd('NAUT','Nautilus ','ya veh t3','http://mentalomega.com/images/cameo/nauticon.png','Name:Nautilus<br>ini:NAUT<br>VoiceAttack:NautilusAttackCommand')
+manualAdd('YMIN','Ghost Miner ','ya veh t1','http://mentalomega.com/images/cameo/yminicon.png','Name:Ghost Miner<br>ini:YMIN<br>VoiceAttack:GhostMinerMove')
+manualAdd('SCAV','Tyrant ','ya veh t3','http://mentalomega.com/images/cameo/scavicon.png','Name:Tyrant<br>ini:SCAV<br>VoiceAttack:ScavengerAttackCommand')
+manualAdd('MARA','Marauder ','ya veh t2','http://mentalomega.com/images/cameo/maraicon.png','Name:Marauder<br>ini:MARA<br>VoiceAttack:MarauderAttackCommand')
+manualAdd('ROACH','Bison Tank ','fa veh t1','http://mentalomega.com/images/cameo/roacicon.png','Name:Bison Tank<br>ini:ROACH<br>VoiceAttack:BisonTankAttackCommand')
+manualAdd('LEVI','Leviathan ','fa veh t3','http://mentalomega.com/images/cameo/leviicon.png','Name:Leviathan<br>ini:LEVI<br>VoiceAttack:LeviathanAttackCommand')
+manualAdd('DRACO','Draco Light Tank ','fa veh t1','http://mentalomega.com/images/cameo/dracicon.png','Name:Draco Light Tank<br>ini:DRACO<br>VoiceAttack:DracoTankAttackCommand')
+manualAdd('JACKAL','Jackal Racer ','fa veh t1','http://mentalomega.com/images/cameo/jackicon.png','Name:Jackal Racer<br>ini:JACKAL<br>VoiceAttack:JackalAttackCommand')
+manualAdd('TERA','Teratorn ','fa veh t1','http://mentalomega.com/images/cameo/teraicon.png','Name:Teratorn<br>ini:TERA<br>VoiceAttack:LilZapperAttackCommand')
+manualAdd('BUZZ','Buzzard ','fa veh t2','http://mentalomega.com/images/cameo/buzzicon.png','Name:Buzzard<br>ini:BUZZ<br>VoiceAttack:BuzzardAttackCommand')
+manualAdd('RACC','Raccoon ','fa veh t2','http://mentalomega.com/images/cameo/raccicon.png','Name:Raccoon<br>ini:RACC<br>VoiceAttack:RaccoonAttackCommand')
+manualAdd('MSA','SODAR Array ','fa veh t2','http://mentalomega.com/images/cameo/sodaicon.png','Name:SODAR Array<br>ini:MSA<br>VoiceAttack:MSAMove')
+manualAdd('TARCHIA','Tarchia Cannon ','fa veh t3','http://mentalomega.com/images/cameo/tarcicon.png','Name:Tarchia Cannon<br>ini:TARCHIA<br>VoiceAttack:TarchiaAttackCommand')
+manualAdd('MAD','M.A.D.M.A.N. ','fa veh t3','http://mentalomega.com/images/cameo/mdmnicon.png','Name:M.A.D.M.A.N.<br>ini:MAD<br>VoiceAttack:MADMANMove')
+manualAdd('SHRAY','Shadray Sonic Tank ','fa veh t3','http://mentalomega.com/images/cameo/shryicon.png','Name:Shadray Sonic Tank<br>ini:SHRAY<br>VoiceAttack:BasswaveAttackCommand')
+manualAdd('FMCV','Foehn Construction Vehicle ','fa veh t2','http://mentalomega.com/images/cameo/fmcvicon.png','Name:Foehn Construction Vehicle<br>ini:FMCV<br>VoiceAttack:MCVFoehnMove')
+manualAdd('VIPER','Pteranodon ','fa veh t3','http://mentalomega.com/images/cameo/ptericon.png','Name:Pteranodon<br>ini:VIPER<br>VoiceAttack:PteranodonAttackCommand')
+manualAdd('DIVER','Diverbee ','fa veh t3','http://mentalomega.com/images/cameo/divricon.png','Name:Diverbee<br>ini:DIVER<br>VoiceAttack:DiverbeeAttackCommand')
+manualAdd('SEAT','Warturtle Transport ','fa veh t1','http://mentalomega.com/images/cameo/seaticon.png','Name:Warturtle Transport<br>ini:SEAT<br>VoiceAttack:WarturtleMove')
+manualAdd('SWORD','Swordfish ','fa veh t1','http://mentalomega.com/images/cameo/swrdicon.png','Name:Swordfish<br>ini:SWORD<br>VoiceAttack:SwordfishAttackCommand')
+manualAdd('SHARK','Angelshark ','fa veh t2','http://mentalomega.com/images/cameo/shrkicon.png','Name:Angelshark<br>ini:SHARK<br>VoiceAttack:AngelsharkAttackCommand')
+manualAdd('MANTA','Whipray ','fa veh t2','http://mentalomega.com/images/cameo/whipicon.png','Name:Whipray<br>ini:MANTA<br>VoiceAttack:MantaAttackCommand')
+manualAdd('MEGA','Megalodon ','fa veh t3','http://mentalomega.com/images/cameo/mgldicon.png','Name:Megalodon<br>ini:MEGA<br>VoiceAttack:MegalodonAttackCommand')
+manualAdd('ROADR','Roadrunner ','fa veh t3','http://mentalomega.com/images/cameo/rdrnicon.png','Name:Roadrunner<br>ini:ROADR<br>VoiceAttack:RoadrunnerAttackCommand')
+manualAdd('PROME','Mastodon ','fa veh t3','http://mentalomega.com/images/cameo/masticon.png','Name:Mastodon<br>ini:PROME<br>VoiceAttack:MastodonAttackCommand')
+manualAdd('BOID','Boidmachine ','fa veh t3','http://mentalomega.com/images/cameo/boidicon.png','Name:Boidmachine<br>ini:BOID<br>VoiceAttack:BoidmachineAttackCommand')
+manualAdd('GHTNK','Gharial ','fa veh t3','http://mentalomega.com/images/cameo/gharicon.png','Name:Gharial<br>ini:GHTNK<br>VoiceAttack:GharialAttackCommand')
+manualAdd('CYCL','Cyclops Walker ','fa veh t1','http://mentalomega.com/images/cameo/ccloicon.png','Name:Cyclops Walker<br>ini:CYCL<br>VoiceAttack:CyclopsAttackCommand')
+manualAdd('NMIN','Minermite ','fa veh t1','http://mentalomega.com/images/cameo/nminicon.png','Name:Minermite<br>ini:NMIN<br>VoiceAttack:MinermiteRepair')
+manualAdd('SWPR','Sweeper ','fa veh t2','http://mentalomega.com/images/cameo/swpricon.png','Name:Sweeper<br>ini:SWPR<br>VoiceAttack:SweeperAttackCommand')
+manualAdd('CONF','Irritator ','fa veh t2','http://mentalomega.com/images/cameo/irrticon.png','Name:Irritator<br>ini:CONF<br>VoiceAttack:IrritatorAttackCommand')
+manualAdd('HURR','Alanqa Skystation ','fa veh t3','http://mentalomega.com/images/cameo/alnqicon.png','Name:Alanqa Skystation<br>ini:HURR<br>VoiceAttack:AlanqaAttackCommand')
+manualAdd('QUETZ','Quetzal ','fa veh t3','http://mentalomega.com/images/cameo/qutzicon.png','Name:Quetzal<br>ini:QUETZ<br>VoiceAttack:QuetzalcoatlAttackCommand')
+manualAdd('GAPOWR','Power Plant ','ga bud t1','http://mentalomega.com/images/cameo/powricon.png','Name:Power Plant<br>ini:GAPOWR')
+manualAdd('GAPOWRUP','Power Turbine ','ga bud t2','http://mentalomega.com/images/cameo/powr2icon.png','Name:Power Turbine<br>ini:GAPOWRUP','top right')
+manualAdd('GAPILE','Allied Barracks ','ga bud t1','http://mentalomega.com/images/cameo/brrkicon.png','Name:Allied Barracks<br>ini:GAPILE')
+manualAdd('GAREFN','Allied Ore Refinery ','ga bud t1','http://mentalomega.com/images/cameo/reficon.png','Name:Allied Ore Refinery<br>ini:GAREFN')
+manualAdd('GAWEAP','Allied War Factory ','ga bud t1','http://mentalomega.com/images/cameo/gwepicon.png','Name:Allied War Factory<br>ini:GAWEAP')
+manualAdd('GAAIRC','Allied Airforce Command Headquarters ','ga bud t2','http://mentalomega.com/images/cameo/heliicon.png','Name:Allied Airforce Command Headquarters<br>ini:GAAIRC')
+manualAdd('GAHPAD','Runway ','ga bud t3','http://mentalomega.com/images/cameo/hpadicon.png','Name:Runway<br>ini:GAHPAD')
+manualAdd('GAYARD','Allied Naval Shipyard ','ga bud t1','http://mentalomega.com/images/cameo/ayaricon.png','Name:Allied Naval Shipyard<br>ini:GAYARD')
+manualAdd('GATECH','Allied Tech Center ','ga bud t3','http://mentalomega.com/images/cameo/techicon.png','Name:Allied Tech Center<br>ini:GATECH')
+manualAdd('GACLAB','Experimental Warpshop ','ga bud t3','http://mentalomega.com/images/cameo/ewrpicon.png','Name:Experimental Warpshop<br>ini:GACLAB')
+manualAdd('GAOREP','Ore Purifier ','ga bud t3','http://mentalomega.com/images/cameo/gorep.png','Name:Ore Purifier<br>ini:GAOREP')
+manualAdd('GAMERC','Mercury Network Uplink ','ga bud t2','http://mentalomega.com/images/cameo/asaticon.png','Name:Mercury Network Uplink<br>ini:GAMERC')
+manualAdd('GASCPF','Robot Ops Control Center ','ga bud t2','http://mentalomega.com/images/cameo/rbccicon.png','Name:Robot Ops Control Center<br>ini:GASCPF')
+manualAdd('GASCEA','Shield Command ','ga bud t2','http://mentalomega.com/images/cameo/sceaicon.png','Name:Shield Command<br>ini:GASCEA')
+manualAdd('GAAIRC_D','Allied Drop Control ','ga bud t2','http://mentalomega.com/images/cameo/grdcicon.png','Name:Allied Drop Control<br>ini:GAAIRC_D')
+manualAdd('GAWALL','Allied Concrete Wall ','ga bud t1','http://mentalomega.com/images/cameo/wallicon.png','Name:Allied Concrete Wall<br>ini:GAWALL')
+manualAdd('GAGATE_C','Allied Gate NS ','ga bud t1','http://mentalomega.com/images/cameo/agaticon.png','Name:Allied Gate NS<br>ini:GAGATE_C','top right')
+manualAdd('GAGATE_D','Allied Gate EW ','ga bud t1','http://mentalomega.com/images/cameo/agaticon.png','Name:Allied Gate EW<br>ini:GAGATE_D')
+manualAdd('GAPILL','Pillbox ','ga bud t1','http://mentalomega.com/images/cameo/pillicon.png','Name:Pillbox<br>ini:GAPILL')
+manualAdd('GAPOST','Coordnode ','ga bud t3','http://mentalomega.com/images/cameo/cfenicon.png','Name:Coordnode<br>ini:GAPOST')
+manualAdd('GAGUN','Gun Turret ','ga bud t1','http://mentalomega.com/images/cameo/gunticon.png','Name:Gun Turret<br>ini:GAGUN')
+manualAdd('NASAM','Patriot Missile Site ','ga bud t2','http://mentalomega.com/images/cameo/samicon.png','Name:Patriot Missile Site<br>ini:NASAM')
+manualAdd('GASONIC','Skyray Cannon ','ga bud t3','http://mentalomega.com/images/cameo/skyricon.png','Name:Skyray Cannon<br>ini:GASONIC')
+manualAdd('ATESLA','Prism Tower ','ga bud t2','http://mentalomega.com/images/cameo/prisicon.png','Name:Prism Tower<br>ini:ATESLA')
+manualAdd('GTGCAN','Grand Cannon ','ga bud t3','http://mentalomega.com/images/cameo/gcanicon.png','Name:Grand Cannon<br>ini:GTGCAN')
+manualAdd('GAGAP','Gap Generator ','ga bud t3','http://mentalomega.com/images/cameo/gapicon.png','Name:Gap Generator<br>ini:GAGAP')
+manualAdd('GACSPH','Chronosphere ','ga bud t3','http://mentalomega.com/images/cameo/csphicon.png','Name:Chronosphere<br>ini:GACSPH')
+manualAdd('GAWEAT','Weather Controller ','ga bud t3','http://mentalomega.com/images/cameo/wethicon.png','Name:Weather Controller<br>ini:GAWEAT')
+manualAdd('NAPOWR','Tesla Reactor ','na bud t1','http://mentalomega.com/images/cameo/npwricon.png','Name:Tesla Reactor<br>ini:NAPOWR')
+manualAdd('NAHAND','Soviet Barracks ','na bud t1','http://mentalomega.com/images/cameo/handicon.png','Name:Soviet Barracks<br>ini:NAHAND')
+manualAdd('NAREFN','Soviet Ore Refinery ','na bud t1','http://mentalomega.com/images/cameo/nreficon.png','Name:Soviet Ore Refinery<br>ini:NAREFN')
+manualAdd('NAWEAP','Soviet War Factory ','na bud t1','http://mentalomega.com/images/cameo/nwepicon.png','Name:Soviet War Factory<br>ini:NAWEAP')
+manualAdd('NAAIR','Soviet Airbase ','na bud t2','http://mentalomega.com/images/cameo/sairicon.png','Name:Soviet Airbase<br>ini:NAAIR')
+manualAdd('NAYARD','Soviet Naval Shipyard ','na bud t1','http://mentalomega.com/images/cameo/yardicon.png','Name:Soviet Naval Shipyard<br>ini:NAYARD')
+manualAdd('NARADR','Field Bureau ','na bud t2','http://mentalomega.com/images/cameo/npriicon.png','Name:Field Bureau<br>ini:NARADR')
+manualAdd('NAEMPS','EMP Control Station ','na bud t3','http://mentalomega.com/images/cameo/nempicon.png','Name:EMP Control Station<br>ini:NAEMPS')
+manualAdd('NATEK','Chinese Atomheart ','na bud t3','http://mentalomega.com/images/cameo/ntekicon.png','Name:Chinese Atomheart<br>ini:NATEK')
+manualAdd('NATECHC','Latin Battle Lab ','na bud t3','http://mentalomega.com/images/cameo/nateicon.png','Name:Latin Battle Lab<br>ini:NATECHC')
+manualAdd('NATECHR','Russian Palace ','na bud t3','http://mentalomega.com/images/cameo/ntchicon.png','Name:Russian Palace<br>ini:NATECHR')
+manualAdd('NAINDP','Industrial Plant ','na bud t3','http://mentalomega.com/images/cameo/indpicon.png','Name:Industrial Plant<br>ini:NAINDP')
+manualAdd('NANRCT','Soviet Nuclear Reactor ','na bud t2','http://mentalomega.com/images/cameo/nrcticon.png','Name:Soviet Nuclear Reactor<br>ini:NANRCT')
+manualAdd('NAWALL','Soviet Fortress Wall ','na bud t1','http://mentalomega.com/images/cameo/nwalicon.png','Name:Soviet Fortress Wall<br>ini:NAWALL')
+manualAdd('NAGATE_A','Soviet Gate NS ','na bud t1','http://mentalomega.com/images/cameo/ngateicon.png','Name:Soviet Gate NS<br>ini:NAGATE_A','top right')
+manualAdd('NAGATE_B','Soviet Gate EW ','na bud t1','http://mentalomega.com/images/cameo/ngateicon.png','Name:Soviet Gate EW<br>ini:NAGATE_B')
+manualAdd('NALASR','Sentry Gun ','na bud t1','http://mentalomega.com/images/cameo/plticon.png','Name:Sentry Gun<br>ini:NALASR')
+manualAdd('NAMORT','Smoke Turret ','na bud t3','http://mentalomega.com/images/cameo/nmoricon.png','Name:Smoke Turret<br>ini:NAMORT')
+manualAdd('NASCOM','Sensor Tower ','na bud t3','http://mentalomega.com/images/cameo/ncomicon.png','Name:Sensor Tower<br>ini:NASCOM')
+manualAdd('NAFLAK','Flak Cannon ','na bud t2','http://mentalomega.com/images/cameo/flakicon.png','Name:Flak Cannon<br>ini:NAFLAK')
+manualAdd('TESLA','Tesla Coil ','na bud t2','http://mentalomega.com/images/cameo/tslaicon.png','Name:Tesla Coil<br>ini:TESLA')
+manualAdd('NAHAMM','Hammer Defense ','na bud t3','http://mentalomega.com/images/cameo/nhmmicon.png','Name:Hammer Defense<br>ini:NAHAMM')
+manualAdd('NADRON','Repair Crane ','na bud t3','http://mentalomega.com/images/cameo/rfixicon.png','Name:Repair Crane<br>ini:NADRON')
+manualAdd('NABNKR','Battle Bunker ','na bud t1','http://mentalomega.com/images/cameo/bnkricon.png','Name:Battle Bunker<br>ini:NABNKR')
+manualAdd('NAIRON','Iron Curtain Device ','na bud t3','http://mentalomega.com/images/cameo/ironicon.png','Name:Iron Curtain Device<br>ini:NAIRON')
+manualAdd('NAIRDM','Iron Guard ','na bud t3','http://mentalomega.com/images/cameo/irdmicon.png','Name:Iron Guard<br>ini:NAIRDM')
+manualAdd('NAMISL','Tactical Nuke Silo ','na bud t3','http://mentalomega.com/images/cameo/msslicon.png','Name:Tactical Nuke Silo<br>ini:NAMISL')
+manualAdd('YACXST','Fake Construction Yard ','ya bud t3','http://mentalomega.com/images/cameo/fycyicon.png','Name:Fake Construction Yard<br>ini:YACXST')
+manualAdd('YAPOWR','Bio Reactor ','ya bud t1','http://mentalomega.com/images/cameo/ypwricon.png','Name:Bio Reactor<br>ini:YAPOWR')
+manualAdd('YABRCK','Epsilon Barracks ','ya bud t1','http://mentalomega.com/images/cameo/brckicon.png','Name:Epsilon Barracks<br>ini:YABRCK')
+manualAdd('YARIREFN','Epsilon Ore Refinery ','ya bud t1','http://mentalomega.com/images/cameo/yreficon.png','Name:Epsilon Ore Refinery<br>ini:YARIREFN')
+manualAdd('YAWEAP','Epsilon War Factory ','ya bud t1','http://mentalomega.com/images/cameo/ywepicon.png','Name:Epsilon War Factory<br>ini:YAWEAP')
+manualAdd('YAPSIS','Radar Spire ','ya bud t2','http://mentalomega.com/images/cameo/psisicon.png','Name:Radar Spire<br>ini:YAPSIS')
+manualAdd('YAAIRF','Aerodome ','ya bud t2','http://mentalomega.com/images/cameo/aerdicon.png','Name:Aerodome<br>ini:YAAIRF')
+manualAdd('YAYARD','Epsilon Naval Shipyard ','ya bud t1','http://mentalomega.com/images/cameo/yyrdicon.png','Name:Epsilon Naval Shipyard<br>ini:YAYARD')
+manualAdd('YATECH','Epsilon Pandora Hub ','ya bud t2','http://mentalomega.com/images/cameo/ytchicon.png','Name:Epsilon Pandora Hub<br>ini:YATECH')
+manualAdd('YACVLT','Chemplug ','ya bud t3','http://mentalomega.com/images/cameo/plgcicon.png','Name:Chemplug<br>ini:YACVLT')
+manualAdd('YAPVLT','Psychplug ','ya bud t3','http://mentalomega.com/images/cameo/plgpicon.png','Name:Psychplug<br>ini:YAPVLT')
+manualAdd('YAGVLT','Geneplug ','ya bud t3','http://mentalomega.com/images/cameo/plggicon.png','Name:Geneplug<br>ini:YAGVLT')
+manualAdd('YAMPSI','Mind Reader ','ya bud t2','http://mentalomega.com/images/cameo/mpsiicon.png','Name:Mind Reader<br>ini:YAMPSI')
+manualAdd('YAGRND','Grinder ','ya bud t3','http://mentalomega.com/images/cameo/grndicon.png','Name:Grinder<br>ini:YAGRND')
+manualAdd('NACLON','Cloning Vats ','ya bud t3','http://mentalomega.com/images/cameo/clonicon.png','Name:Cloning Vats<br>ini:NACLON')
+manualAdd('GAFWLL','Epsilon Citadel Wall ','ya bud t1','http://mentalomega.com/images/cameo/citwicon.png','Name:Epsilon Citadel Wall<br>ini:GAFWLL')
+manualAdd('YAGATE_A','Epsilon Gate NS ','ya bud t1','http://mentalomega.com/images/cameo/ygateicon.png','Name:Epsilon Gate NS<br>ini:YAGATE_A','top right')
+manualAdd('YAGATE_B','Epsilon Gate EW ','ya bud t1','http://mentalomega.com/images/cameo/ygateicon.png','Name:Epsilon Gate EW<br>ini:YAGATE_B')
+manualAdd('YAGGUN','Gatling Cannon ','ya bud t1','http://mentalomega.com/images/cameo/ggunicon.png','Name:Gatling Cannon<br>ini:YAGGUN')
+manualAdd('YARAIL','Inferno Tower ','ya bud t2','http://mentalomega.com/images/cameo/infticon.png','Name:Inferno Tower<br>ini:YARAIL')
+manualAdd('YAPSYT','Psychic Tower ','ya bud t3','http://mentalomega.com/images/cameo/psyticon.png','Name:Psychic Tower<br>ini:YAPSYT')
+manualAdd('YAHADE','Antares Battery ','ya bud t3','http://mentalomega.com/images/cameo/antaicon.png','Name:Antares Battery<br>ini:YAHADE')
+manualAdd('YARIFT','Chimera Core ','ya bud t3','http://mentalomega.com/images/cameo/rifticon.png','Name:Chimera Core<br>ini:YARIFT')
+manualAdd('NATBNK','Tank Bunker ','ya bud t1','http://mentalomega.com/images/cameo/tbnkicon.png','Name:Tank Bunker<br>ini:NATBNK')
+manualAdd('YAGNTC','Rage Inductor ','ya bud t3','http://mentalomega.com/images/cameo/gntcicon.png','Name:Rage Inductor<br>ini:YAGNTC')
+manualAdd('YAPPET','Psychic Dominator ','ya bud t3','http://mentalomega.com/images/cameo/pupticon.png','Name:Psychic Dominator<br>ini:YAPPET')
+manualAdd('YAPPXT','Fake Psychic Dominator ','ya bud t3','http://mentalomega.com/images/cameo/pxpticon.png','Name:Fake Psychic Dominator<br>ini:YAPPXT')
+manualAdd('FATRAP','Foehn Windtrap ','fa bud t1','http://mentalomega.com/images/cameo/wtrpicon.png','Name:Foehn Windtrap<br>ini:FATRAP')
+manualAdd('FAWALL','Foehn Bastion Wall ','fa bud t1','http://mentalomega.com/images/cameo/fwalicon.png','Name:Foehn Bastion Wall<br>ini:FAWALL')
+manualAdd('FABARR','Foehn Barracks ','fa bud t1','http://mentalomega.com/images/cameo/fbaricon.png','Name:Foehn Barracks<br>ini:FABARR')
+manualAdd('FABARR_B','Foehn Knightfall Protocol ','fa bud t3','http://mentalomega.com/images/cameo/fbruicon.png','Name:Foehn Knightfall Protocol<br>ini:FABARR_B')
+manualAdd('FAREFN','Foehn Ore Refinery ','fa bud t1','http://mentalomega.com/images/cameo/freficon.png','Name:Foehn Ore Refinery<br>ini:FAREFN')
+manualAdd('FAYARD','Foehn Naval Shipyard ','fa bud t1','http://mentalomega.com/images/cameo/fyrdicon.png','Name:Foehn Naval Shipyard<br>ini:FAYARD')
+manualAdd('FAWEAP','Foehn War Factory ','fa bud t1','http://mentalomega.com/images/cameo/fwepicon.png','Name:Foehn War Factory<br>ini:FAWEAP')
+manualAdd('FAINHI','Foehn Signal Inhibitor ','fa bud t3','http://mentalomega.com/images/cameo/inhiicon.png','Name:Foehn Signal Inhibitor<br>ini:FAINHI')
+manualAdd('FACOMP','Foehn Neutralizer ','fa bud t3','http://mentalomega.com/images/cameo/fequicon.png','Name:Foehn Neutralizer<br>ini:FACOMP')
+manualAdd('FACOAT','Foehn Nanocoat Regulator ','fa bud t2','http://mentalomega.com/images/cameo/coaticon.png','Name:Foehn Nanocoat Regulator<br>ini:FACOAT')
+manualAdd('FASONI','Foehn Sonic Emitter ','fa bud t1','http://mentalomega.com/images/cameo/semiicon.png','Name:Foehn Sonic Emitter<br>ini:FASONI')
+manualAdd('FARAIL','Foehn Railgun Tower ','fa bud t2','http://mentalomega.com/images/cameo/rtowicon.png','Name:Foehn Railgun Tower<br>ini:FARAIL')
+manualAdd('FAGUAR','Foehn Shrike Nest ','fa bud t2','http://mentalomega.com/images/cameo/grdnicon.png','Name:Foehn Shrike Nest<br>ini:FAGUAR')
+manualAdd('FANANO','Foehn Nanofiber Loom ','fa bud t2','http://mentalomega.com/images/cameo/loomicon.png','Name:Foehn Nanofiber Loom<br>ini:FANANO')
+manualAdd('FANANO_B','Foehn Nanofiber Loom Expansion ','fa bud t3','http://mentalomega.com/images/cameo/loomeicon.png','Name:Foehn Nanofiber Loom Expansion<br>ini:FANANO_B')
+manualAdd('FACYBR','Foehn Cyberkernel ','fa bud t2','http://mentalomega.com/images/cameo/cbrkicon.png','Name:Foehn Cyberkernel<br>ini:FACYBR')
+manualAdd('FACYBR_B','Foehn Cyberkernel Expansion ','fa bud t3','http://mentalomega.com/images/cameo/cybreicon.png','Name:Foehn Cyberkernel Expansion<br>ini:FACYBR_B')
+manualAdd('FACLDP','Foehn Cloud Piercer ','fa bud t2','http://mentalomega.com/images/cameo/cldpicon.png','Name:Foehn Cloud Piercer<br>ini:FACLDP')
+manualAdd('FACLDP_B','Foehn Cloud Piercer Expansion ','fa bud t3','http://mentalomega.com/images/cameo/cldpeicon.png','Name:Foehn Cloud Piercer Expansion<br>ini:FACLDP_B')
+manualAdd('FAREPR','Foehn Reprocessor ','fa bud t3','http://mentalomega.com/images/cameo/repricon.png','Name:Foehn Reprocessor<br>ini:FAREPR')
+manualAdd('FABLST','Foehn Blast Furnace ','fa bud t3','http://mentalomega.com/images/cameo/blsticon.png','Name:Foehn Blast Furnace<br>ini:FABLST')
+manualAdd('FAELEV','Foehn Tempest Architect ','fa bud t3','http://mentalomega.com/images/cameo/elevicon.png','Name:Foehn Tempest Architect<br>ini:FAELEV')
+manualAdd('FABTRC','Foehn Blast Trench ','fa bud t3','http://mentalomega.com/images/cameo/btrcicon.png','Name:Foehn Blast Trench<br>ini:FABTRC')
+manualAdd('FAHARB','Harbinger Tower ','fa bud t3','http://mentalomega.com/images/cameo/hrbticon.png','Name:Harbinger Tower<br>ini:FAHARB')
+manualAdd('FAAVAL','Foehn Plasmerizer ','fa bud t3','http://mentalomega.com/images/cameo/avalicon.png','Name:Foehn Plasmerizer<br>ini:FAAVAL')
+manualAdd('FAMMIN','Foehn M.A.D. Mine ','fa bud t3','http://mentalomega.com/images/cameo/madmicon.png','Name:Foehn M.A.D. Mine<br>ini:FAMMIN')
+}
+//common
+initiate();
+manualAdd('NATRAP','EMP Mine ','na bud t3','http://mentalomega.com/images/cameo/trapicon.png','Name:EMP Mine<br>ini:NATRAP')
+manualAdd('YAVNMM','Genomine ','ya bud t3','http://mentalomega.com/images/cameo/vnmmicon.png','Name:Genomine<br>ini:YAVNMM')
 
-function manualAdd(id,name,filter,source="http://mentalomega.com/images/cameo/bbtzicon.png",text=id)
+
+//stolen tech
+manualAdd('QUICK','Quickshifter ','ga veh t4','http://mentalomega.com/images/cameo/quikicon.png','Name:Quickshifter<br>ini:QUICK<br>VoiceAttack:QuickshifterAttackCommand')
+manualAdd('LIONH','Lionheart Bomber ','ga veh t4','http://mentalomega.com/images/cameo/lionicon.png','Name:Lionheart Bomber<br>ini:LIONH<br>VoiceAttack:LionheartAttackCommand')
+manualAdd('CHRP','Chrono Prison ','ga veh t4','http://mentalomega.com/images/cameo/chrpicon.png','Name:Chrono Prison<br>ini:CHRP<br>VoiceAttack:ChronoPrisonAttackCommand')
+manualAdd('AHVYBOT2','Future Tank Alpha ','ga veh t4','http://mentalomega.com/images/cameo/hev2icon.png','Name:Future Tank Alpha<br>ini:AHVYBOT2<br>VoiceAttack:FTank2AttackCommand')
+manualAdd('GRUMBLE','Grumble ','na veh t4','http://mentalomega.com/images/cameo/grumicon.png','Name:Grumble<br>ini:GRUMBLE<br>VoiceAttack:GrumbleMove')
+manualAdd('MAMM','Apocalypse Tank ','na veh t4','http://mentalomega.com/images/cameo/apocicon.png','Name:Apocalypse Tank<br>ini:MAMM<br>VoiceAttack:ApocalypseAttackCommand')
+manualAdd('SYCKLE','Syckle ','na veh t4','http://mentalomega.com/images/cameo/syckicon.png','Name:Syckle<br>ini:SYCKLE<br>VoiceAttack:SyckleAttackCommand')
+manualAdd('IDRAG','Iron Dragon ','na veh t4','http://mentalomega.com/images/cameo/idrgicon.png','Name:Iron Dragon<br>ini:IDRAG<br>VoiceAttack:IronDragonAttackCommand')
+manualAdd('TRACTOR','Scavenger ','ya veh t4','http://mentalomega.com/images/cameo/trcticon.png','Name:Scavenger<br>ini:TRACTOR<br>VoiceAttack:ScavengerNewAttackCommand')
+manualAdd('WORMQ','Wormqueen ','ya veh t4','http://mentalomega.com/images/cameo/wrmqicon.png','Name:Wormqueen<br>ini:WORMQ<br>VoiceAttack:WormqueenAttackCommand')
+manualAdd('SEIZER','Dybbuk-Seizer ','ya veh t4','http://mentalomega.com/images/cameo/seizicon.png','Name:Dybbuk-Seizer<br>ini:SEIZER<br>VoiceAttack:YuriCloneAttackCommand')
+manualAdd('SALA','Salamander ','ya veh t4','http://mentalomega.com/images/cameo/salaicon.png','Name:Salamander<br>ini:SALA<br>VoiceAttack:SalamanderAttackCommand')
+manualAdd('PHNT','Phantasm MLRS ','fa veh t4','http://mentalomega.com/images/cameo/phnticon.png','Name:Phantasm MLRS<br>ini:PHNT<br>VoiceAttack:PhantasmAttackCommand')
+manualAdd('SEITAAD','Seitaad Ballista ','fa veh t4','http://mentalomega.com/images/cameo/seiticon.png','Name:Seitaad Ballista<br>ini:SEITAAD<br>VoiceAttack:SeitaadAttackCommand')
+manualAdd('ARCH','Archelon ','fa veh t4','http://mentalomega.com/images/cameo/arclicon.png','Name:Archelon<br>ini:ARCH<br>VoiceAttack:ArchelonAttackCommand')
+manualAdd('RAMW','Ramwagon ','fa veh t4','http://mentalomega.com/images/cameo/ramwicon.png','Name:Ramwagon<br>ini:RAMW<br>VoiceAttack:RamwagonAttackCommand')
+//not buildable
+manualAdd('CYBO','Cyborg Vanguard ','na inf t5','http://mentalomega.com/images/cameo/cyboicon.png','Name:Cyborg Vanguard<br>ini:CYBO<br>VoiceAttack:CyborgAttackCommand')
+manualAdd('BEETLE','Animal Giant Beetle ','inf t5','','Name:Animal Giant Beetle<br>ini:BEETLE<br>VoiceAttack:')
+manualAdd('DNOA','Animal T-Rex ','inf t5','','Name:Animal T-Rex<br>ini:DNOA<br>TrexMove:')
+manualAdd('CYCOM','Cyborg Commando ','inf t5','http://mentalomega.com/images/cameo/ccomicon.png','Name:Cyborg Commando<br>ini:CYCOM<br>VoiceAttack:KinAdAttackCommand')
+manualAdd('BIKE','Bomb Biker ','na inf t5','http://mentalomega.com/images/cameo/quadicon.png','Name:Bomb Biker<br>ini:BIKE<br>VoiceAttack:TerroristAttackCommand')
+manualAdd('REZNOV','Col. Reznov ','na inf t5','http://mentalomega.com/images/cameo/reznicon.png','Name:Col. Reznov<br>ini:REZNOV<br>VoiceAttack:ReznovAttackCommand')
+manualAdd('KRUKOV','Col. Krukov ','na inf t5','http://mentalomega.com/images/cameo/krukicon.png','Name:Col. Krukov<br>ini:KRUKOV<br>VoiceAttack:KrukovAttackCommand')
+manualAdd('CBRIS','Space Commando ','ya inf t5','http://mentalomega.com/images/cameo/','Name:Space Commando<br>ini:CBRIS<br>VoiceAttack:CBorisAttackCommand')
+manualAdd('YURIX','Yuri ','ya inf t5','http://mentalomega.com/images/cameo/','Name:Yuri<br>ini:YURIX<br>VoiceAttack:YuriPrimeAttackCommand')
+manualAdd('STLN','Sammy Stallion','ga inf t5','','Name:Sammy Stallion<br>ini:STLN<br>VoiceAttack:SlyAttackCommand')
+manualAdd('ARND','Arnie Frankfurter','ga inf t5','','Name:Arnie Frankfurter<br>ini:ARND<br>VoiceAttack:ArnoldAttackCommand')
+manualAdd('CLNT','Flint Westwood','ga inf t5','','Name:Flint Westwood<br>ini:STLN<br>VoiceAttack:SlyAttackCommand')
+manualAdd('AHMV','Airborne Humvee ','ga veh t5','http://mentalomega.com/images/cameo/ahmvicon.png','Name:Airborne Humvee<br>ini:AHMV<br>VoiceAttack:HumveeAttackCommand')
+manualAdd('XPCV','Fake Epsilon MCV ','ya veh t5','http://mentalomega.com/images/cameo/fpcvicon.png','Name:Fake Epsilon MCV<br>ini:XPCV<br>VoiceAttack:MCVYuriMove')
+manualAdd('DRACOD','Draco Turret ','fa veh t5','http://mentalomega.com/images/cameo/','Name:Draco Turret<br>ini:DRACOD<br>VoiceAttack:DracoTurretAttackCommand')
+manualAdd('PERUN','Perun Flagship ','na veh t5','http://mentalomega.com/images/cameo/','Name:Perun Flagship<br>ini:PERUN<br>VoiceAttack:PerunAttackCommand')
+manualAdd('STARDUSTB','The Paradox Engine ','ga veh t5','http://mentalomega.com/images/cameo/','Name:The Paradox Engine<br>ini:STARDUSTB<br>VoiceAttack:')
+manualAdd('ICBM','Topol-M ','na veh t5','http://mentalomega.com/images/cameo/','Name:Topol-M<br>ini:ICBM<br>VoiceAttack:V3AttackCommand')
+manualAdd('ICBMWO','Topol-M No Rocket ','na veh t5','http://mentalomega.com/images/cameo/','Name:Topol-M No Rocket<br>ini:ICBMWO<br>VoiceAttack:V3AttackCommand')
+manualAdd('PANTHER','Paladin Tank Destroyer ','ga veh t5','http://mentalomega.com/images/cameo/','Name:Paladin Tank Destroyer<br>ini:PANTHER<br>VoiceAttack:TankDestroyerAttackCommand')
+manualAdd('AHVYBOT','Future Tank X-0 ','ga veh t5','http://mentalomega.com/images/cameo/hevyicon.png','Name:Future Tank X-0<br>ini:AHVYBOT<br>VoiceAttack:FTankAttackCommand')
+manualAdd('FAPOST','Foehn Windbelt Post ','fa bud t5','http://mentalomega.com/images/cameo/wblticon.png','Name:Foehn Windbelt Post<br>ini:FAPOST')
+manualAdd('POST','Windbelt Core ','fa veh t5','http://mentalomega.com/images/cameo/','Name:Windbelt Core<br>ini:POST<br>VoiceAttack:WindbeltCoreMove')
+manualAdd('RAVA','Drakuv Prison Vehicle ','na veh t5','http://mentalomega.com/images/cameo/ravaicon.png','Name:Drakuv Prison Vehicle<br>ini:RAVA<br>VoiceAttack:DrakuvAttackCommand')
+
+
+manualAdd('KINGS','Kingsframe ','fa inf sy','http://mentalomega.com/images/cameo/','Name:Kingsframe<br>ini:KINGS<br>VoiceAttack:KnightframeAttackCommand2')
+manualAdd('RAIL','Railguneer ','fa inf sy','http://mentalomega.com/images/cameo/','Name:Railguneer<br>ini:RAIL<br>VoiceAttack:LancerAttackCommandB')
+manualAdd('DUPL','Duplicant ','fa inf sy','http://mentalomega.com/images/cameo/','Name:Duplicant<br>ini:DUPL<br>VoiceAttack:DuplicantAttackCommand')
+manualAdd('DEVI','Deviatress ','fa inf sy','http://mentalomega.com/images/cameo/','Name:Deviatress<br>ini:DEVI<br>VoiceAttack:HuntressAttackCommandB')
+manualAdd('SYNC_N','Syncronaut ','fa inf sy','http://mentalomega.com/images/cameo/','Name:Syncronaut<br>ini:SYNC_N<br>VoiceAttack:SyncroninAttackCommand')
+manualAdd('ZORB_N','Zorbfloater ','fa inf sy','http://mentalomega.com/images/cameo/','Name:Zorbfloater<br>ini:ZORB_N<br>VoiceAttack:ZorbtrotterAttackCommand')
+manualAdd('BANE_N','Godsbane ','fa inf sy','http://mentalomega.com/images/cameo/baneicon.png','Name:Godsbane<br>ini:BANE_N<br>VoiceAttack:GiantsbaneAttackCommandB')
+
+
+function manualAdd2(id,name,filter,source="http://mentalomega.com/images/cameo/bbtzicon.png",text=id)
 {
 	var frame=document.getElementById("mc");
 	var d=document.createElement("DIV");
@@ -930,6 +984,7 @@ function manualAdd(id,name,filter,source="http://mentalomega.com/images/cameo/bb
 	ttt.innerHTML=name;
 	ttt.className="tooltiptext";
 	im.src=source;
+	im.alt="";
 	
 	
 	im.addEventListener("click",function(){
@@ -941,13 +996,34 @@ function manualAdd(id,name,filter,source="http://mentalomega.com/images/cameo/bb
 	frame.appendChild(d);
 }
 
+function manualAdd(id,name,filter,source="http://mentalomega.com/images/cameo/bbtzicon.png",text=id,al="top left")
+{
+	var frame=document.getElementById("mc");
+	var d=document.createElement("DIV");
+	d.className="tooltip filt "+filter;
+	d.style.backgroundSize="auto 80px";
+	d.style.backgroundImage="url('"+source+"')";
+	d.style.backgroundPosition=al;
+	d.title=name;
+	var ttt=document.createElement("SPAN");
+	ttt.innerHTML=name;
+	ttt.className="tooltiptext";
+	
+	
+	d.addEventListener("click",function(){
+	myFunc(text);}
+	);
+	
+	d.appendChild(ttt);
+	frame.appendChild(d);
+}
 
 
 var ss="";
 filterSelection("all");
 
 function myFunc(text){ 
-	document.getElementById("infobox").innerHTML = text + "\n";
+	document.getElementById("infobox").innerHTML = text;
 }
 function filterSelection(c) {
 if(c=="all")
@@ -957,7 +1033,8 @@ else
   else ss+="."+c;
   
   //document.getElementById("sss").innerHTML = ss;
-  showClass();
+  //showClass();
+  newShow();
 }
 
 
@@ -973,6 +1050,22 @@ for(var i=0;i<el.length;i++)
 el[i].className=el[i].className.replace(" show","");
 for(var i=0;i<tl.length;i++)
 tl[i].className+=" show";
+	
+
+}
+
+function newShow()
+{
+var el=document.getElementsByClassName("filt");
+var tl;
+if(ss=="") tl=document.getElementsByClassName("filt");
+else
+tl=document.querySelectorAll(ss);
+
+for(var i=0;i<el.length;i++)
+el[i].style.display='none';
+for(var i=0;i<tl.length;i++)
+tl[i].style.display='block';
 	
 
 }
