@@ -258,43 +258,44 @@ Name=banen+balloon
 Group=-1
 
 [01000038]
-0=10,E2
-1=10,DOG
-2=10,FLAKT
-3=15,HTNK
-4=20,JTNK
-5=10,CTNK
-6=10,SCAR
+0=5,E2
+1=5,DOG
+2=5,FLAKT
+3=5,HTNK
+4=10,JTNK
+5=5,CTNK
+6=5,SCAR
 Name=st1batallion
 Group=-1
 
 [01000039]
-0=10,E1
-1=10,GGI
-2=10,ADOG
-3=15,KTNK
-4=20,ETNK
-5=10,MTNK
-6=10,AMC
+0=5,E1
+1=5,GGI
+2=5,ADOG
+3=5,KTNK
+4=10,ETNK
+5=5,MTNK
+6=5,AMC
 Name=at1baltallion
 Group=-1
 
 [01000040]
-0=10,INIT
-1=10,HARP
-2=10,YDOG
-3=20,QTNK
-4=10,LTNK
-5=15,STNK
-6=10,YTNK
+0=5,INIT
+1=5,HARP
+2=5,YDOG
+3=10,QTNK
+4=5,LTNK
+5=5,STNK
+6=5,YTNK
 Name=yt1baltallion
 Group=-1
 
 [01000041]
-0=20,ROBO
-1=20,STING
-2=20,DRON
-3=20,RACC
+0=10,ROBO
+1=10,STING
+2=10,DRON
+3=10,RACC
+4=1,HARV
 Name=drones
 Group=-1
 
@@ -2120,7 +2121,7 @@ AreTeamMembersRecruitable=no
 [01000117]
 Max=5
 Full=yes
-Name=w47unbeatable
+Name=w48unbeatable
 Group=-1
 House=<Player @ D>
 Script=01000055
@@ -2154,7 +2155,7 @@ AreTeamMembersRecruitable=no
 [01000118]
 Max=5
 Full=yes
-Name=beaconstealers
+Name=w47beaconstealers
 Group=-1
 House=<Player @ D>
 Script=01000071
@@ -3267,6 +3268,8 @@ VeinGrowthEnabled=yes
 TiberiumGrowthEnabled=yes
 IgnoreGlobalAITriggers=no
 TiberiumDeathToVisceroid=no
+
+[CellTags]
 
 [Chinese]
 IQ=0
