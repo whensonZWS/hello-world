@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+
+
+<html>
+<title>心灵终结过滤器</title>
+
+<style>
+/* CSS Document */
+
+body {
+	margin:0px;
+	padding:0px;
+	background-color:#000;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	color:#CCC;
+}
+
+#wrapper {
+	width:1000px;
+	margin:0 auto;	
+}
+
+#top {
+	float:left;
+	width:960px;
+	padding:0px 20px 0px 20px;
+	height:51px;
+	border-bottom:1px solid #555555;	
+}
+
+#ytbox {
+	padding:0px 0px 6px 0px;
+}
+
+.maintable {
+
+	border-color:#660066;
+	padding:4px;
+	border-spacing:0px;
+	border-collapse:seperate;
+	border-style:solid;
+	border-width:1px;
+	border-color:660066;
+	background-color:#333333;
+}
+
+#youtubevid {
+	outline:none;
+	border:none;
+	border-width:0px;
+	text-align:center;
+}
+
+.headtable{
+	background-color:#666666;
+	font-size:18px;
+	border-bottom:1px solid #660066;	
+	padding:4px;
+}
+
+.centerpiece {
+	text-align:center;
+}
+
+.leftpiece {
+	padding-left:14px;	
+}
+
+#adpiece {
+	text-align:center;
+}
+
+#twitbox {
+	text-align:center;
+	width:220px;
+	min-height:768px;
+}
+
+a {
+	color:#C38EC7;
+	text-decoration:none;	
+}
+
+a:hover {
+	color:#C38EC7;
+	text-decoration:underline;	
+}
+
+h1 {
+	float:none;
+	margin:0px;
+	padding:20px 0px 25px 0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:normal;
+	font-size:24px;
+	color:#fff;
+}
+
+h2 {
+	float:none;
+	margin:0px;
+	padding:5px 0px 5px 0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:normal;
+	font-size:15px;
+	color:#fff;
+}
+
+h1.logo {
+	float:left;
+	margin:90px 0px 0px 0px;
+	padding:0px;
+	font-family: 'Asap', sans-serif;
+	font-size:32px;
+	color:#fff;
+}
+
+span.green1 {
+	color:#B73C3E;	
+}
+
+span.darkgrey {
+	color:#4f4f4f;	
+}
+
+
+.dldbtn {
+	float:right;
+	width:184px;
+	height:38px;
+	margin-top: 2px;
+	margin-right: 5px;
+ 	display:block;
+ 	background:transparent url('../images/dldbtn.png') center top no-repeat;
+}
+
+.dldbtn:hover {
+	float:right;
+	width:184px;
+	height:38px;
+	margin-top: 2px;
+	margin-right: 5px;
+ 	display:block;
+   	background-image: url('../images/dldbtn_h.png');
+}
+
+
+#topnavi {
+	float:right;
+	height:151px;
+	margin:0px;
+	padding:0px;
+	list-style-type:none;	
+}
+
+#topnavi li {
+	float:left;
+	height:150px;
+	margin-top:1px;
+	background:0;
+}
+
+#topnavi li:hover {
+	float:left;
+	height:150px;
+	margin-top:1px;
+	background:url('../images/button-topnavi-hover.jpg');
+	background-repeat:repeat-x;
+}
+
+#topnavi li.active {
+	float:left;
+	height:150px;
+	margin-top:1px;
+	background:url('../images/button-topnavi-active.jpg');
+	background-repeat:repeat-x;
+}
+
+#topnavi li a {
+	display:block;
+	color:#CCC;
+	font-size:14px;
+	text-decoration:none;
+	padding:20px 20px 0px 20px;
+}
+
+#topnavi li a:hover {
+	display:block;
+	color:#FFF;
+	font-size:14px;
+	text-decoration:none;
+	padding:20px 20px 0px 20px;
+}
+
+#topnavi li.active a, #topnavi li:hover a {
+	display:block;
+	color:#FFF;
+	font-size:14px;
+	text-decoration:none;
+	padding:20px 20px 0px 20px;
+}
+
+#topnavi li.active a:hover {
+	display:block;
+	color:#FFF;
+	font-size:14px;
+	text-decoration:none;
+	padding:20px 20px 0px 20px;
+}
+
+#header {
+	float:left;
+	width:1000px;
+	height:197px;	
+}
+
+.headerimg {
+	float:left;	
+	position: relative;
+	width: 100%;
+}
+
+#fbl {
+   position: absolute;
+   top: 155px;
+   left: 0px;
+   width: 100%;
+   margin: 0 auto;
+   width: 90px;
+   height: 28px;
+}
+
+#main {
+	float:left;
+	width:960px;
+	background-color:#111;
+	padding:20px 20px 40px 20px;
+	line-height:18px;
+	border-bottom:1px solid #555555;	
+}
+
+#left-part {
+	float:left;
+	width:232px;
+	margin:0px 30px 0px 0px;	
+}
+
+#right-part {
+	float:left;
+	width:668px;
+	margin:0px 30px 0px 0px;
+}
+
+#subnavi {
+	float:left;
+	width:220px;
+	margin:14px 0px 20px 0px;
+	padding:0px;
+	list-style-type:none;
+	border-top:1px solid #292c31;	
+}
+
+#subnavi li {
+	float:left;
+	width:220px;
+	height:24px;
+	background-image:url('../images/subnavi-button.jpg');
+	background-repeat:repeat-x;
+}
+
+#subnavi li:hover {
+	float:left;
+	width:220px;
+	height:24px;
+	background-image:url('../images/subnavi-button-hover.jpg');
+	background-repeat:repeat-x;
+}
+
+#subnavi li.active {
+	float:left;
+	width:220px;
+	height:24px;
+	background-image:url('../images/subnavi-button-active.jpg');
+	background-repeat:repeat-x;
+}
+
+#subnavi li a {
+	display:block;
+	line-height:24px;
+	color:#fff;
+	text-decoration:none;
+	padding-left:14px;	
+}
+
+#subnavi li a:hover {
+	display:block;
+	line-height:24px;
+	color:#fff;
+	text-decoration:none;
+	padding-left:14px;	
+}
+
+img.right {
+	float:right;
+	border:1px solid #CCC;
+	padding:1px;
+	margin:0px 0px 5px 10px;
+}
+
+ul.list {
+	list-style-type:square;	
+}
+
+#footer {
+	float:left;
+	width:960px;
+	padding:0px 20px 0px 20px;
+	height:80px;
+	color:#7b7b7b;
+	font-size:11px;	
+}
+
+#footer a {
+	color:#4f4f4f;
+}
+
+.sidelogo img{
+float: right;
+clear: none;
+display: block;
+margin: 0em;
+padding: 0em;
+margin-top: 5px;
+margin-bottom: 5px;
+margin-right: 5px;
+}
+
+.preview {
+text-align: center;
+font-family : Verdana, Arial, Helvetica, sans-serif;
+font-size: 0.7em;
+}
+
+.preview img{
+float: right;
+clear: none;
+display: block;
+margin: 0em;
+padding: 0em;
+margin-top: 5px;
+margin-bottom: 5px;
+margin-right: 5px;
+margin-left: 15px;
+padding:1px;
+border:1px solid #525552;
+background-color:#000000;
+}
+
+.cameo {
+text-align: center;
+font-family : Verdana, Arial, Helvetica, sans-serif;
+font-size: 0.7em;
+}
+
+.cameo img{
+float: right;
+clear: none;
+display: block;
+width: 60px;
+height: 48px;
+margin: 0em;
+padding: 0em;
+margin-top: 5px;
+margin-bottom: 5px;
+margin-right: 5px;
+margin-left: 15px;
+padding:1px;
+border:1px solid #525552;
+background-color:#000000;
+}
+
+.cameo2 {
+text-align: center;
+font-family : Verdana, Arial, Helvetica, sans-serif;
+font-size: 0.7em;
+}
+
+.cameo2 img{
+float: right;
+clear: none;
+display: block;
+width: 124px;
+height: 48px;
+margin: 0em;
+padding: 0em;
+margin-top: 5px;
+margin-bottom: 5px;
+margin-right: 5px;
+padding:1px;
+border:1px solid #525552;
+background-color:#000000;
+}
+
+.details {
+float: left;
+clear: none;
+text-align: left;
+margin: 0em;
+padding: 0em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+.details p {
+text-align: left;
+padding: 0em;
+margin: 0em;
+}
+
+.details p.ital {
+padding: 0em;
+margin: 0em;
+margin-bottom: 0.5em;
+}
+
+.h1 {
+font-size: 2em;
+}
+
+.desc {
+float: none;
+clear: none;
+text-align: left;
+margin: 0.2em;
+padding: 0.2em;
+margin-top: 0.1em;
+margin-bottom: 0.1em;
+}
+
+.supportw {
+float: none;
+clear: none;
+text-align: left;
+margin: 0.2em;
+padding: 0.2em;
+margin-top: 0.1em;
+margin-bottom: 0.1em;
+margin-left: 0.2em;
+}
+
+.addinfo {
+float: left;
+clear: none;
+text-align: left;
+margin: 0em;
+padding: 0em;
+margin-top: 1px;
+margin-bottom: 1px;
+}
+
+.addinfo p {
+text-align: left;
+padding: 0em;
+margin: 0em;
+}
+
+.addinfo p.ital {
+padding: 0em;
+margin: 0em;
+margin-bottom: 0.1em;
+}
+
+
+
+
+.filt{
+  float: left;
+  background-color: #2196F3;
+  color: #ffffff;
+  width: 100px;
+  height: 80px;
+  text-align: center;
+  margin: 2px;
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.container {
+  margin-top: 20px;
+  width:100%
+  
+}
+
+
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  /*padding: 12px 16px;*/
+  width: 100px;
+  line-height: 40px;
+  text-align: center;
+  margin: 2px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  
+
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 0.9;
+}
+
+.infobox
+{
+	diplay: block;
+	width:25%;
+	height:20%;
+	position:fixed;
+	top:25px;
+	left:initial;
+	font-size:18px;
+	right:10%;
+	background-color: #111111;
+	opacity: 0.9;
+	
+}
+
+
+</style>
+<body>
+
+	
+<div id="myBtnContainer">
+<h2>Faction</h2>
+<button class="btn" onClick="filterSelection('na')"> 苏联</button>
+<button class="btn" onClick="filterSelection('ga')"> 盟军</button>
+<button class="btn" onClick="filterSelection('ya')"> 厄普西隆</button>
+<button class="btn" onClick="filterSelection('fa')"> 焚风</button>
+<h2>Type</h2>
+<button class="btn" onClick="filterSelection('veh')"> 车辆</button>
+<button class="btn" onClick="filterSelection('inf')"> 步兵</button>
+<button class="btn" onClick="filterSelection('bud')"> 建筑</button>
+<h2>Tech Level</h2>
+<button class="btn" onClick="filterSelection('t1')"> T1</button>
+<button class="btn" onClick="filterSelection('t2')"> T2</button>
+<button class="btn" onClick="filterSelection('t3')"> T3</button>
+<button class="btn" onClick="filterSelection('t4')"> 渗透</button>
+<button class="btn" onClick="filterSelection('t5')"> 隐藏</button>
+<button class="btn" onClick="filterSelection('sy')"> 同步</button>
+</div>
+
+
+
+
+<div class="container" id="mc">
+	
+</div>
+
+
+<div class="infobox" align="center" >
+相关信息
+<div id="infobox" style="font-size: 15px; padding: 0px 5px;" align="left" >
+</div>
+</div>
+
+
+<p id="sss"></p>
+	
+
+</body>
+<script>
+
+function initiate(){
+manualAdd('E1','盟军大兵 ','ga inf t1','http://mentalomega.com/ch/images/cameo/giicon.png','名称:盟军大兵<br>ini名称:E1<br>攻击指令:GIAttackCommand')
+manualAdd('ADOG','盟军军犬 ','ga inf t1','http://mentalomega.com/ch/images/cameo/adogicon.png','名称:盟军军犬<br>ini名称:ADOG<br>攻击指令:DogAttackCommand')
+manualAdd('ENGINEER','工程师 ','ga inf t1','http://mentalomega.com/ch/images/cameo/engnicon.png','名称:工程师<br>ini名称:ENGINEER<br>攻击指令:EngAllMove')
+manualAdd('AMEDIC','军医 ','ga inf t2','http://mentalomega.com/ch/images/cameo/mediicon.png','名称:军医<br>ini名称:AMEDIC<br>攻击指令:MedicAttackCommand')
+manualAdd('GGI','守卫大兵 ','ga inf t1','http://mentalomega.com/ch/images/cameo/gdgiicon.png','名称:守卫大兵<br>ini名称:GGI<br>攻击指令:GuardianGIAttackCommand')
+manualAdd('ENFO','光棱攻城兵 ','ga inf t2','http://mentalomega.com/ch/images/cameo/enfoicon.png','名称:光棱攻城兵<br>ini名称:ENFO<br>攻击指令:SiegeCadreAttackCommand')
+manualAdd('JUMPJET','火箭飞行兵 ','ga inf t2','http://mentalomega.com/ch/images/cameo/jjeticon.png','名称:火箭飞行兵<br>ini名称:JUMPJET<br>攻击指令:RocketeerAttackCommand')
+manualAdd('SPY','间谍 ','ga inf t3','http://mentalomega.com/ch/images/cameo/spyicon.png','名称:间谍<br>ini名称:SPY<br>攻击指令:SpyAttackCommand')
+manualAdd('GHOST','海豹突击队 ','ga inf t2','http://mentalomega.com/ch/images/cameo/sealicon.png','名称:海豹突击队<br>ini名称:GHOST<br>攻击指令:SealAttackCommand')
+manualAdd('TANY','谭雅 ','ga inf t3','http://mentalomega.com/ch/images/cameo/tanyicon.png','名称:谭雅<br>ini名称:TANY<br>攻击指令:TanyaPrimeAttackCommand')
+manualAdd('SUPR','反转士 ','ga inf t3','http://mentalomega.com/ch/images/cameo/supricon.png','名称:反转士<br>ini名称:SUPR<br>攻击指令:SuppressorAttackCommand')
+manualAdd('ARMR','友川纪夫 ','ga inf t3','http://mentalomega.com/ch/images/cameo/armricon.png','名称:友川纪夫<br>ini名称:ARMR<br>攻击指令:ArmormanAttackCommand')
+manualAdd('CLEG','超时空军团兵 ','ga inf t3','http://mentalomega.com/ch/images/cameo/clegicon.png','名称:超时空军团兵<br>ini名称:CLEG<br>攻击指令:ChronoLegionAttackCommand')
+manualAdd('SNIPE','狙击手 ','ga inf t3','http://mentalomega.com/ch/images/cameo/snipicon.png','名称:狙击手<br>ini名称:SNIPE<br>攻击指令:SniperAttackCommand')
+manualAdd('RIOT','镇暴部队 ','ga inf t3','http://mentalomega.com/ch/images/cameo/rioticon.png','名称:镇暴部队<br>ini名称:RIOT<br>攻击指令:RiotTrooperAttackCommand')
+manualAdd('SIEG','西格弗里德 ','ga inf t3','http://mentalomega.com/ch/images/cameo/siegicon.png','名称:西格弗里德<br>ini名称:SIEG<br>攻击指令:SiegfriedAttackCommand')
+manualAdd('E2','动员兵 ','na inf t1','http://mentalomega.com/ch/images/cameo/e2icon.png','名称:动员兵<br>ini名称:E2<br>攻击指令:ConscriptAttackCommand')
+manualAdd('DOG','苏联军犬 ','na inf t1','http://mentalomega.com/ch/images/cameo/dogicon.png','名称:苏联军犬<br>ini名称:DOG<br>攻击指令:DogAttackCommand')
+manualAdd('FLAKT','防空步兵 ','na inf t1','http://mentalomega.com/ch/images/cameo/flkticon.png','名称:防空步兵<br>ini名称:FLAKT<br>攻击指令:FlakTroopAttackCommand')
+manualAdd('SENGINEER','苏联工程师 ','na inf t1','http://mentalomega.com/ch/images/cameo/sengicon.png','名称:苏联工程师<br>ini名称:SENGINEER<br>攻击指令:EngSovMove')
+manualAdd('SHK','磁暴步兵 ','na inf t2','http://mentalomega.com/ch/images/cameo/shkicon.png','名称:磁暴步兵<br>ini名称:SHK<br>攻击指令:TeslaTroopAttackCommand')
+manualAdd('FLAMER','喷火工兵 ','na inf t2','http://mentalomega.com/ch/images/cameo/pyroicon.png','名称:喷火工兵<br>ini名称:FLAMER<br>攻击指令:PyroAttackCommand')
+manualAdd('GYRO','旋翼飞行兵 ','na inf t3','http://mentalomega.com/ch/images/cameo/gyroicon.png','名称:旋翼飞行兵<br>ini名称:GYRO<br>攻击指令:GyrocopterAttackCommand')
+manualAdd('MOTOR','火炮机车 ','na inf t2','http://mentalomega.com/ch/images/cameo/quadicon.png','名称:火炮机车<br>ini名称:MOTOR<br>攻击指令:MortarQuadAttackCommand')
+manualAdd('IVAN','疯狂伊文 ','na inf t2','http://mentalomega.com/ch/images/cameo/ivanicon.png','名称:疯狂伊文<br>ini名称:IVAN<br>攻击指令:CrazyIvanAttackCommand')
+manualAdd('ARSO','纵火狂 ','na inf t3','http://mentalomega.com/ch/images/cameo/arsoicon.png','名称:纵火狂<br>ini名称:ARSO<br>攻击指令:ArsonistDisguise')
+manualAdd('SBTR','破坏者 ','na inf t3','http://mentalomega.com/ch/images/cameo/sbtricon.png','名称:破坏者<br>ini名称:SBTR<br>攻击指令:SaboteurAttackCommand')
+manualAdd('MORALES','莫拉莱斯 ','na inf t3','http://mentalomega.com/ch/images/cameo/moraicon.png','名称:莫拉莱斯<br>ini名称:MORALES<br>攻击指令:MoralesAttackCommand')
+manualAdd('VOLKOV','沃尔科夫 ','na inf t3','http://mentalomega.com/ch/images/cameo/volkicon.png','名称:沃尔科夫<br>ini名称:VOLKOV<br>攻击指令:VolkovAttackCommand')
+manualAdd('CHITZ','契特卡伊 ','na inf t3','http://mentalomega.com/ch/images/cameo/hhndicon.png','名称:契特卡伊<br>ini名称:CHITZ<br>攻击指令:ChitzkoiAttackCommand')
+manualAdd('YUNRU','云茹 ','na inf t3','http://mentalomega.com/ch/images/cameo/yunricon.png','名称:云茹<br>ini名称:YUNRU<br>攻击指令:YunruAttackCommand')
+manualAdd('DESO','辐射工兵 ','na inf t3','http://mentalomega.com/ch/images/cameo/desoicon.png','名称:辐射工兵<br>ini名称:DESO<br>攻击指令:DesolatorAttackCommand')
+manualAdd('DESOR','辐射根除者 ','na inf t3','http://mentalomega.com/ch/images/cameo/desricon.png','名称:辐射根除者<br>ini名称:DESOR<br>攻击指令:DesolatorAttackCommand')
+manualAdd('INIT','新兵 ','ya inf t1','http://mentalomega.com/ch/images/cameo/initicon.png','名称:新兵<br>ini名称:INIT<br>攻击指令:InitiateAttackCommand')
+manualAdd('HARP','弓箭手 ','ya inf t1','http://mentalomega.com/ch/images/cameo/harpicon.png','名称:弓箭手<br>ini名称:HARP<br>攻击指令:HarpoonAttackCommand')
+manualAdd('YDOG','精怪 ','ya inf t1','http://mentalomega.com/ch/images/cameo/spokicon.png','名称:精怪<br>ini名称:YDOG<br>攻击指令:SpookAttackCommand')
+manualAdd('YENGINEER','厄普西隆工程师 ','ya inf t1','http://mentalomega.com/ch/images/cameo/yengicon.png','名称:厄普西隆工程师<br>ini名称:YENGINEER<br>攻击指令:EngYuriCapture')
+manualAdd('BRUTE','狂兽人 ','ya inf t2','http://mentalomega.com/ch/images/cameo/bruticon.png','名称:狂兽人<br>ini名称:BRUTE<br>攻击指令:BruteAttackCommand')
+manualAdd('INTRUDER','渗透者 ','ya inf t3','http://mentalomega.com/ch/images/cameo/intricon.png','名称:渗透者<br>ini名称:INTRUDER<br>攻击指令:InfiltratorDisguise')
+manualAdd('STALKER','梦魇行者 ','ya inf t3','http://mentalomega.com/ch/images/cameo/stlkicon.png','名称:梦魇行者<br>ini名称:STALKER<br>攻击指令:StalkerAttackCommand')
+manualAdd('KAOS','毒爆虱 ','ya inf t2','http://mentalomega.com/ch/images/cameo/weavicon.png','名称:毒爆虱<br>ini名称:KAOS<br>攻击指令:WeaverAttackCommand')
+manualAdd('HIJACKER','劫持者 ','ya inf t3','http://mentalomega.com/ch/images/cameo/hjkricon.png','名称:劫持者<br>ini名称:HIJACKER<br>攻击指令:HijackerAttackCommand')
+manualAdd('VIRUS','病毒狙击手 ','ya inf t3','http://mentalomega.com/ch/images/cameo/vrusicon.png','名称:病毒狙击手<br>ini名称:VIRUS<br>攻击指令:VirusAttackCommand')
+manualAdd('YURI','心灵专家 ','ya inf t3','http://mentalomega.com/ch/images/cameo/yclnicon.png','名称:心灵专家<br>ini名称:YURI<br>攻击指令:YuriAttackCommand')
+manualAdd('YURIPR','心灵精英 ','ya inf t3','http://mentalomega.com/ch/images/cameo/yypricon.png','名称:心灵精英<br>ini名称:YURIPR<br>攻击指令:YuriAttackCommand')
+manualAdd('ASSN','拉恩 ','ya inf t3','http://mentalomega.com/ch/images/cameo/assnicon.png','名称:拉恩<br>ini名称:ASSN<br>攻击指令:RahnAttackCommand')
+manualAdd('UNDER','马尔翁 ','ya inf t3','http://mentalomega.com/ch/images/cameo/undricon.png','名称:马尔翁<br>ini名称:UNDER<br>攻击指令:UnderminerAttackCommand')
+manualAdd('LIBRA','天秤 ','ya inf t3','http://mentalomega.com/ch/images/cameo/libricon.png','名称:天秤<br>ini名称:LIBRA<br>攻击指令:LibraDartsAttackCommand')
+manualAdd('DUNE','沙丘骑兵 ','ya inf t2','http://mentalomega.com/ch/images/cameo/razgicon.png','名称:沙丘骑兵<br>ini名称:DUNE<br>攻击指令:GarAttackCommand')
+manualAdd('KNIGHT','铁骑兵 ','fa inf t1','http://mentalomega.com/ch/images/cameo/knigicon.png','名称:铁骑兵<br>ini名称:KNIGHT<br>攻击指令:KnightframeAttackCommand')
+manualAdd('COVE','长枪战士 ','fa inf t1','http://mentalomega.com/ch/images/cameo/lancicon.png','名称:长枪战士<br>ini名称:COVE<br>攻击指令:LancerAttackCommand')
+manualAdd('FENGINEER','焚风工程师 ','fa inf t1','http://mentalomega.com/ch/images/cameo/fengicon.png','名称:焚风工程师<br>ini名称:FENGINEER<br>攻击指令:EngFoeAttackCommand')
+manualAdd('HUNTR','女猎手 ','fa inf t2','http://mentalomega.com/ch/images/cameo/hntricon.png','名称:女猎手<br>ini名称:HUNTR<br>攻击指令:HuntressAttackCommand')
+manualAdd('CLAIR','千里眼机器人 ','fa inf t3','http://mentalomega.com/ch/images/cameo/clrvicon.png','名称:千里眼机器人<br>ini名称:CLAIR<br>攻击指令:ClairvoyantAttackCommand')
+manualAdd('SYNC','同步浪人 ','fa inf t3','http://mentalomega.com/ch/images/cameo/sronicon.png','名称:同步浪人<br>ini名称:SYNC<br>攻击指令:SyncroninAttackCommand')
+manualAdd('ZORB','气压球使徒 ','fa inf t3','http://mentalomega.com/ch/images/cameo/zorbicon.png','名称:气压球使徒<br>ini名称:ZORB<br>攻击指令:ZorbtrotterAttackCommand')
+manualAdd('BANE','巨人克星 ','fa inf t3','http://mentalomega.com/ch/images/cameo/baneicon.png','名称:巨人克星<br>ini名称:BANE<br>攻击指令:GiantsbaneAttackCommand')
+manualAdd('SIBFIN','菲因 ','fa inf t3','http://mentalomega.com/ch/images/cameo/finicon.png','名称:菲因<br>ini名称:SIBFIN<br>攻击指令:SibFinAttackCommand')
+manualAdd('SICALI','阿莉兹 ','fa inf t3','http://mentalomega.com/ch/images/cameo/alizicon.png','名称:阿莉兹<br>ini名称:SICALI<br>攻击指令:SibAlizeAttackCommand')
+manualAdd('EUREKA','优莱卡 ','fa inf t3','http://mentalomega.com/ch/images/cameo/eureicon.png','名称:优莱卡<br>ini名称:EUREKA<br>攻击指令:EurekaAttackCommand')
+manualAdd('URAGAN','乌拉甘 ','fa inf t3','http://mentalomega.com/ch/images/cameo/kingicon.png','名称:乌拉甘<br>ini名称:URAGAN<br>攻击指令:UraganAttackCommand')
+manualAdd('MTNK','骑士中型坦克 ','ga veh t1','http://mentalomega.com/ch/images/cameo/gtnkicon.png','名称:骑士中型坦克<br>ini名称:MTNK<br>攻击指令:RottweilerAttackCommand')
+manualAdd('ETNK','斗牛犬轻型坦克 ','ga veh t1','http://mentalomega.com/ch/images/cameo/etnkicon.png','名称:斗牛犬轻型坦克<br>ini名称:ETNK<br>攻击指令:GenAllVehicleAttackCommand')
+manualAdd('KTNK','河童悬浮坦克 ','ga veh t1','http://mentalomega.com/ch/images/cameo/predicon.png','名称:河童悬浮坦克<br>ini名称:KTNK<br>攻击指令:PredatorAttackCommand')
+manualAdd('ROBO','机器人坦克 ','ga veh t1','http://mentalomega.com/ch/images/cameo/roboicon.png','名称:机器人坦克<br>ini名称:ROBO<br>攻击指令:RobotTankAttackCommand')
+manualAdd('FV','斯特瑞克步兵战车 ','ga veh t1','http://mentalomega.com/ch/images/cameo/strkicon.png','名称:斯特瑞克步兵战车<br>ini名称:FV<br>攻击指令:IFVAttackCommand')
+manualAdd('AMC','执政官装甲步兵车 ','ga veh t1','http://mentalomega.com/ch/images/cameo/archicon.png','名称:执政官装甲步兵车<br>ini名称:AMC<br>攻击指令:SaberAttackCommand')
+manualAdd('TENGU','长剑步兵装甲 ','ga veh t1','http://mentalomega.com/ch/images/cameo/tsuricon.png','名称:长剑步兵装甲<br>ini名称:TENGU<br>攻击指令:SuitAttackCommand')
+manualAdd('LCRF','旅行者运输艇 ','ga veh t1','http://mentalomega.com/ch/images/cameo/lcrficon.png','名称:旅行者运输艇<br>ini名称:LCRF<br>攻击指令:HoverAlliedMove')
+manualAdd('SHAD','千里马运输直升机 ','ga veh t2','http://mentalomega.com/ch/images/cameo/shadicon.png','名称:千里马运输直升机<br>ini名称:SHAD<br>攻击指令:BlackOpsAttackCommand')
+manualAdd('ORCA','鹞式战机 ','ga veh t2','http://mentalomega.com/ch/images/cameo/falcicon.png','名称:鹞式战机<br>ini名称:ORCA<br>攻击指令:IntruderAttackCommand')
+manualAdd('STORM','风暴之子战机 ','ga veh t2','http://mentalomega.com/ch/images/cameo/strmicon.png','名称:风暴之子战机<br>ini名称:STORM<br>攻击指令:StormchildAttackCommand')
+manualAdd('FORTRESS','梭鱼轰炸机 ','ga veh t3','http://mentalomega.com/ch/images/cameo/stlhicon.png','名称:梭鱼轰炸机<br>ini名称:FORTRESS<br>攻击指令:StealthBomberAttackCommand')
+manualAdd('HBIRD','蜂鸟支援机 ','ga veh t3','http://mentalomega.com/ch/images/cameo/hbrdicon.png','名称:蜂鸟支援机<br>ini名称:HBIRD<br>攻击指令:HummingbirdAttackCommand')
+manualAdd('BEAG','黑鹰战机 ','ga veh t2','http://mentalomega.com/ch/images/cameo/beagicon.png','名称:黑鹰战机<br>ini名称:BEAG<br>攻击指令:BlackEagleAttackCommand')
+manualAdd('COMA','战鹰直升机 ','ga veh t2','http://mentalomega.com/ch/images/cameo/warhicon.png','名称:战鹰直升机<br>ini名称:COMA<br>攻击指令:ComancheLaserAttack')
+manualAdd('CRYO','冷冻直升机 ','ga veh t3','http://mentalomega.com/ch/images/cameo/crycicon.png','名称:冷冻直升机<br>ini名称:CRYO<br>攻击指令:CryocopterAttackCommand')
+manualAdd('MGTK','幻影坦克 ','ga veh t2','http://mentalomega.com/ch/images/cameo/rtnkicon.png','名称:幻影坦克<br>ini名称:MGTK<br>攻击指令:MirageTankAttackCommand')
+manualAdd('HOWI','西风火炮 ','ga veh t2','http://mentalomega.com/ch/images/cameo/zephicon.png','名称:西风火炮<br>ini名称:HOWI<br>攻击指令:ZephyrAttackCommand')
+manualAdd('SREF','光棱坦克 ','ga veh t3','http://mentalomega.com/ch/images/cameo/sreficon.png','名称:光棱坦克<br>ini名称:SREF<br>攻击指令:PrismTankAttackCommand')
+manualAdd('BASS','雅典娜炮 ','ga veh t3','http://mentalomega.com/ch/images/cameo/bassicon.png','名称:雅典娜炮<br>ini名称:BASS<br>攻击指令:AthenaArrayAttackCommand')
+manualAdd('ABRM','艾布拉姆斯坦克 ','ga veh t3','http://mentalomega.com/ch/images/cameo/abrmicon.png','名称:艾布拉姆斯坦克<br>ini名称:ABRM<br>攻击指令:AbramsAttackCommand')
+manualAdd('BFRT','玄武战斗要塞 ','ga veh t3','http://mentalomega.com/ch/images/cameo/bfrticon.png','名称:玄武战斗要塞<br>ini名称:BFRT<br>攻击指令:BattleFortressAttackCommand')
+manualAdd('AMCV','盟军机动建设车 ','ga veh t2','http://mentalomega.com/ch/images/cameo/mcvicon.png','名称:盟军机动建设车<br>ini名称:AMCV<br>攻击指令:MCVAlliedMove')
+manualAdd('DEST','驱逐舰 ','ga veh t1','http://mentalomega.com/ch/images/cameo/desticon.png','名称:驱逐舰<br>ini名称:DEST<br>攻击指令:GenAllWaterAttackCommand')
+manualAdd('DLPH','海豚 ','ga veh t2','http://mentalomega.com/ch/images/cameo/dlphicon.png','名称:海豚<br>ini名称:DLPH<br>攻击指令:DolphinAttackCommand')
+manualAdd('AEGIS','神盾巡洋舰 ','ga veh t2','http://mentalomega.com/ch/images/cameo/agisicon.png','名称:神盾巡洋舰<br>ini名称:AEGIS<br>攻击指令:AegisAttackCommand')
+manualAdd('CARRIER','航空母舰 ','ga veh t3','http://mentalomega.com/ch/images/cameo/carricon.png','名称:航空母舰<br>ini名称:CARRIER<br>攻击指令:AircraftCarrierAttackCommand')
+manualAdd('HCRUIS','战列舰 ','ga veh t3','http://mentalomega.com/ch/images/cameo/hcrsicon.png','名称:战列舰<br>ini名称:HCRUIS<br>攻击指令:CruiserAttackCommand')
+manualAdd('CMIN','超时空采矿车 ','ga veh t1','http://mentalomega.com/ch/images/cameo/ahrvicon.png','名称:超时空采矿车<br>ini名称:CMIN<br>攻击指令:ChronoMinerMove')
+manualAdd('AERO','天火防空坦克 ','ga veh t3','http://mentalomega.com/ch/images/cameo/aeroicon.png','名称:天火防空坦克<br>ini名称:AERO<br>攻击指令:AeroblazeAttackCommand')
+manualAdd('VCARR','冰雹平台 ','ga veh t3','http://mentalomega.com/ch/images/cameo/hailicon.png','名称:冰雹平台<br>ini名称:VCARR<br>攻击指令:HailstormAttackCommand')
+manualAdd('BLZZ','暴风雪坦克 ','ga veh t3','http://mentalomega.com/ch/images/cameo/blzzicon.png','名称:暴风雪坦克<br>ini名称:BLZZ<br>攻击指令:BlizzardAttackCommand')
+manualAdd('CHRTNK','冥卫坦克 ','ga veh t3','http://mentalomega.com/ch/images/cameo/ctnkicon.png','名称:冥卫坦克<br>ini名称:CHRTNK<br>攻击指令:PrisonAttackCommand')
+manualAdd('THOR','雷神炮艇 ','ga veh t3','http://mentalomega.com/ch/images/cameo/thoricon.png','名称:雷神炮艇<br>ini名称:THOR<br>攻击指令:ThorAttackCommand')
+manualAdd('DRON','恐怖机器人 ','na veh t1','http://mentalomega.com/ch/images/cameo/drncicon.png','名称:恐怖机器人<br>ini名称:DRON<br>攻击指令:TerrorDroneAttackCommand')
+manualAdd('HTK','半履带车 ','na veh t1','http://mentalomega.com/ch/images/cameo/htkicon.png','名称:半履带车<br>ini名称:HTK<br>攻击指令:FlakTrackAttackCommand')
+manualAdd('SCAR','猛虎装甲运输车 ','na veh t1','http://mentalomega.com/ch/images/cameo/lynxicon.png','名称:猛虎装甲运输车<br>ini名称:SCAR<br>攻击指令:TigrAttackCommand')
+manualAdd('HTNK','犀牛重型坦克 ','na veh t1','http://mentalomega.com/ch/images/cameo/htnkicon.png','名称:犀牛重型坦克<br>ini名称:HTNK<br>攻击指令:GenSovVehicleAttackCommand')
+manualAdd('CTNK','麒麟重型坦克 ','na veh t1','http://mentalomega.com/ch/images/cameo/qtnkicon.png','名称:麒麟重型坦克<br>ini名称:CTNK<br>攻击指令:TigerTankAttackCommand')
+manualAdd('JTNK','捷豹突击坦克 ','na veh t1','http://mentalomega.com/ch/images/cameo/jtnkicon.png','名称:捷豹突击坦克<br>ini名称:JTNK<br>攻击指令:JaguarTankAttackCommand')
+manualAdd('SAPC','野牛运输艇 ','na veh t1','http://mentalomega.com/ch/images/cameo/sapcicon.png','名称:野牛运输艇<br>ini名称:SAPC<br>攻击指令:HoverSovietMove')
+manualAdd('V3','飞毛腿导弹发射车 ','na veh t3','http://mentalomega.com/ch/images/cameo/v3icon.png','名称:飞毛腿导弹发射车<br>ini名称:V3<br>攻击指令:V3AttackCommand')
+manualAdd('TTNK','磁能巡航坦克 ','na veh t3','http://mentalomega.com/ch/images/cameo/ttnkicon.png','名称:磁能巡航坦克<br>ini名称:TTNK<br>攻击指令:TeslaTankAttackCommand')
+manualAdd('FDRON','怒焰地雷无人机 ','na veh t3','http://mentalomega.com/ch/images/cameo/fdrnicon.png','名称:怒焰地雷无人机<br>ini名称:FDRON<br>攻击指令:FuryDroneAttackCommand')
+manualAdd('SCHP','劫掠者武装直升机 ','na veh t3','http://mentalomega.com/ch/images/cameo/schpicon.png','名称:劫掠者武装直升机<br>ini名称:SCHP<br>攻击指令:SeigeChopperAttackAir')
+manualAdd('EDRN','蜻蜓无人机 ','na veh t3','http://mentalomega.com/ch/images/cameo/edrnicon.png','名称:蜻蜓无人机<br>ini名称:EDRN<br>攻击指令:DragonflyMove')
+manualAdd('WOLF','猎狼犬直升机 ','na veh t3','http://mentalomega.com/ch/images/cameo/wolficon.png','名称:猎狼犬直升机<br>ini名称:WOLF<br>攻击指令:WolfhoundAttackCommand')
+manualAdd('ZEP','基洛夫飞艇 ','na veh t3','http://mentalomega.com/ch/images/cameo/zepicon.png','名称:基洛夫飞艇<br>ini名称:ZEP<br>攻击指令:KirovAttackCommand')
+manualAdd('SENT','哨兵防空车 ','na veh t3','http://mentalomega.com/ch/images/cameo/senticon.png','名称:哨兵防空车<br>ini名称:SENT<br>攻击指令:SentinelAttackCommand')
+manualAdd('EMPR','女娲加农炮 ','na veh t3','http://mentalomega.com/ch/images/cameo/empricon.png','名称:女娲加农炮<br>ini名称:EMPR<br>攻击指令:DragonAttackCommand')
+manualAdd('BOREK','破坏神载具 ','na veh t2','http://mentalomega.com/ch/images/cameo/boriicon.png','名称:破坏神载具<br>ini名称:BOREK<br>攻击指令:BorilloAttackCommand')
+manualAdd('ARMA','犰狳重型载具 ','na veh t2','http://mentalomega.com/ch/images/cameo/armaicon.png','名称:犰狳重型载具<br>ini名称:ARMA<br>攻击指令:BorilloAttackCommand')
+manualAdd('DUST','尘旋风支援机 ','na veh t2','http://mentalomega.com/ch/images/cameo/dusticon.png','名称:尘旋风支援机<br>ini名称:DUST<br>攻击指令:DustdevilAttackCommand')
+manualAdd('FOX','狐步舞者战机 ','na veh t2','http://mentalomega.com/ch/images/cameo/foxicon.png','名称:狐步舞者战机<br>ini名称:FOX<br>攻击指令:MIGAttackCommand')
+manualAdd('CNTR','百夫长攻城机甲 ','na veh t3','http://mentalomega.com/ch/images/cameo/centicon.png','名称:百夫长攻城机甲<br>ini名称:CNTR<br>攻击指令:CenturionAttackCommand')
+manualAdd('SMCV','苏联机动建设车 ','na veh t2','http://mentalomega.com/ch/images/cameo/smcvicon.png','名称:苏联机动建设车<br>ini名称:SMCV<br>攻击指令:MCVSovietMove')
+manualAdd('MWF','斯大林之拳 ','na veh t3','http://mentalomega.com/ch/images/cameo/mwficon.png','名称:斯大林之拳<br>ini名称:MWF<br>攻击指令:MWFAttackCommand')
+manualAdd('SWLF','海狼护卫艇 ','na veh t2','http://mentalomega.com/ch/images/cameo/swlficon.png','名称:海狼护卫艇<br>ini名称:SWLF<br>攻击指令:SeawolfAttackGround')
+manualAdd('SUB','台风攻击潜艇 ','na veh t1','http://mentalomega.com/ch/images/cameo/subicon.png','名称:台风攻击潜艇<br>ini名称:SUB<br>攻击指令:TyphoonSubAttackCommand')
+manualAdd('DRED','无畏级导弹舰 ','na veh t3','http://mentalomega.com/ch/images/cameo/dredicon.png','名称:无畏级导弹舰<br>ini名称:DRED<br>攻击指令:GenSovWaterAttackCommand')
+manualAdd('AKULA','阿库拉导弹潜艇 ','na veh t3','http://mentalomega.com/ch/images/cameo/akulicon.png','名称:阿库拉导弹潜艇<br>ini名称:AKULA<br>攻击指令:AkulaAttackCommand')
+manualAdd('HARV','武装采矿车 ','na veh t1','http://mentalomega.com/ch/images/cameo/harvicon.png','名称:武装采矿车<br>ini名称:HARV<br>攻击指令:WarMinerAttackCommand')
+manualAdd('BURA','布拉提诺火箭车 ','na veh t3','http://mentalomega.com/ch/images/cameo/buraicon.png','名称:布拉提诺火箭车<br>ini名称:BURA<br>攻击指令:BuratinoAttackCommand')
+manualAdd('APOC','灾厄坦克 ','na veh t3','http://mentalomega.com/ch/images/cameo/cataicon.png','名称:灾厄坦克<br>ini名称:APOC<br>攻击指令:CatastropheAttackCommand')
+manualAdd('BGGY','自爆吉普车 ','na veh t2','http://mentalomega.com/ch/images/cameo/bggyicon.png','名称:自爆吉普车<br>ini名称:BGGY<br>攻击指令:DemoBuggyAttackCommand')
+manualAdd('DTRUCK','自爆卡车 ','na veh t2','http://mentalomega.com/ch/images/cameo/trkaicon.png','名称:自爆卡车<br>ini名称:DTRUCK<br>攻击指令:DemoTruckAttackCommand')
+manualAdd('LTNK','鞭打者轻型坦克 ','ya veh t1','http://mentalomega.com/ch/images/cameo/ltnkicon.png','名称:鞭打者轻型坦克<br>ini名称:LTNK<br>攻击指令:LasherTankAttackCommand')
+manualAdd('QTNK','螳螂轻型坦克 ','ya veh t1','http://mentalomega.com/ch/images/cameo/manticon.png','名称:螳螂轻型坦克<br>ini名称:QTNK<br>攻击指令:MantisTankAttackCommand')
+manualAdd('STNK','奥普斯定制坦克 ','ya veh t1','http://mentalomega.com/ch/images/cameo/stnkicon.png','名称:奥普斯定制坦克<br>ini名称:STNK<br>攻击指令:OpusAttackCommand')
+manualAdd('TRIKE','极速三轮摩托车 ','ya veh t2','http://mentalomega.com/ch/images/cameo/trikicon.png','名称:极速三轮摩托车<br>ini名称:TRIKE<br>攻击指令:SpeederAttackCommand')
+manualAdd('COYO','氧化者防空支援车 ','ya veh t3','http://mentalomega.com/ch/images/cameo/oxidicon.png','名称:氧化者防空支援车<br>ini名称:COYO<br>攻击指令:OxidizerAttackCommand')
+manualAdd('STING','毒刺无人载具 ','ya veh t1','http://mentalomega.com/ch/images/cameo/stngicon.png','名称:毒刺无人载具<br>ini名称:STING<br>攻击指令:StingerAttackCommand')
+manualAdd('YTNK','加特林坦克 ','ya veh t1','http://mentalomega.com/ch/images/cameo/ytnkicon.png','名称:加特林坦克<br>ini名称:YTNK<br>攻击指令:GattlingTankAttackCommand')
+manualAdd('QUAD','迷雾机动车 ','ya veh t3','http://mentalomega.com/ch/images/cameo/hzqdicon.png','名称:迷雾机动车<br>ini名称:QUAD<br>攻击指令:HazequadMove')
+manualAdd('DRIL','钻地运输车 ','ya veh t2','http://mentalomega.com/ch/images/cameo/drilicon.png','名称:钻地运输车<br>ini名称:DRIL<br>攻击指令:DrillerMove')
+manualAdd('TELE','磁控坦克 ','ya veh t3','http://mentalomega.com/ch/images/cameo/teleicon.png','名称:磁控坦克<br>ini名称:TELE<br>攻击指令:MagnetronAttackCommand')
+manualAdd('MIND','心灵之主 ','ya veh t3','http://mentalomega.com/ch/images/cameo/mindicon.png','名称:心灵之主<br>ini名称:MIND<br>攻击指令:MasterMindAttackCommand')
+manualAdd('DEVO','巨像 ','ya veh t3','http://mentalomega.com/ch/images/cameo/colsicon.png','名称:巨像<br>ini名称:DEVO<br>攻击指令:DevourerAttackCommand')
+manualAdd('YAHCR','炼狱防空平台 ','ya veh t3','http://mentalomega.com/ch/images/cameo/gehnicon.png','名称:炼狱防空平台<br>ini名称:YAHCR<br>攻击指令:GaiaPlatformAttackCommand')
+manualAdd('PLAG','瘟疫投石车 ','ya veh t3','http://mentalomega.com/ch/images/cameo/plagicon.png','名称:瘟疫投石车<br>ini名称:PLAG<br>攻击指令:PlagueSplatterAttackCommand')
+manualAdd('SHADOW','魔影坦克 ','ya veh t2','http://mentalomega.com/ch/images/cameo/shdwicon.png','名称:魔影坦克<br>ini名称:SHADOW<br>攻击指令:ShadowAttackCommand')
+manualAdd('DISK','入侵飞碟 ','ya veh t2','http://mentalomega.com/ch/images/cameo/diskicon.png','名称:入侵飞碟<br>ini名称:DISK<br>攻击指令:FloatingDiscAttackCommand')
+manualAdd('BLIGHT','恶灵战机 ','ya veh t2','http://mentalomega.com/ch/images/cameo/bligicon.png','名称:恶灵战机<br>ini名称:BLIGHT<br>攻击指令:BlightAttackCommand')
+manualAdd('VENOM','恶灵基因升腾者 ','ya veh t3','http://mentalomega.com/ch/images/cameo/evolicon.png','名称:恶灵基因升腾者<br>ini名称:VENOM<br>攻击指令:PurgerAttackCommand')
+manualAdd('BASIL','毒蜥空中战舰 ','ya veh t3','http://mentalomega.com/ch/images/cameo/basiicon.png','名称:毒蜥空中战舰<br>ini名称:BASIL<br>攻击指令:BasiliskAttackCommand')
+manualAdd('GOTTER','空中要塞伊利卡拉 ','ya veh t3','http://mentalomega.com/ch/images/cameo/irklicon.png','名称:空中要塞伊利卡拉<br>ini名称:GOTTER<br>攻击指令:IrkallaAttackCommand')
+manualAdd('PCV','厄普西隆机动建设车 ','ya veh t2','http://mentalomega.com/ch/images/cameo/ypcvicon.png','名称:厄普西隆机动建设车<br>ini名称:PCV<br>攻击指令:MCVYuriMove')
+manualAdd('YHVR','神舟运输艇 ','ya veh t1','http://mentalomega.com/ch/images/cameo/yhvricon.png','名称:神舟运输艇<br>ini名称:YHVR<br>攻击指令:HoverYuriMove')
+manualAdd('SLED','食人鱼迷你潜艇 ','ya veh t1','http://mentalomega.com/ch/images/cameo/ysubicon.png','名称:食人鱼迷你潜艇<br>ini名称:SLED<br>攻击指令:PiranhaAttackCommand')
+manualAdd('SQD','巨型乌贼 ','ya veh t2','http://mentalomega.com/ch/images/cameo/sqdicon.png','名称:巨型乌贼<br>ini名称:SQD<br>攻击指令:SquidAttackCommand')
+manualAdd('BSUB','瘟神攻城潜艇 ','ya veh t3','http://mentalomega.com/ch/images/cameo/reshicon.png','名称:瘟神攻城潜艇<br>ini名称:BSUB<br>攻击指令:ReshephAttackCommand')
+manualAdd('NAUT','鹦鹉螺潜艇 ','ya veh t3','http://mentalomega.com/ch/images/cameo/nauticon.png','名称:鹦鹉螺潜艇<br>ini名称:NAUT<br>攻击指令:NautilusAttackCommand')
+manualAdd('YMIN','幽灵采矿车 ','ya veh t1','http://mentalomega.com/ch/images/cameo/yminicon.png','名称:幽灵采矿车<br>ini名称:YMIN<br>攻击指令:GhostMinerMove')
+manualAdd('SCAV','暴君 ','ya veh t3','http://mentalomega.com/ch/images/cameo/scavicon.png','名称:暴君<br>ini名称:SCAV<br>攻击指令:ScavengerAttackCommand')
+manualAdd('MARA','掠夺者坦克 ','ya veh t2','http://mentalomega.com/ch/images/cameo/maraicon.png','名称:掠夺者坦克<br>ini名称:MARA<br>攻击指令:MarauderAttackCommand')
+manualAdd('ROACH','蛮牛重型坦克 ','fa veh t1','http://mentalomega.com/ch/images/cameo/roacicon.png','名称:蛮牛重型坦克<br>ini名称:ROACH<br>攻击指令:BisonTankAttackCommand')
+manualAdd('LEVI','利维坦母舰 ','fa veh t3','http://mentalomega.com/ch/images/cameo/leviicon.png','名称:利维坦母舰<br>ini名称:LEVI<br>攻击指令:LeviathanAttackCommand')
+manualAdd('DRACO','飞蜥轻型坦克 ','fa veh t1','http://mentalomega.com/ch/images/cameo/dracicon.png','名称:飞蜥轻型坦克<br>ini名称:DRACO<br>攻击指令:DracoTankAttackCommand')
+manualAdd('JACKAL','豺狼突击载具 ','fa veh t1','http://mentalomega.com/ch/images/cameo/jackicon.png','名称:豺狼突击载具<br>ini名称:JACKAL<br>攻击指令:JackalAttackCommand')
+manualAdd('TERA','雷鸟无人防空车 ','fa veh t1','http://mentalomega.com/ch/images/cameo/teraicon.png','名称:雷鸟无人防空车<br>ini名称:TERA<br>攻击指令:LilZapperAttackCommand')
+manualAdd('BUZZ','秃鹰攻击机 ','fa veh t2','http://mentalomega.com/ch/images/cameo/buzzicon.png','名称:秃鹰攻击机<br>ini名称:BUZZ<br>攻击指令:BuzzardAttackCommand')
+manualAdd('RACC','浣熊干扰车 ','fa veh t2','http://mentalomega.com/ch/images/cameo/raccicon.png','名称:浣熊干扰车<br>ini名称:RACC<br>攻击指令:RaccoonAttackCommand')
+manualAdd('MSA','机动声波探测仪 ','fa veh t2','http://mentalomega.com/ch/images/cameo/sodaicon.png','名称:机动声波探测仪<br>ini名称:MSA<br>攻击指令:MSAMove')
+manualAdd('TARCHIA','多智龙火炮 ','fa veh t3','http://mentalomega.com/ch/images/cameo/tarcicon.png','名称:多智龙火炮<br>ini名称:TARCHIA<br>攻击指令:TarchiaAttackCommand')
+manualAdd('MAD','M.A.D.M.A.N ','fa veh t3','http://mentalomega.com/ch/images/cameo/mdmnicon.png','名称:M.A.D.M.A.N<br>ini名称:MAD<br>攻击指令:MADMANMove')
+manualAdd('SHRAY','沙得雷声波坦克 ','fa veh t3','http://mentalomega.com/ch/images/cameo/shryicon.png','名称:沙得雷声波坦克<br>ini名称:SHRAY<br>攻击指令:BasswaveAttackCommand')
+manualAdd('FMCV','焚风机动建设车 ','fa veh t2','http://mentalomega.com/ch/images/cameo/fmcvicon.png','名称:焚风机动建设车<br>ini名称:FMCV<br>攻击指令:MCVFoehnMove')
+manualAdd('VIPER','无齿翼龙 ','fa veh t3','http://mentalomega.com/ch/images/cameo/ptericon.png','名称:无齿翼龙<br>ini名称:VIPER<br>攻击指令:PteranodonAttackCommand')
+manualAdd('DIVER','爆裂蜂 ','fa veh t3','http://mentalomega.com/ch/images/cameo/divricon.png','名称:爆裂蜂<br>ini名称:DIVER<br>攻击指令:DiverbeeAttackCommand')
+manualAdd('SEAT','战龟运输艇 ','fa veh t1','http://mentalomega.com/ch/images/cameo/seaticon.png','名称:战龟运输艇<br>ini名称:SEAT<br>攻击指令:WarturtleMove')
+manualAdd('SWORD','剑鱼护卫舰 ','fa veh t1','http://mentalomega.com/ch/images/cameo/swrdicon.png','名称:剑鱼护卫舰<br>ini名称:SWORD<br>攻击指令:SwordfishAttackCommand')
+manualAdd('SHARK','扁鲨迷幻潜艇 ','fa veh t2','http://mentalomega.com/ch/images/cameo/shrkicon.png','名称:扁鲨迷幻潜艇<br>ini名称:SHARK<br>攻击指令:AngelsharkAttackCommand')
+manualAdd('MANTA','魔鬼鱼防空无人舰 ','fa veh t2','http://mentalomega.com/ch/images/cameo/whipicon.png','名称:魔鬼鱼防空无人舰<br>ini名称:MANTA<br>攻击指令:MantaAttackCommand')
+manualAdd('MEGA','巨齿鲨机甲 ','fa veh t3','http://mentalomega.com/ch/images/cameo/mgldicon.png','名称:巨齿鲨机甲<br>ini名称:MEGA<br>攻击指令:MegalodonAttackCommand')
+manualAdd('ROADR','走鹃活动炸弹 ','fa veh t3','http://mentalomega.com/ch/images/cameo/rdrnicon.png','名称:走鹃活动炸弹<br>ini名称:ROADR<br>攻击指令:RoadrunnerAttackCommand')
+manualAdd('PROME','乳齿象坦克 ','fa veh t3','http://mentalomega.com/ch/images/cameo/masticon.png','名称:乳齿象坦克<br>ini名称:PROME<br>攻击指令:MastodonAttackCommand')
+manualAdd('BOID','机械造物 ','fa veh t3','http://mentalomega.com/ch/images/cameo/boidicon.png','名称:机械造物<br>ini名称:BOID<br>攻击指令:BoidmachineAttackCommand')
+manualAdd('GHTNK','巨鳄载具 ','fa veh t3','http://mentalomega.com/ch/images/cameo/gharicon.png','名称:巨鳄载具<br>ini名称:GHTNK<br>攻击指令:GharialAttackCommand')
+manualAdd('CYCL','独眼装甲巨人 ','fa veh t1','http://mentalomega.com/ch/images/cameo/ccloicon.png','名称:独眼装甲巨人<br>ini名称:CYCL<br>攻击指令:CyclopsAttackCommand')
+manualAdd('NMIN','矿甲虫 ','fa veh t1','http://mentalomega.com/ch/images/cameo/nminicon.png','名称:矿甲虫<br>ini名称:NMIN<br>攻击指令:MinermiteRepair')
+manualAdd('SWPR','扫荡者无人机 ','fa veh t2','http://mentalomega.com/ch/images/cameo/swpricon.png','名称:扫荡者无人机<br>ini名称:SWPR<br>攻击指令:SweeperAttackCommand')
+manualAdd('CONF','激怒者支援车 ','fa veh t2','http://mentalomega.com/ch/images/cameo/irrticon.png','名称:激怒者支援车<br>ini名称:CONF<br>攻击指令:IrritatorAttackCommand')
+manualAdd('HURR','长生鸟空中哨站 ','fa veh t3','http://mentalomega.com/ch/images/cameo/alnqicon.png','名称:长生鸟空中哨站<br>ini名称:HURR<br>攻击指令:AlanqaAttackCommand')
+manualAdd('QUETZ','风神翼龙 ','fa veh t3','http://mentalomega.com/ch/images/cameo/qutzicon.png','名称:风神翼龙<br>ini名称:QUETZ<br>攻击指令:QuetzalcoatlAttackCommand')
+manualAdd('GAPOWR','发电厂 ','ga bud t1','http://mentalomega.com/ch/images/cameo/powricon.png','名称:发电厂<br>ini名称:GAPOWR')
+manualAdd('GAPOWRUP','发电厂升级： 动力涡轮 ','ga bud t2','http://mentalomega.com/ch/images/cameo/pwupicon.png','名称:发电厂升级： 动力涡轮<br>ini名称:GAPOWRUP')
+manualAdd('GAPILE','盟军兵营 ','ga bud t1','http://mentalomega.com/ch/images/cameo/brrkicon.png','名称:盟军兵营<br>ini名称:GAPILE')
+manualAdd('GAREFN','盟军矿石精炼厂 ','ga bud t1','http://mentalomega.com/ch/images/cameo/reficon.png','名称:盟军矿石精炼厂<br>ini名称:GAREFN')
+manualAdd('GAWEAP','盟军战争工厂 ','ga bud t1','http://mentalomega.com/ch/images/cameo/gwepicon.png','名称:盟军战争工厂<br>ini名称:GAWEAP')
+manualAdd('GAAIRC','盟军空军指挥部 ','ga bud t2','http://mentalomega.com/ch/images/cameo/heliicon.png','名称:盟军空军指挥部<br>ini名称:GAAIRC')
+manualAdd('GAHPAD','扩展跑道 ','ga bud t3','http://mentalomega.com/ch/images/cameo/hpadicon.png','名称:扩展跑道<br>ini名称:GAHPAD')
+manualAdd('GAYARD','盟军海军船坞 ','ga bud t1','http://mentalomega.com/ch/images/cameo/ayaricon.png','名称:盟军海军船坞<br>ini名称:GAYARD')
+manualAdd('GATECH','科技中心 ','ga bud t3','http://mentalomega.com/ch/images/cameo/techicon.png','名称:科技中心<br>ini名称:GATECH')
+manualAdd('GACLAB','实验型传送平台 ','ga bud t3','http://mentalomega.com/ch/images/cameo/ewrpicon.png','名称:实验型传送平台<br>ini名称:GACLAB')
+manualAdd('GAOREP','矿石提纯器 ','ga bud t3','http://mentalomega.com/ch/images/cameo/gorep.png','名称:矿石提纯器<br>ini名称:GAOREP')
+manualAdd('GAMERC','墨丘利卫星系统终端 ','ga bud t2','http://mentalomega.com/ch/images/cameo/asaticon.png','名称:墨丘利卫星系统终端<br>ini名称:GAMERC')
+manualAdd('GASCPF','机器人控制中心 ','ga bud t2','http://mentalomega.com/ch/images/cameo/rbccicon.png','名称:机器人控制中心<br>ini名称:GASCPF')
+manualAdd('GASCEA','防御指挥部 ','ga bud t2','http://mentalomega.com/ch/images/cameo/sceaicon.png','名称:防御指挥部<br>ini名称:GASCEA')
+manualAdd('GAAIRC_D','空军指挥部升级：空降控制站 ','ga bud t2','http://mentalomega.com/ch/images/cameo/grdcicon.png','名称:空军指挥部升级：空降控制站<br>ini名称:GAAIRC_D')
+manualAdd('GAWALL','盟军围墙 ','ga bud t1','http://mentalomega.com/ch/images/cameo/wallicon.png','名称:盟军围墙<br>ini名称:GAWALL')
+manualAdd('GAGATE_C','盟军闸门（南北方向） ','ga bud t1','http://mentalomega.com/ch/images/cameo/agaticon.png','名称:盟军闸门（南北方向）<br>ini名称:GAGATE_C','top right')
+manualAdd('GAGATE_D','盟军闸门（东西方向） ','ga bud t1','http://mentalomega.com/ch/images/cameo/agaticon.png','名称:盟军闸门（东西方向）<br>ini名称:GAGATE_D')
+manualAdd('GAPILL','机枪碉堡 ','ga bud t1','http://mentalomega.com/ch/images/cameo/pillicon.png','名称:机枪碉堡<br>ini名称:GAPILL')
+manualAdd('GAPOST','火控节点 ','ga bud t3','http://mentalomega.com/ch/images/cameo/cfenicon.png','名称:火控节点<br>ini名称:GAPOST')
+manualAdd('GAGUN','定点炮台 ','ga bud t1','http://mentalomega.com/ch/images/cameo/gunticon.png','名称:定点炮台<br>ini名称:GAGUN')
+manualAdd('NASAM','爱国者防空导弹 ','ga bud t2','http://mentalomega.com/ch/images/cameo/samicon.png','名称:爱国者防空导弹<br>ini名称:NASAM')
+manualAdd('GASONIC','天光防空炮 ','ga bud t3','http://mentalomega.com/ch/images/cameo/skyricon.png','名称:天光防空炮<br>ini名称:GASONIC')
+manualAdd('ATESLA','光棱塔 ','ga bud t2','http://mentalomega.com/ch/images/cameo/prisicon.png','名称:光棱塔<br>ini名称:ATESLA')
+manualAdd('GTGCAN','巨炮 ','ga bud t3','http://mentalomega.com/ch/images/cameo/gcanicon.png','名称:巨炮<br>ini名称:GTGCAN')
+manualAdd('GAGAP','雷达干扰器 ','ga bud t3','http://mentalomega.com/ch/images/cameo/gapicon.png','名称:雷达干扰器<br>ini名称:GAGAP')
+manualAdd('GACSPH','超时空传送仪 ','ga bud t3','http://mentalomega.com/ch/images/cameo/csphicon.png','名称:超时空传送仪<br>ini名称:GACSPH')
+manualAdd('GAWEAT','天气控制机 ','ga bud t3','http://mentalomega.com/ch/images/cameo/wethicon.png','名称:天气控制机<br>ini名称:GAWEAT')
+manualAdd('NAPOWR','磁能反应炉 ','na bud t1','http://mentalomega.com/ch/images/cameo/npwricon.png','名称:磁能反应炉<br>ini名称:NAPOWR')
+manualAdd('NAHAND','苏联兵营 ','na bud t1','http://mentalomega.com/ch/images/cameo/handicon.png','名称:苏联兵营<br>ini名称:NAHAND')
+manualAdd('NAREFN','苏联矿石精炼厂 ','na bud t1','http://mentalomega.com/ch/images/cameo/nreficon.png','名称:苏联矿石精炼厂<br>ini名称:NAREFN')
+manualAdd('NAWEAP','苏联战争工厂 ','na bud t1','http://mentalomega.com/ch/images/cameo/nwepicon.png','名称:苏联战争工厂<br>ini名称:NAWEAP')
+manualAdd('NAAIR','苏联空军基地 ','na bud t2','http://mentalomega.com/ch/images/cameo/sairicon.png','名称:苏联空军基地<br>ini名称:NAAIR')
+manualAdd('NAYARD','苏联海军船坞 ','na bud t1','http://mentalomega.com/ch/images/cameo/yardicon.png','名称:苏联海军船坞<br>ini名称:NAYARD')
+manualAdd('NARADR','战地情报局 ','na bud t2','http://mentalomega.com/ch/images/cameo/npriicon.png','名称:战地情报局<br>ini名称:NARADR')
+manualAdd('NAEMPS','电磁脉冲控制站 ','na bud t3','http://mentalomega.com/ch/images/cameo/nempicon.png','名称:电磁脉冲控制站<br>ini名称:NAEMPS')
+manualAdd('NATEK','原子核心 ','na bud t3','http://mentalomega.com/ch/images/cameo/ntekicon.png','名称:原子核心<br>ini名称:NATEK')
+manualAdd('NATECHC','作战实验室 ','na bud t3','http://mentalomega.com/ch/images/cameo/nateicon.png','名称:作战实验室<br>ini名称:NATECHC')
+manualAdd('NATECHR','宫殿 ','na bud t3','http://mentalomega.com/ch/images/cameo/ntchicon.png','名称:宫殿<br>ini名称:NATECHR')
+manualAdd('NAINDP','工业工厂 ','na bud t3','http://mentalomega.com/ch/images/cameo/indpicon.png','名称:工业工厂<br>ini名称:NAINDP')
+manualAdd('NANRCT','核子反应炉 ','na bud t2','http://mentalomega.com/ch/images/cameo/nrcticon.png','名称:核子反应炉<br>ini名称:NANRCT')
+manualAdd('NAWALL','要塞墙 ','na bud t1','http://mentalomega.com/ch/images/cameo/nwalicon.png','名称:要塞墙<br>ini名称:NAWALL')
+manualAdd('NAGATE_A','苏联闸门（南北方向） ','na bud t1','http://mentalomega.com/ch/images/cameo/ngateicon.png','名称:苏联闸门（南北方向）<br>ini名称:NAGATE_A','top right')
+manualAdd('NAGATE_B','苏联闸门（东西方向） ','na bud t1','http://mentalomega.com/ch/images/cameo/ngateicon.png','名称:苏联闸门（东西方向）<br>ini名称:NAGATE_B')
+manualAdd('NALASR','哨戒机炮 ','na bud t1','http://mentalomega.com/ch/images/cameo/plticon.png','名称:哨戒机炮<br>ini名称:NALASR')
+manualAdd('NAMORT','烟雾炮台 ','na bud t3','http://mentalomega.com/ch/images/cameo/nmoricon.png','名称:烟雾炮台<br>ini名称:NAMORT')
+manualAdd('NASCOM','侦测塔 ','na bud t3','http://mentalomega.com/ch/images/cameo/ncomicon.png','名称:侦测塔<br>ini名称:NASCOM')
+manualAdd('NAFLAK','高射炮 ','na bud t2','http://mentalomega.com/ch/images/cameo/flakicon.png','名称:高射炮<br>ini名称:NAFLAK')
+manualAdd('TESLA','磁暴线圈 ','na bud t2','http://mentalomega.com/ch/images/cameo/tslaicon.png','名称:磁暴线圈<br>ini名称:TESLA')
+manualAdd('NAHAMM','地锤防御装置 ','na bud t3','http://mentalomega.com/ch/images/cameo/nhmmicon.png','名称:地锤防御装置<br>ini名称:NAHAMM')
+manualAdd('NADRON','维修起重机 ','na bud t3','http://mentalomega.com/ch/images/cameo/rfixicon.png','名称:维修起重机<br>ini名称:NADRON')
+manualAdd('NABNKR','战斗碉堡 ','na bud t1','http://mentalomega.com/ch/images/cameo/bnkricon.png','名称:战斗碉堡<br>ini名称:NABNKR')
+manualAdd('NAIRON','铁幕装置 ','na bud t3','http://mentalomega.com/ch/images/cameo/ironicon.png','名称:铁幕装置<br>ini名称:NAIRON')
+manualAdd('NAIRDM','钢铁守卫 ','na bud t3','http://mentalomega.com/ch/images/cameo/irdmicon.png','名称:钢铁守卫<br>ini名称:NAIRDM')
+manualAdd('NAMISL','战术核弹发射井 ','na bud t3','http://mentalomega.com/ch/images/cameo/msslicon.png','名称:战术核弹发射井<br>ini名称:NAMISL')
+manualAdd('YACXST','假厄普西隆建造场 ','ya bud t3','http://mentalomega.com/ch/images/cameo/fycyicon.png','名称:假厄普西隆建造场<br>ini名称:YACXST')
+manualAdd('YAPOWR','厄普西隆生化反应室 ','ya bud t1','http://mentalomega.com/ch/images/cameo/ypwricon.png','名称:厄普西隆生化反应室<br>ini名称:YAPOWR')
+manualAdd('YABRCK','厄普西隆兵营 ','ya bud t1','http://mentalomega.com/ch/images/cameo/brckicon.png','名称:厄普西隆兵营<br>ini名称:YABRCK')
+manualAdd('YARIREFN','厄普西隆矿石精炼厂 ','ya bud t1','http://mentalomega.com/ch/images/cameo/yreficon.png','名称:厄普西隆矿石精炼厂<br>ini名称:YARIREFN')
+manualAdd('YAWEAP','厄普西隆战争工厂 ','ya bud t1','http://mentalomega.com/ch/images/cameo/ywepicon.png','名称:厄普西隆战争工厂<br>ini名称:YAWEAP')
+manualAdd('YAPSIS','雷达旋塔 ','ya bud t2','http://mentalomega.com/ch/images/cameo/psisicon.png','名称:雷达旋塔<br>ini名称:YAPSIS')
+manualAdd('YAAIRF','厄普西隆停机坪 ','ya bud t2','http://mentalomega.com/ch/images/cameo/aerdicon.png','名称:厄普西隆停机坪<br>ini名称:YAAIRF')
+manualAdd('YAYARD','厄普西隆海军船坞 ','ya bud t1','http://mentalomega.com/ch/images/cameo/yyrdicon.png','名称:厄普西隆海军船坞<br>ini名称:YAYARD')
+manualAdd('YATECH','潘多拉枢纽 ','ya bud t2','http://mentalomega.com/ch/images/cameo/ytchicon.png','名称:潘多拉枢纽<br>ini名称:YATECH')
+manualAdd('YACVLT','枢纽升级：化学研究组件 ','ya bud t3','http://mentalomega.com/ch/images/cameo/plgcicon.png','名称:枢纽升级：化学研究组件<br>ini名称:YACVLT')
+manualAdd('YAPVLT','枢纽升级：心灵研究组件 ','ya bud t3','http://mentalomega.com/ch/images/cameo/plgpicon.png','名称:枢纽升级：心灵研究组件<br>ini名称:YAPVLT')
+manualAdd('YAGVLT','枢纽升级：基因研究组件 ','ya bud t3','http://mentalomega.com/ch/images/cameo/plggicon.png','名称:枢纽升级：基因研究组件<br>ini名称:YAGVLT')
+manualAdd('YAMPSI','心灵感应器 ','ya bud t2','http://mentalomega.com/ch/images/cameo/mpsiicon.png','名称:心灵感应器<br>ini名称:YAMPSI')
+manualAdd('YAGRND','粉碎回收厂 ','ya bud t3','http://mentalomega.com/ch/images/cameo/grndicon.png','名称:粉碎回收厂<br>ini名称:YAGRND')
+manualAdd('NACLON','克隆缸 ','ya bud t3','http://mentalomega.com/ch/images/cameo/clonicon.png','名称:克隆缸<br>ini名称:NACLON')
+manualAdd('GAFWLL','护城墙 ','ya bud t1','http://mentalomega.com/ch/images/cameo/citwicon.png','名称:护城墙<br>ini名称:GAFWLL')
+manualAdd('YAGATE_A','闸门（南北方向） ','ya bud t1','http://mentalomega.com/ch/images/cameo/ygateicon.png','名称:闸门（南北方向）<br>ini名称:YAGATE_A','top right')
+manualAdd('YAGATE_B','闸门（东西方向） ','ya bud t1','http://mentalomega.com/ch/images/cameo/ygateicon.png','名称:闸门（东西方向）<br>ini名称:YAGATE_B')
+manualAdd('YAGGUN','加特林机炮 ','ya bud t1','http://mentalomega.com/ch/images/cameo/ggunicon.png','名称:加特林机炮<br>ini名称:YAGGUN')
+manualAdd('YARAIL','地狱热能塔 ','ya bud t2','http://mentalomega.com/ch/images/cameo/infticon.png','名称:地狱热能塔<br>ini名称:YARAIL')
+manualAdd('YAPSYT','心灵控制塔 ','ya bud t3','http://mentalomega.com/ch/images/cameo/psyticon.png','名称:心灵控制塔<br>ini名称:YAPSYT')
+manualAdd('YAHADE','安塔瑞斯炮台 ','ya bud t3','http://mentalomega.com/ch/images/cameo/antaicon.png','名称:安塔瑞斯炮台<br>ini名称:YAHADE')
+manualAdd('YARIFT','幻象核心 ','ya bud t3','http://mentalomega.com/ch/images/cameo/rifticon.png','名称:幻象核心<br>ini名称:YARIFT')
+manualAdd('NATBNK','坦克碉堡 ','ya bud t1','http://mentalomega.com/ch/images/cameo/tbnkicon.png','名称:坦克碉堡<br>ini名称:NATBNK')
+manualAdd('YAGNTC','狂暴激发器 ','ya bud t3','http://mentalomega.com/ch/images/cameo/gntcicon.png','名称:狂暴激发器<br>ini名称:YAGNTC')
+manualAdd('YAPPET','心灵支配仪 ','ya bud t3','http://mentalomega.com/ch/images/cameo/pupticon.png','名称:心灵支配仪<br>ini名称:YAPPET')
+manualAdd('YAPPXT','假心灵支配仪 ','ya bud t3','http://mentalomega.com/ch/images/cameo/pxpticon.png','名称:假心灵支配仪<br>ini名称:YAPPXT')
+manualAdd('FATRAP','焚风发电风箱 ','fa bud t1','http://mentalomega.com/ch/images/cameo/wtrpicon.png','名称:焚风发电风箱<br>ini名称:FATRAP')
+manualAdd('FAWALL','焚风防御壁垒 ','fa bud t1','http://mentalomega.com/ch/images/cameo/fwalicon.png','名称:焚风防御壁垒<br>ini名称:FAWALL')
+manualAdd('FABARR','焚风兵营 ','fa bud t1','http://mentalomega.com/ch/images/cameo/fbaricon.png','名称:焚风兵营<br>ini名称:FABARR')
+manualAdd('FABARR_B','兵营升级：轨道舱协议 ','fa bud t3','http://mentalomega.com/ch/images/cameo/fbruicon.png','名称:兵营升级：轨道舱协议<br>ini名称:FABARR_B')
+manualAdd('FAREFN','焚风矿石精炼厂 ','fa bud t1','http://mentalomega.com/ch/images/cameo/freficon.png','名称:焚风矿石精炼厂<br>ini名称:FAREFN')
+manualAdd('FAYARD','焚风海军船坞 ','fa bud t1','http://mentalomega.com/ch/images/cameo/fyrdicon.png','名称:焚风海军船坞<br>ini名称:FAYARD')
+manualAdd('FAWEAP','焚风战争工厂 ','fa bud t1','http://mentalomega.com/ch/images/cameo/fwepicon.png','名称:焚风战争工厂<br>ini名称:FAWEAP')
+manualAdd('FAINHI','信号抑制器 ','fa bud t3','http://mentalomega.com/ch/images/cameo/inhiicon.png','名称:信号抑制器<br>ini名称:FAINHI')
+manualAdd('FACOMP','离子切割机 ','fa bud t3','http://mentalomega.com/ch/images/cameo/fequicon.png','名称:离子切割机<br>ini名称:FACOMP')
+manualAdd('FACOAT','纳米护甲生产器 ','fa bud t2','http://mentalomega.com/ch/images/cameo/coaticon.png','名称:纳米护甲生产器<br>ini名称:FACOAT')
+manualAdd('FASONI','声波发射器 ','fa bud t1','http://mentalomega.com/ch/images/cameo/semiicon.png','名称:声波发射器<br>ini名称:FASONI')
+manualAdd('FARAIL','轨道炮塔 ','fa bud t2','http://mentalomega.com/ch/images/cameo/rtowicon.png','名称:轨道炮塔<br>ini名称:FARAIL')
+manualAdd('FAGUAR','伯劳防空鸟巢 ','fa bud t2','http://mentalomega.com/ch/images/cameo/grdnicon.png','名称:伯劳防空鸟巢<br>ini名称:FAGUAR')
+manualAdd('FANANO','纳米纤维织机 ','fa bud t2','http://mentalomega.com/ch/images/cameo/loomicon.png','名称:纳米纤维织机<br>ini名称:FANANO')
+manualAdd('FANANO_B','纳米纤维织机扩展模组 ','fa bud t3','http://mentalomega.com/ch/images/cameo/loomeicon.png','名称:纳米纤维织机扩展模组<br>ini名称:FANANO_B')
+manualAdd('FACYBR','网络核心 ','fa bud t2','http://mentalomega.com/ch/images/cameo/cbrkicon.png','名称:网络核心<br>ini名称:FACYBR')
+manualAdd('FACYBR_B','网络核心扩展模组 ','fa bud t3','http://mentalomega.com/ch/images/cameo/cybreicon.png','名称:网络核心扩展模组<br>ini名称:FACYBR_B')
+manualAdd('FACLDP','穿云尖塔 ','fa bud t2','http://mentalomega.com/ch/images/cameo/cldpicon.png','名称:穿云尖塔<br>ini名称:FACLDP')
+manualAdd('FACLDP_B','穿云尖塔扩展模组 ','fa bud t3','http://mentalomega.com/ch/images/cameo/cldpeicon.png','名称:穿云尖塔扩展模组<br>ini名称:FACLDP_B')
+manualAdd('FAREPR','资源再生室 ','fa bud t3','http://mentalomega.com/ch/images/cameo/repricon.png','名称:资源再生室<br>ini名称:FAREPR')
+manualAdd('FABLST','爆裂熔炉 ','fa bud t3','http://mentalomega.com/ch/images/cameo/blsticon.png','名称:爆裂熔炉<br>ini名称:FABLST')
+manualAdd('FAELEV','暴风起源 ','fa bud t3','http://mentalomega.com/ch/images/cameo/elevicon.png','名称:暴风起源<br>ini名称:FAELEV')
+manualAdd('FABTRC','爆裂战壕 ','fa bud t3','http://mentalomega.com/ch/images/cameo/btrcicon.png','名称:爆裂战壕<br>ini名称:FABTRC')
+manualAdd('FAHARB','先锋导航塔 ','fa bud t3','http://mentalomega.com/ch/images/cameo/hrbticon.png','名称:先锋导航塔<br>ini名称:FAHARB')
+manualAdd('FAAVAL','离子要塞炮 ','fa bud t3','http://mentalomega.com/ch/images/cameo/avalicon.png','名称:离子要塞炮<br>ini名称:FAAVAL')
+manualAdd('FAMMIN','M.A.D.地雷 ','fa bud t3','http://mentalomega.com/ch/images/cameo/madmicon.png','名称:M.A.D.地雷<br>ini名称:FAMMIN')
+}
+//common
+initiate();
+manualAdd('NATRAP','EMP地雷 ','na bud t3','http://mentalomega.com/ch/images/cameo/trapicon.png','名称:EMP地雷<br>ini名称:NATRAP')
+manualAdd('YAVNMM','基因地雷 ','ya bud t3','http://mentalomega.com/ch/images/cameo/vnmmicon.png','名称:基因地雷<br>ini名称:YAVNMM')
+
+
+//stolen tech
+manualAdd('QUICK','跃迁载具 ','fa veh t3','http://mentalomega.com/ch/images/cameo/quikicon.png','名称:跃迁载具<br>ini名称:QUICK<br>攻击指令:QuickshifterAttackCommand')
+manualAdd('LIONH','狮心王轰炸机 ','fa veh t3','http://mentalomega.com/ch/images/cameo/lionicon.png','名称:狮心王轰炸机<br>ini名称:LIONH<br>攻击指令:LionheartAttackCommand')
+manualAdd('CHRP','超时空监狱 ','fa veh t3','http://mentalomega.com/ch/images/cameo/chrpicon.png','名称:超时空监狱<br>ini名称:CHRP<br>攻击指令:ChronoPrisonAttackCommand')
+manualAdd('AHVYBOT2','未来坦克阿尔法 ','fa veh t3','http://mentalomega.com/ch/images/cameo/hev2icon.png','名称:未来坦克阿尔法<br>ini名称:AHVYBOT2<br>攻击指令:FTank2AttackCommand')
+manualAdd('GRUMBLE','轰鸣防空导弹 ','fa veh t3','http://mentalomega.com/ch/images/cameo/grumicon.png','名称:轰鸣防空导弹<br>ini名称:GRUMBLE<br>攻击指令:GrumbleMove')
+manualAdd('MAMM','天启坦克 ','fa veh t3','http://mentalomega.com/ch/images/cameo/apocicon.png','名称:天启坦克<br>ini名称:MAMM<br>攻击指令:ApocalypseAttackCommand')
+manualAdd('SYCKLE','镰刃摩托车 ','fa veh t3','http://mentalomega.com/ch/images/cameo/syckicon.png','名称:镰刃摩托车<br>ini名称:SYCKLE<br>攻击指令:SyckleAttackCommand')
+manualAdd('IDRAG','铁龙坦克 ','fa veh t3','http://mentalomega.com/ch/images/cameo/idrgicon.png','名称:铁龙坦克<br>ini名称:IDRAG<br>攻击指令:IronDragonAttackCommand')
+manualAdd('TRACTOR','清道夫坦克 ','fa veh t3','http://mentalomega.com/ch/images/cameo/trcticon.png','名称:清道夫坦克<br>ini名称:TRACTOR<br>攻击指令:ScavengerNewAttackCommand')
+manualAdd('WORMQ','虫群女王 ','fa veh t3','http://mentalomega.com/ch/images/cameo/wrmqicon.png','名称:虫群女王<br>ini名称:WORMQ<br>攻击指令:WormqueenAttackCommand')
+manualAdd('SEIZER','恶灵摄魂师 ','fa veh t3','http://mentalomega.com/ch/images/cameo/seizicon.png','名称:恶灵摄魂师<br>ini名称:SEIZER<br>攻击指令:YuriCloneAttackCommand')
+manualAdd('SALA','火蜥蜴空中战舰 ','fa veh t3','http://mentalomega.com/ch/images/cameo/salaicon.png','名称:火蜥蜴空中战舰<br>ini名称:SALA<br>攻击指令:SalamanderAttackCommand')
+manualAdd('PHNT','幻光多管火箭炮 ','fa veh t3','http://mentalomega.com/ch/images/cameo/phnticon.png','名称:幻光多管火箭炮<br>ini名称:PHNT<br>攻击指令:PhantasmAttackCommand')
+manualAdd('SEITAAD','塞泰龙弩炮 ','fa veh t3','http://mentalomega.com/ch/images/cameo/seiticon.png','名称:塞泰龙弩炮<br>ini名称:SEITAAD<br>攻击指令:SeitaadAttackCommand')
+manualAdd('ARCH','恐龟加农炮 ','fa veh t3','http://mentalomega.com/ch/images/cameo/arclicon.png','名称:恐龟加农炮<br>ini名称:ARCH<br>攻击指令:ArchelonAttackCommand')
+manualAdd('RAMW','公羊 ','fa veh t3','http://mentalomega.com/ch/images/cameo/ramwicon.png','名称:公羊<br>ini名称:RAMW<br>攻击指令:RamwagonAttackCommand')
+//not buildable
+manualAdd('CYBO','半机械人先驱 ','na inf t5','http://mentalomega.com/ch/images/cameo/cyboicon.png','名称:半机械人先驱<br>ini名称:CYBO<br>攻击指令:CyborgAttackCommand')
+manualAdd('BEETLE','巨型甲虫 ','inf t5','http://mentalomega.com/ch/images/cameo/','名称:巨型甲虫<br>ini名称:BEETLE<br>攻击指令:')
+manualAdd('DNOA','暴龙 ','inf t5','','名称:暴龙<br>ini名称:DNOA<br>攻击指令:TrexMove')
+manualAdd('CYCOM','半机械特种兵 ','inf t5','http://mentalomega.com/ch/images/cameo/ccomicon.png','Name:半机械特种兵<br>ini:CYCOM<br>攻击指令:KinAdAttackCommand')
+manualAdd('LUNR','月球飞行兵 ','inf t5','http://mentalomega.com/ch/images/cameo/lunricon.png','名称:月球飞行兵<br>ini名称:LUNR<br>攻击指令:LaserCosmoAttackCommand')
+manualAdd('BIKE','自爆摩托车 ','na inf t5','http://mentalomega.com/ch/images/cameo/quadicon.png','名称:自爆摩托车<br>ini名称:BIKE<br>攻击指令:TerroristAttackCommand')
+manualAdd('REZNOV','雷泽诺夫 ','na inf t5','http://mentalomega.com/ch/images/cameo/reznicon.png','名称:雷泽诺夫<br>ini名称:REZNOV<br>攻击指令:ReznovAttackCommand')
+manualAdd('KRUKOV','库可夫 ','na inf t5','http://mentalomega.com/ch/images/cameo/krukicon.png','名称:库可夫<br>ini名称:KRUKOV<br>攻击指令:KrukovAttackCommand')
+manualAdd('CBRIS','太空特种兵 ','inf t5','http://mentalomega.com/ch/images/cameo/','名称:太空特种兵<br>ini名称:CBRIS<br>攻击指令:')
+manualAdd('YURIX','尤里 ','ya inf t5','http://mentalomega.com/ch/images/cameo/','名称:尤里<br>ini名称:YURIX<br>攻击指令:YuriPrimeAttackCommand')
+manualAdd('RHAD','拉什迪 ','ya inf t5','http://mentalomega.com/ch/images/cameo/','名称:拉什迪<br>ini名称:RHAD<br>攻击指令:YuriPrimeAttackCommand')
+manualAdd('STLN','蓝波 ','inf t5','http://mentalomega.com/ch/images/cameo/','名称:蓝波<br>ini名称:STLN<br>攻击指令:SlyAttackCommand')
+manualAdd('ARND','终结者 ','inf t5','http://mentalomega.com/ch/images/cameo/','名称:终结者<br>ini名称:ARND<br>攻击指令:ArnoldAttackCommand')
+manualAdd('CLNT','Westwood 之星 ','inf t5','http://mentalomega.com/ch/images/cameo/','名称:Westwood 之星<br>ini名称:CLNT<br>攻击指令:ClintAttackCommand')
+manualAdd('AHMV','武装悍马车 ','ga veh t5','http://mentalomega.com/ch/images/cameo/ahmvicon.png','名称:武装悍马车<br>ini名称:AHMV<br>攻击指令:HumveeAttackCommand')
+manualAdd('XPCV','厄普西隆机动建设车(假) ','ya veh t5','http://mentalomega.com/ch/images/cameo/fpcvicon.png','名称:厄普西隆机动建设车(假)<br>ini名称:XPCV<br>攻击指令:MCVYuriMove')
+manualAdd('DRACOD','飞蜥无人机 ','fa veh t5','http://mentalomega.com/ch/images/cameo/','名称:飞蜥无人机<br>ini名称:DRACOD<br>攻击指令:DracoTurretAttackCommand')
+manualAdd('PERUN','佩龙旗舰 ','na veh t5','http://mentalomega.com/ch/images/cameo/','名称:佩龙旗舰<br>ini名称:PERUN<br>攻击指令:PerunAttackCommand')
+manualAdd('STARDUSTB','悖论引擎 ','ga veh t5','http://mentalomega.com/ch/images/cameo/','名称:悖论引擎<br>ini名称:STARDUSTB<br>攻击指令')
+manualAdd('ICBM','白杨M发射台 ','na veh t5','http://mentalomega.com/ch/images/cameo/','名称:白杨M发射台<br>ini名称:ICBM<br>攻击指令:V3AttackCommand')
+manualAdd('MECHA','天狗机器人 ','ga veh t5','http://mentalomega.com/ch/images/cameo/','名称:天狗机器人<br>ini名称:MECHA<br>攻击指令:RobotTankAttackCommand')
+manualAdd('PANTHER','圣骑士歼击坦克 ','ga veh t5','http://mentalomega.com/ch/images/cameo/','名称:圣骑士歼击坦克<br>ini名称:PANTHER<br>攻击指令:TankDestroyerAttackCommand')
+manualAdd('AHVYBOT','未来坦克X-0 ','ga veh t5','http://mentalomega.com/ch/images/cameo/hevyicon.png','名称:未来坦克X-0<br>ini名称:AHVYBOT<br>攻击指令:FTankAttackCommand')
+manualAdd('NAFTUR','烈焰炮台 ','na bud t5','http://mentalomega.com/ch/images/cameo/ftowicon.png','名称:烈焰炮台<br>ini名称:NAFTUR')
+manualAdd('FAPOST','焚风发电风带 ','fa bud t5','http://mentalomega.com/ch/images/cameo/wblticon.png','名称:焚风发电风带<br>ini名称:FAPOST')
+manualAdd('POST','风带核心 ','fa veh t3','http://mentalomega.com/ch/images/cameo/','名称:风带核心<br>ini名称:POST<br>攻击指令:WindbeltCoreMove')
+manualAdd('RAVA','德拉库夫机动监狱 ','na veh t5','http://mentalomega.com/ch/images/cameo/ravaicon.png','名称:德拉库夫机动监狱<br>ini名称:RAVA<br>攻击指令:DrakuvAttackCommand')
+manualAdd('SDRN','维修无人机 ','na veh t5','http://mentalomega.com/ch/images/cameo/rpdrnicon.png','名称:维修无人机<br>ini名称:SDRN<br>攻击指令:ChaosDroneMove')
+
+
+manualAdd('KINGS','皇家骑兵 ','fa inf sy','http://mentalomega.com/ch/images/cameo/','名称:皇家骑兵<br>ini名称:KINGS<br>攻击指令:KnightframeAttackCommand2')
+manualAdd('RAIL','轨道炮战士 ','fa inf sy','http://mentalomega.com/ch/images/cameo/','名称:轨道炮战士<br>ini名称:RAIL<br>攻击指令:LancerAttackCommandB')
+manualAdd('DUPL','增殖机器人 ','fa inf sy','http://mentalomega.com/ch/images/cameo/','名称:增殖机器人<br>ini名称:DUPL<br>攻击指令:DuplicantAttackCommand')
+manualAdd('DEVI','迷幻猎手 ','fa inf sy','http://mentalomega.com/ch/images/cameo/','名称:迷幻猎手<br>ini名称:DEVI<br>攻击指令:HuntressAttackCommandB')
+manualAdd('SYNC_N','同步忍者 ','fa inf sy','http://mentalomega.com/ch/images/cameo/','名称:同步忍者<br>ini名称:SYNC_N<br>攻击指令:SyncroninAttackCommand')
+manualAdd('ZORB_N','气压球晋升者 ','fa inf sy','http://mentalomega.com/ch/images/cameo/','名称:气压球晋升者<br>ini名称:ZORB_N<br>攻击指令ZorbtrotterAttackCommand')
+manualAdd('BANE_N','天神克星 ','fa inf sy','http://mentalomega.com/ch/images/cameo/baneicon.png','名称:天神克星<br>ini名称:BANE_N<br>攻击指令:GiantsbaneAttackCommandB')
+
+
+function manualAdd2(id,name,filter,source="http://mentalomega.com/ch/images/cameo/bbtzicon.png",text=id)
+{
+	var frame=document.getElementById("mc");
+	var d=document.createElement("DIV");
+	d.className="tooltip";
+	var im=document.createElement("IMG");
+	var ttt=document.createElement("SPAN");
+	ttt.innerHTML=name;
+	ttt.className="tooltiptext";
+	im.src=source;
+	im.alt="";
+	
+	
+	im.addEventListener("click",function(){
+	myFunc(text);}
+	);
+	im.className="filt "+filter;
+	d.appendChild(im);
+	d.appendChild(ttt);
+	frame.appendChild(d);
+}
+
+function manualAdd(id,name,filter,source="http://mentalomega.com/ch/images/cameo/bbtzicon.png",text=id,al="top left")
+{
+	var frame=document.getElementById("mc");
+	var d=document.createElement("DIV");
+	d.className="tooltip filt "+filter;
+	d.style.backgroundSize="auto 80px";
+	d.style.backgroundImage="url('"+source+"')";
+	d.style.backgroundPosition=al;
+	d.title=name;
+	var ttt=document.createElement("SPAN");
+	ttt.innerHTML=name;
+	ttt.className="tooltiptext";
+	
+	
+	d.addEventListener("click",function(){
+	myFunc(text);}
+	);
+	
+	d.appendChild(ttt);
+	frame.appendChild(d);
+}
+
+
+var ss="";
+filterSelection("all");
+
+function myFunc(text){ 
+	document.getElementById("infobox").innerHTML = text;
+}
+function filterSelection(c) {
+if(c=="all")
+ss="";
+else
+  if(ss.includes(c)) ss=ss.replace("."+c,"");
+  else ss+="."+c;
+  
+  //document.getElementById("sss").innerHTML = ss;
+  //showClass();
+  newShow();
+}
+
+
+function showClass()
+{
+var el=document.getElementsByClassName("filt");
+var tl;
+if(ss=="") tl=document.getElementsByClassName("filt");
+else
+tl=document.querySelectorAll(ss);
+
+for(var i=0;i<el.length;i++)
+el[i].className=el[i].className.replace(" show","");
+for(var i=0;i<tl.length;i++)
+tl[i].className+=" show";
+	
+
+}
+
+function newShow()
+{
+var el=document.getElementsByClassName("filt");
+var tl;
+if(ss=="") tl=document.getElementsByClassName("filt");
+else
+tl=document.querySelectorAll(ss);
+
+for(var i=0;i<el.length;i++)
+el[i].style.display='none';
+for(var i=0;i<tl.length;i++)
+tl[i].style.display='block';
+	
+
+}
+
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+var allbtn=btnContainer.getElementsByClassName("all");
+for(var i=0;i<btns.length;i++){
+	btns[i].addEventListener("click", function(){
+    if(this.className.includes("all"))
+    {
+    	for(var j=0;j<btns.length;j++)  btns[j].className=btns[j].className.replace(" active","");
+            this.className+=" active";
+    }
+    else{
+    //allbtn[0].className=allbtn[0].className.replace(" active","");
+    if(this.className.includes("active")) 
+    this.className=this.className.replace(" active","");
+    else 
+    this.className+=" active";
+    }
+    });
+}
+</script>
+</html>
