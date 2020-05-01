@@ -481,8 +481,11 @@ margin-bottom: 0.1em;
   width: 100px;
   height: 80px;
   text-align: center;
-  margin: 2px;
   display: none;
+  border-style:solid;
+  border-width:3px;
+  border-radius:12px;
+  margin:1px;
 }
 
 .show {
@@ -979,27 +982,6 @@ manualAdd('ZORB_N','Zorbfloater ','fa inf sy','http://mentalomega.com/images/cam
 manualAdd('BANE_N','Godsbane ','fa inf sy','http://mentalomega.com/images/cameo/baneicon.png','Name:Godsbane<br>ini:BANE_N<br>VoiceAttack:GiantsbaneAttackCommandB')
 
 
-function manualAdd2(id,name,filter,source="http://mentalomega.com/images/cameo/bbtzicon.png",text=id)
-{
-	var frame=document.getElementById("mc");
-	var d=document.createElement("DIV");
-	d.className="tooltip";
-	var im=document.createElement("IMG");
-	var ttt=document.createElement("SPAN");
-	ttt.innerHTML=name;
-	ttt.className="tooltiptext";
-	im.src=source;
-	im.alt="";
-	
-	
-	im.addEventListener("click",function(){
-	myFunc(text);}
-	);
-	im.className="filt "+filter;
-	d.appendChild(im);
-	d.appendChild(ttt);
-	frame.appendChild(d);
-}
 
 function manualAdd(id,name,filter,source="http://mentalomega.com/images/cameo/bbtzicon.png",text=id,al="top left")
 {
@@ -1013,6 +995,22 @@ function manualAdd(id,name,filter,source="http://mentalomega.com/images/cameo/bb
 	var ttt=document.createElement("SPAN");
 	ttt.innerHTML=name;
 	ttt.className="tooltiptext";
+	if(filter.includes("na"))
+	{
+		d.style.borderColor="red";
+	}
+	if(filter.includes("ga"))
+	{
+		d.style.borderColor="blue";
+	}
+	if(filter.includes("ya"))
+	{
+		d.style.borderColor="magenta";
+	}
+	if(filter.includes("fa"))
+	{
+		d.style.borderColor="teal";
+	}
 	
 	
 	d.addEventListener("click",function(){
