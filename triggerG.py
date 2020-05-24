@@ -83,19 +83,19 @@ for i in range(0,n):
 m=cfp.ConfigParser(strict=False)
 m.optionxform=str
 m.read(mapName)
-
-for key in m['Actions']:
-	if str(key)[0:4]=="B155" :
-		m.remove_option("Actions",key)
-for key in m['Events']:
-	if str(key)[0:4]=="B155" :
-		m.remove_option("Events",key)
-for key in m['Triggers']:
-	if str(key)[0:4]=="B155" :
-		m.remove_option("Triggers",key)
-for key in m['Tags']:
-	if str(key)[0:4]=="A155" :
-		m.remove_option("Tags",key)
+if m.has_section('Tags'):
+	for key in m['Actions']:
+		if str(key)[0:4]=="B155" :
+			m.remove_option("Actions",key)
+	for key in m['Events']:
+		if str(key)[0:4]=="B155" :
+			m.remove_option("Events",key)
+	for key in m['Triggers']:
+		if str(key)[0:4]=="B155" :
+			m.remove_option("Triggers",key)
+	for key in m['Tags']:
+		if str(key)[0:4]=="A155" :
+			m.remove_option("Tags",key)
 
 
 for i in range(0,n):
