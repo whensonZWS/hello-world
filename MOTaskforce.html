@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+
+
+<html>
+<title>MO Taskforces Generator</title>
+<link rel="shortcut icon" href="http://mentalomega.com/favicon.ico">
+<link rel="icon" href="http://mentalomega.com/favicon.ico">
+<style>
+/* CSS Document */
+
+html, body { height: 100%; margin: 0; }
+
+
+body {
+	margin:0px;
+	padding:0px;
+	background-color:#000;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	color:#CCC;
+}
+
+#wrapper {
+	width:1000px;
+	margin:0 auto;	
+}
+
+#top {
+	float:left;
+	width:960px;
+	padding:0px 20px 0px 20px;
+	height:51px;
+	border-bottom:1px solid #555555;	
+}
+
+#ytbox {
+	padding:0px 0px 6px 0px;
+}
+
+.maintable {
+
+	border-color:#660066;
+	padding:4px;
+	border-spacing:0px;
+	border-collapse:seperate;
+	border-style:solid;
+	border-width:1px;
+	border-color:660066;
+	background-color:#333333;
+}
+
+#youtubevid {
+	outline:none;
+	border:none;
+	border-width:0px;
+	text-align:center;
+}
+
+.headtable{
+	background-color:#666666;
+	font-size:18px;
+	border-bottom:1px solid #660066;	
+	padding:4px;
+}
+
+.centerpiece {
+	text-align:center;
+}
+
+.leftpiece {
+	padding-left:14px;	
+}
+
+#adpiece {
+	text-align:center;
+}
+
+#twitbox {
+	text-align:center;
+	width:220px;
+	min-height:768px;
+}
+
+a {
+	color:#C38EC7;
+	text-decoration:none;	
+}
+
+a:hover {
+	color:#C38EC7;
+	text-decoration:underline;	
+}
+
+h1 {
+	float:none;
+	margin:0px;
+	padding:20px 0px 25px 0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:normal;
+	font-size:24px;
+	color:#fff;
+}
+
+h2 {
+	float:none;
+	margin:0px;
+	padding:5px 0px 5px 0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:normal;
+	font-size:15px;
+	color:#fff;
+}
+
+h1.logo {
+	float:left;
+	margin:90px 0px 0px 0px;
+	padding:0px;
+	font-family: 'Asap', sans-serif;
+	font-size:32px;
+	color:#fff;
+}
+
+span.green1 {
+	color:#B73C3E;	
+}
+
+span.darkgrey {
+	color:#4f4f4f;	
+}
+
+
+.dldbtn {
+	float:right;
+	width:184px;
+	height:38px;
+	margin-top: 2px;
+	margin-right: 5px;
+ 	display:block;
+ 	background:transparent url('../images/dldbtn.png') center top no-repeat;
+}
+
+.dldbtn:hover {
+	float:right;
+	width:184px;
+	height:38px;
+	margin-top: 2px;
+	margin-right: 5px;
+ 	display:block;
+   	background-image: url('../images/dldbtn_h.png');
+}
+
+
+
+
+.headerimg {
+	float:left;	
+	position: relative;
+	width: 100%;
+}
+
+#fbl {
+   position: absolute;
+   top: 155px;
+   left: 0px;
+   width: 100%;
+   margin: 0 auto;
+   width: 90px;
+   height: 28px;
+}
+
+#main {
+	float:left;
+	width:960px;
+	background-color:#111;
+	padding:20px 20px 40px 20px;
+	line-height:18px;
+	border-bottom:1px solid #555555;	
+}
+
+#left-part {
+	float:left;
+	width:232px;
+	margin:0px 30px 0px 0px;	
+}
+
+#right-part {
+	float:left;
+	width:668px;
+	margin:0px 30px 0px 0px;
+}
+
+#subnavi {
+	float:left;
+	width:220px;
+	margin:14px 0px 20px 0px;
+	padding:0px;
+	list-style-type:none;
+	border-top:1px solid #292c31;	
+}
+
+
+img.right {
+	float:right;
+	border:1px solid #CCC;
+	padding:1px;
+	margin:0px 0px 5px 10px;
+}
+
+ul.list {
+	list-style-type:square;	
+}
+
+#footer {
+	float:left;
+	width:960px;
+	padding:0px 20px 0px 20px;
+	height:80px;
+	color:#7b7b7b;
+	font-size:11px;	
+}
+
+#footer a {
+	color:#4f4f4f;
+}
+
+.sidelogo img{
+float: right;
+clear: none;
+display: block;
+margin: 0em;
+padding: 0em;
+margin-top: 5px;
+margin-bottom: 5px;
+margin-right: 5px;
+}
+
+
+.preview img{
+float: right;
+clear: none;
+display: block;
+margin: 0em;
+padding: 0em;
+margin-top: 5px;
+margin-bottom: 5px;
+margin-right: 5px;
+margin-left: 15px;
+padding:1px;
+border:1px solid #525552;
+background-color:#000000;
+}
+
+
+.details {
+float: left;
+clear: none;
+text-align: left;
+margin: 0em;
+padding: 0em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+.details p {
+text-align: left;
+padding: 0em;
+margin: 0em;
+}
+
+.details p.ital {
+padding: 0em;
+margin: 0em;
+margin-bottom: 0.5em;
+}
+
+.h1 {
+font-size: 2em;
+}
+
+.desc {
+float: none;
+clear: none;
+text-align: left;
+margin: 0.2em;
+padding: 0.2em;
+margin-top: 0.1em;
+margin-bottom: 0.1em;
+}
+
+.supportw {
+float: none;
+clear: none;
+text-align: left;
+margin: 0.2em;
+padding: 0.2em;
+margin-top: 0.1em;
+margin-bottom: 0.1em;
+margin-left: 0.2em;
+}
+
+.addinfo {
+float: left;
+clear: none;
+text-align: left;
+margin: 0em;
+padding: 0em;
+margin-top: 1px;
+margin-bottom: 1px;
+}
+
+.addinfo p {
+text-align: left;
+padding: 0em;
+margin: 0em;
+}
+
+.addinfo p.ital {
+padding: 0em;
+margin: 0em;
+margin-bottom: 0.1em;
+}
+
+
+
+
+.filt{
+  float: left;
+  background-color: #2196F3;
+  color: #ffffff;
+  width: 60px;
+  height: 48px;
+  text-align: center;
+  display: none;
+  background-size: auto 48px;
+  border-style:solid;
+  border-width:2px;
+  border-radius:6px;
+  margin:1px;
+}
+
+.tfimg{
+  float: left;
+  background-color: #2196F3;
+  color: #ffffff;
+  width: 60px;
+  height: 48px;
+  text-align: center;
+  margin: 1px;
+  border-style:solid;
+
+  background-size: auto 48px;
+  border-width:2px;
+  border-radius:4px;
+}
+
+.show {
+  display: block;
+}
+
+.container {
+  
+  width:51%;
+  /*height: 66%; */
+  overflow-y: auto;
+  
+
+}
+
+
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 3px 8px;
+  width: 100px;
+  font-size:13px;
+  line-height: 25px;
+  text-align: center;
+  margin: 2px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  
+
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 32%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 32%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 0.9;
+}
+
+.infobox
+{
+	diplay: block;
+	width:25%;
+	height:100px;
+	position:fixed;
+	top:25px;
+
+	font-size:18px;
+	right:160px;
+	background-color: #111111;
+	opacity: 0.9;
+	
+}
+
+.tftitle
+{
+	background-color: #888;
+	padding: 1px 10px;
+	border-bottom-style:solid;
+	border-width:2px;
+	border-color:white;
+	margin:0px;
+	font: 12px;
+	color:black;
+	overflow:auto;
+}
+.taskforce
+{
+	border-style:solid;
+	border-radius: 6px; 
+	border-width:2px;
+	margin:1px;
+	float:left; 
+	width:98%;
+	overflow:auto;
+}
+
+.counter
+{
+	color:#ff0;
+	font:bold 12px Arial,sans-serif;
+	background-color: rgba(17,17,17,0.7);
+	border-top-left-radius: 4px;
+	width:20px;
+	user-select:none;
+}
+.filler
+{
+	height:48px;
+	margin:3px 0;
+	float:left;
+	
+}
+.collapseBtn
+{
+	float:right;
+	font-family:Consolas, monospace ;
+}
+.deleteBtn
+{
+	float:right;
+	font-family:Consolas, monospace ;
+}
+
+
+.tfname
+{
+	margin:1px;
+	background-color:rgba(0,0,0,0);
+	border-style:none;
+	font-family:Consolas, monospace ;
+}
+
+.textbox
+{
+	background-color:white;
+	color:black;
+	font-family:Consolas, monospace ;
+	border-style:solid;
+	border-color:teal;
+	border-width:5px;
+	border-radius:5px;
+	padding:5px;
+	width:80%;
+	height:80%;
+	display:none;
+}
+.helpbox
+{
+	background-color:white;
+	color:black;
+	font-size:12px;
+	line-height:20px;
+	border-style:solid;
+	border-color:teal;
+	border-width:5px;
+	border-radius:5px;
+	padding:5px;
+	width:40%;
+	height:40%;
+	display:none;
+	overflow-y:auto;
+}
+.blocker
+{
+	background-color:rgba(0,0,0,0.8);
+	width:100%;
+	height:100%;
+	display:none;
+}
+.key
+{
+	font-family:Consolas, monospace ;
+	display:inline;
+	background-color:#ddd;
+	padding:2px 10px;
+}
+#author
+{
+	color:magenta;
+	font:bold 15px Consolas,monospace;
+	display:inline;
+}
+</style>
+
+ <head>
+ <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script></head> 
+<body>
+<div id="myBtnContainer"  >
+<div><h2>Faction</h2>
+<button class="btn" id="na" >Soviet (<u>1</u>)</button>
+<button class="btn" id="ga" >Ally (<u>2</u>)</button>
+<button class="btn" id="ya" >Epsilon (<u>3</u>)</button>
+<button class="btn" id="fa" >Foehn (<u>4</u>)</button>
+<button class="btn" id="help" onclick="displayHelp()" style="float:right; margin-right:30px;">Hel<u>p</u></button>
+</div>
+<div><h2>Type</h2>
+<button class="btn" id="veh" >Vehicle (<u>Q</u>)</button>
+<button class="btn" id="inf" >Infantry (<u>W</u>)</button>
+</div>
+<div><h2>Tech Level</h2>
+<button class="btn" id="t1" >T1 (<u>A</u>)</button>
+<button class="btn" id="t2" >T2 (<u>S</u>)</button>
+<button class="btn" id="t3" >T3 (<u>D</u>)</button>
+<button class="btn" id="t4" >Stolen (<u>F</u>)</button>
+<button class="btn" id="t5" >Hidden (<u>G</u>)</button>
+<button class="btn" id="sy" >Nano Sync (<u>H</u>)</button>
+<button class="btn" onClick="generateTaskforce()" style="float:right;  margin-right:30px;">Generate!</button>
+<button class="btn" onClick="addTaskforce()" style="float:right">Add <u>T</u>askforce</button>
+<button class="btn" onClick="foldAll()" style="float:right">Fold All (<u>V</u>)</button>
+<button class="btn" onClick="collapseAll()" style="float:right;"><u>C</u>ollapse All</button>
+</div>
+<p></p>
+</div>
+<div>
+<div class="container " id="mc" style="float:left;">
+	
+</div>
+<div class="container " id="tf" style="margin-left:52%; width:48%; color:white;">
+	<div id="tf1" class="taskforce" >
+		<div id="tf1t" class="tftitle">
+		<input value="Taskforce 1" maxlength="32" size="12" onkeypress="this.size=this.value.length+2;" class="tfname">
+		<button class="deleteBtn" title="Clear (Ctrl click to delete)" > x </button>
+		<button class="collapseBtn" > - </button> 
+		 </div>
+		<div class="filler"></div>
+	</div>
+	<div id="tf2" class="taskforce">
+		
+
+		<div id="tf2t" class="tftitle">
+		<input value="Taskforce 2" maxlength="32" size="12" onkeypress="this.size=this.value.length+2;" class="tfname">
+		<button class="deleteBtn" title="Clear (Ctrl click to delete)"> x </button>
+		<button class="collapseBtn"> - </button> 
+		 </div>
+		<div class="filler"></div>
+
+	</div>
+	
+	<div id="tf3" class="taskforce">
+		<div id="tf2t" class="tftitle">
+		<input value="Taskforce 3" maxlength="32" size="
+		12" onkeypress="this.size=this.value.length+2;" class="tfname">
+		<button class="deleteBtn" title="Clear (Ctrl click to delete)"> x </button>
+		<button class="collapseBtn"> - </button> 
+		</div>
+		<div class="filler"></div>
+	</div>
+	
+</div>
+</div>
+
+<div id="tooltip" style="background-color:rgba(65,65,65,.9);;
+	
+	padding: 8px 1px; 
+	font:18px;	
+	width:120px;
+	color:#fff;
+	position:fixed;
+	text-align: center;
+	border-radius: 6px;
+	
+"> tooltip </div>
+
+
+
+
+
+<div class="infobox" align="center" >
+Information
+<div id="infobox" style="font-size: 15px; padding: 0px 5px;" align="left" >
+</div>
+</div>
+<div class="blocker" id="bbb" onClick="hideBox()" style="position:fixed; top:0; left:0;"></div>
+<div class="helpbox" style="position:fixed; top:30%; left:30%;"> 
+<h2 style="color:black;">Mental Omega 3.3.4 Taskforces Generator (v1.0)</h2>
+Created by <div id="author">[ISS]whenson</div> <br><br>
+
+Left click unit icons to add it into the currently selected taskforce.<br>
+Right click unit icons to remove it from the taskforce. <br>
+Ctrl/Shift click to add/remove 5 units at a time. <br>
+Click the "Generate!" button to generate taskforces in copyable text. <br>
+Open your map file with notepad and paste the text into it.<br> <br>
+Additional Hotkeys: <br>
+<div class="key">Space</div>: Show All Units <br>
+<div class="key">Z</div> / <div class="key">X</div>: Cycle selection of taskforces <br>
+<div class="key">Backspace</div>: Clear all units from current taskforce <br>
+<div class="key">Ctrl</div>+<div class="key">Backspace</div>: Delete current taskforce <br>
+<div class="key">~</div>: Fold/Collapse current taskforce
+</div>
+
+<textarea class="textbox" style="position:fixed; top:10%; left:10%;"></textarea>
+
+</body>
+
+<script>
+
+function initiate(){
+manualAdd('E1','G.I. ','ga inf t1','giicon.png','Name:G.I.<br>ini:E1<br>VoiceAttack:GIAttackCommand')
+manualAdd('ADOG','Allied Attack Dog ','ga inf t1','adogicon.png','Name:Allied Attack Dog<br>ini:ADOG<br>VoiceAttack:DogAttackCommand')
+manualAdd('ENGINEER','Allied Engineer ','ga inf t1','engnicon.png','Name:Allied Engineer<br>ini:ENGINEER<br>VoiceAttack:EngAllMove')
+manualAdd('AMEDIC','Field Medic ','ga inf t2','mediicon.png','Name:Field Medic<br>ini:AMEDIC<br>VoiceAttack:MedicAttackCommand')
+manualAdd('GGI','Guardian G.I. ','ga inf t1','gdgiicon.png','Name:Guardian G.I.<br>ini:GGI<br>VoiceAttack:GuardianGIAttackCommand')
+manualAdd('ENFO','Siege Cadre ','ga inf t2','enfoicon.png','Name:Siege Cadre<br>ini:ENFO<br>VoiceAttack:SiegeCadreAttackCommand')
+manualAdd('JUMPJET','Rocketeer ','ga inf t2','jjeticon.png','Name:Rocketeer<br>ini:JUMPJET<br>VoiceAttack:RocketeerAttackCommand')
+manualAdd('SPY','Spy ','ga inf t3','spyicon.png','Name:Spy<br>ini:SPY<br>VoiceAttack:SpyAttackCommand')
+manualAdd('GHOST','Navy SEAL ','ga inf t2','sealicon.png','Name:Navy SEAL<br>ini:GHOST<br>VoiceAttack:SealAttackCommand')
+manualAdd('TANY','Tanya ','ga inf t3','tanyicon.png','Name:Tanya<br>ini:TANY<br>VoiceAttack:TanyaPrimeAttackCommand')
+manualAdd('SUPR','Suppressor ','ga inf t3','supricon.png','Name:Suppressor<br>ini:SUPR<br>VoiceAttack:SuppressorAttackCommand')
+manualAdd('ARMR','Norio ','ga inf t3','armricon.png','Name:Norio<br>ini:ARMR<br>VoiceAttack:ArmormanAttackCommand')
+manualAdd('CLEG','Chrono Legionnaire ','ga inf t3','clegicon.png','Name:Chrono Legionnaire<br>ini:CLEG<br>VoiceAttack:ChronoLegionAttackCommand')
+manualAdd('SNIPE','Sniper ','ga inf t3','snipicon.png','Name:Sniper<br>ini:SNIPE<br>VoiceAttack:SniperAttackCommand')
+manualAdd('RIOT','Riot Trooper ','ga inf t3','rioticon.png','Name:Riot Trooper<br>ini:RIOT<br>VoiceAttack:RiotTrooperAttackCommand')
+manualAdd('SIEG','Siegfried ','ga inf t3','siegicon.png','Name:Siegfried<br>ini:SIEG<br>VoiceAttack:SiegfriedAttackCommand')
+manualAdd('E2','Conscript ','na inf t1','e2icon.png','Name:Conscript<br>ini:E2<br>VoiceAttack:ConscriptAttackCommand')
+manualAdd('DOG','Soviet Attack Dog ','na inf t1','dogicon.png','Name:Soviet Attack Dog<br>ini:DOG<br>VoiceAttack:DogAttackCommand')
+manualAdd('FLAKT','Flak Trooper ','na inf t1','flkticon.png','Name:Flak Trooper<br>ini:FLAKT<br>VoiceAttack:FlakTroopAttackCommand')
+manualAdd('SENGINEER','Soviet Engineer ','na inf t1','sengicon.png','Name:Soviet Engineer<br>ini:SENGINEER<br>VoiceAttack:EngSovMove')
+manualAdd('SHK','Tesla Trooper ','na inf t2','shkicon.png','Name:Tesla Trooper<br>ini:SHK<br>VoiceAttack:TeslaTroopAttackCommand')
+manualAdd('FLAMER','Pyro ','na inf t2','pyroicon.png','Name:Pyro<br>ini:FLAMER<br>VoiceAttack:PyroAttackCommand')
+manualAdd('GYRO','Gyrocopter ','na inf t3','gyroicon.png','Name:Gyrocopter<br>ini:GYRO<br>VoiceAttack:GyrocopterAttackCommand')
+manualAdd('MOTOR','Mortar Quad ','na inf t2','quadicon.png','Name:Mortar Quad<br>ini:MOTOR<br>VoiceAttack:MortarQuadAttackCommand')
+manualAdd('IVAN','Crazy Ivan ','na inf t2','ivanicon.png','Name:Crazy Ivan<br>ini:IVAN<br>VoiceAttack:CrazyIvanAttackCommand')
+manualAdd('ARSO','Arsonist ','na inf t3','arsoicon.png','Name:Arsonist<br>ini:ARSO<br>VoiceAttack:ArsonistDisguise')
+manualAdd('SBTR','Saboteur ','na inf t3','sbtricon.png','Name:Saboteur<br>ini:SBTR<br>VoiceAttack:SaboteurAttackCommand')
+manualAdd('MORALES','Morales ','na inf t3','moraicon.png','Name:Morales<br>ini:MORALES<br>VoiceAttack:MoralesAttackCommand')
+manualAdd('VOLKOV','Volkov ','na inf t3','volkicon.png','Name:Volkov<br>ini:VOLKOV<br>VoiceAttack:VolkovAttackCommand')
+manualAdd('CHITZ','Chitzkoi ','na inf t3','hhndicon.png','Name:Chitzkoi<br>ini:CHITZ<br>VoiceAttack:ChitzkoiAttackCommand')
+manualAdd('YUNRU','Yunru ','na inf t3','yunricon.png','Name:Yunru<br>ini:YUNRU<br>VoiceAttack:YunruAttackCommand')
+manualAdd('DESO','Desolator ','na inf t3','desoicon.png','Name:Desolator<br>ini:DESO<br>VoiceAttack:DesolatorAttackCommand')
+manualAdd('DESOR','Eradicator ','na inf t3','desricon.png','Name:Eradicator<br>ini:DESOR<br>VoiceAttack:DesolatorAttackCommand')
+manualAdd('INIT','Initiate ','ya inf t1','initicon.png','Name:Initiate<br>ini:INIT<br>VoiceAttack:InitiateAttackCommand')
+manualAdd('HARP','Archer ','ya inf t1','harpicon.png','Name:Archer<br>ini:HARP<br>VoiceAttack:HarpoonAttackCommand')
+manualAdd('YDOG','Spook ','ya inf t1','spokicon.png','Name:Spook<br>ini:YDOG<br>VoiceAttack:SpookAttackCommand')
+manualAdd('YENGINEER','Epsilon Engineer ','ya inf t1','yengicon.png','Name:Epsilon Engineer<br>ini:YENGINEER<br>VoiceAttack:EngYuriCapture')
+manualAdd('BRUTE','Brute ','ya inf t2','bruticon.png','Name:Brute<br>ini:BRUTE<br>VoiceAttack:BruteAttackCommand')
+manualAdd('INTRUDER','Infiltrator ','ya inf t3','intricon.png','Name:Infiltrator<br>ini:INTRUDER<br>VoiceAttack:InfiltratorDisguise')
+manualAdd('STALKER','Stalker ','ya inf t3','stlkicon.png','Name:Stalker<br>ini:STALKER<br>VoiceAttack:StalkerAttackCommand')
+manualAdd('KAOS','Bloatick ','ya inf t2','weavicon.png','Name:Bloatick<br>ini:KAOS<br>VoiceAttack:WeaverAttackCommand')
+manualAdd('HIJACKER','Hijacker ','ya inf t3','hjkricon.png','Name:Hijacker<br>ini:HIJACKER<br>VoiceAttack:HijackerAttackCommand')
+manualAdd('VIRUS','Virus ','ya inf t3','vrusicon.png','Name:Virus<br>ini:VIRUS<br>VoiceAttack:VirusAttackCommand')
+manualAdd('YURI','Epsilon Adept ','ya inf t3','yclnicon.png','Name:Epsilon Adept<br>ini:YURI<br>VoiceAttack:YuriAttackCommand')
+manualAdd('YURIPR','Epsilon Elite ','ya inf t3','yypricon.png','Name:Epsilon Elite<br>ini:YURIPR<br>VoiceAttack:YuriAttackCommand')
+manualAdd('ASSN','Rahn ','ya inf t3','assnicon.png','Name:Rahn<br>ini:ASSN<br>VoiceAttack:RahnAttackCommand')
+manualAdd('UNDER','Malver ','ya inf t3','undricon.png','Name:Malver<br>ini:UNDER<br>VoiceAttack:UnderminerAttackCommand')
+manualAdd('LIBRA','Libra ','ya inf t3','libricon.png','Name:Libra<br>ini:LIBRA<br>VoiceAttack:LibraDartsAttackCommand')
+manualAdd('DUNE','Dunerider ','ya inf t2','razgicon.png','Name:Dunerider<br>ini:DUNE<br>VoiceAttack:GarAttackCommand')
+manualAdd('KNIGHT','Knightframe ','fa inf t1','knigicon.png','Name:Knightframe<br>ini:KNIGHT<br>VoiceAttack:KnightframeAttackCommand')
+manualAdd('COVE','Lancer ','fa inf t1','lancicon.png','Name:Lancer<br>ini:COVE<br>VoiceAttack:LancerAttackCommand')
+manualAdd('FENGINEER','Foehn Engineer ','fa inf t1','fengicon.png','Name:Foehn Engineer<br>ini:FENGINEER<br>VoiceAttack:EngFoeAttackCommand')
+manualAdd('HUNTR','Huntress ','fa inf t2','hntricon.png','Name:Huntress<br>ini:HUNTR<br>VoiceAttack:HuntressAttackCommand')
+manualAdd('CLAIR','Clairvoyant ','fa inf t3','clrvicon.png','Name:Clairvoyant<br>ini:CLAIR<br>VoiceAttack:ClairvoyantAttackCommand')
+manualAdd('SYNC','Syncronin ','fa inf t3','sronicon.png','Name:Syncronin<br>ini:SYNC<br>VoiceAttack:SyncroninAttackCommand')
+manualAdd('ZORB','Zorbtrotter ','fa inf t3','zorbicon.png','Name:Zorbtrotter<br>ini:ZORB<br>VoiceAttack:ZorbtrotterAttackCommand')
+manualAdd('BANE','Giantsbane ','fa inf t3','baneicon.png','Name:Giantsbane<br>ini:BANE<br>VoiceAttack:GiantsbaneAttackCommand')
+manualAdd('SIBFIN','Fin ','fa inf t3','finicon.png','Name:Fin<br>ini:SIBFIN<br>VoiceAttack:SibFinAttackCommand')
+manualAdd('SICALI','Alize ','fa inf t3','alizicon.png','Name:Alize<br>ini:SICALI<br>VoiceAttack:SibAlizeAttackCommand')
+manualAdd('EUREKA','Eureka ','fa inf t3','eureicon.png','Name:Eureka<br>ini:EUREKA<br>VoiceAttack:EurekaAttackCommand')
+manualAdd('URAGAN','Uragan ','fa inf t3','kingicon.png','Name:Uragan<br>ini:URAGAN<br>VoiceAttack:UraganAttackCommand')
+manualAdd('MTNK','Cavalier Medium Tank ','ga veh t1','gtnkicon.png','Name:Cavalier Medium Tank<br>ini:MTNK<br>VoiceAttack:RottweilerAttackCommand')
+manualAdd('ETNK','Bulldog Light Tank ','ga veh t1','etnkicon.png','Name:Bulldog Light Tank<br>ini:ETNK<br>VoiceAttack:GenAllVehicleAttackCommand')
+manualAdd('KTNK','Kappa Hover Tank ','ga veh t1','predicon.png','Name:Kappa Hover Tank<br>ini:KTNK<br>VoiceAttack:PredatorAttackCommand')
+manualAdd('ROBO','Robot Tank ','ga veh t1','roboicon.png','Name:Robot Tank<br>ini:ROBO<br>VoiceAttack:RobotTankAttackCommand')
+manualAdd('FV','Stryker IFV ','ga veh t1','strkicon.png','Name:Stryker IFV<br>ini:FV<br>VoiceAttack:IFVAttackCommand')
+manualAdd('AMC','Archon AMC ','ga veh t1','archicon.png','Name:Archon AMC<br>ini:AMC<br>VoiceAttack:SaberAttackCommand')
+manualAdd('TENGU','Tsurugi Powersuit ','ga veh t1','tsuricon.png','Name:Tsurugi Powersuit<br>ini:TENGU<br>VoiceAttack:SuitAttackCommand')
+manualAdd('LCRF','Voyager Transport ','ga veh t1','lcrficon.png','Name:Voyager Transport<br>ini:LCRF<br>VoiceAttack:HoverAlliedMove')
+manualAdd('SHAD','Stallion Transport ','ga veh t2','shadicon.png','Name:Stallion Transport<br>ini:SHAD<br>VoiceAttack:BlackOpsAttackCommand')
+manualAdd('ORCA','Harrier ','ga veh t2','falcicon.png','Name:Harrier<br>ini:ORCA<br>VoiceAttack:IntruderAttackCommand')
+manualAdd('STORM','Stormchild ','ga veh t2','strmicon.png','Name:Stormchild<br>ini:STORM<br>VoiceAttack:StormchildAttackCommand')
+manualAdd('FORTRESS','Barracuda ','ga veh t3','stlhicon.png','Name:Barracuda<br>ini:FORTRESS<br>VoiceAttack:StealthBomberAttackCommand')
+manualAdd('HBIRD','Hummingbird ','ga veh t3','hbrdicon.png','Name:Hummingbird<br>ini:HBIRD<br>VoiceAttack:HummingbirdAttackCommand')
+manualAdd('BEAG','Black Eagle ','ga veh t2','beagicon.png','Name:Black Eagle<br>ini:BEAG<br>VoiceAttack:BlackEagleAttackCommand')
+manualAdd('COMA','Warhawk ','ga veh t2','warhicon.png','Name:Warhawk<br>ini:COMA<br>VoiceAttack:ComancheLaserAttack')
+manualAdd('CRYO','Cryocopter ','ga veh t3','crycicon.png','Name:Cryocopter<br>ini:CRYO<br>VoiceAttack:CryocopterAttackCommand')
+manualAdd('MGTK','Mirage Tank ','ga veh t2','rtnkicon.png','Name:Mirage Tank<br>ini:MGTK<br>VoiceAttack:MirageTankAttackCommand')
+manualAdd('HOWI','Zephyr Artillery ','ga veh t2','zephicon.png','Name:Zephyr Artillery<br>ini:HOWI<br>VoiceAttack:ZephyrAttackCommand')
+manualAdd('SREF','Prism Tank ','ga veh t3','sreficon.png','Name:Prism Tank<br>ini:SREF<br>VoiceAttack:PrismTankAttackCommand')
+manualAdd('BASS','Athena Cannon ','ga veh t3','bassicon.png','Name:Athena Cannon<br>ini:BASS<br>VoiceAttack:AthenaArrayAttackCommand')
+manualAdd('ABRM','Abrams Tank ','ga veh t3','abrmicon.png','Name:Abrams Tank<br>ini:ABRM<br>VoiceAttack:AbramsAttackCommand')
+manualAdd('BFRT','Battle Tortoise ','ga veh t3','bfrticon.png','Name:Battle Tortoise<br>ini:BFRT<br>VoiceAttack:BattleFortressAttackCommand')
+manualAdd('AMCV','Allied Construction Vehicle ','ga veh t2','mcvicon.png','Name:Allied Construction Vehicle<br>ini:AMCV<br>VoiceAttack:MCVAlliedMove')
+manualAdd('DEST','Destroyer ','ga veh t1','desticon.png','Name:Destroyer<br>ini:DEST<br>VoiceAttack:GenAllWaterAttackCommand')
+manualAdd('DLPH','Dolphin ','ga veh t2','dlphicon.png','Name:Dolphin<br>ini:DLPH<br>VoiceAttack:DolphinAttackCommand')
+manualAdd('AEGIS','Aegis Cruiser ','ga veh t2','agisicon.png','Name:Aegis Cruiser<br>ini:AEGIS<br>VoiceAttack:AegisAttackCommand')
+manualAdd('CARRIER','Aircraft Carrier ','ga veh t3','carricon.png','Name:Aircraft Carrier<br>ini:CARRIER<br>VoiceAttack:AircraftCarrierAttackCommand')
+manualAdd('HCRUIS','Battleship ','ga veh t3','hcrsicon.png','Name:Battleship<br>ini:HCRUIS<br>VoiceAttack:CruiserAttackCommand')
+manualAdd('CMIN','Chrono Miner ','ga veh t1','ahrvicon.png','Name:Chrono Miner<br>ini:CMIN<br>VoiceAttack:ChronoMinerMove')
+manualAdd('AERO','Aeroblaze ','ga veh t3','aeroicon.png','Name:Aeroblaze<br>ini:AERO<br>VoiceAttack:AeroblazeAttackCommand')
+manualAdd('VCARR','Hailstorm ','ga veh t3','hailicon.png','Name:Hailstorm<br>ini:VCARR<br>VoiceAttack:HailstormAttackCommand')
+manualAdd('BLZZ','Blizzard Tank ','ga veh t3','blzzicon.png','Name:Blizzard Tank<br>ini:BLZZ<br>VoiceAttack:BlizzardAttackCommand')
+manualAdd('CHRTNK','Charon Tank ','ga veh t3','ctnkicon.png','Name:Charon Tank<br>ini:CHRTNK<br>VoiceAttack:PrisonAttackCommand')
+manualAdd('THOR','Thor Gunship ','ga veh t3','thoricon.png','Name:Thor Gunship<br>ini:THOR<br>VoiceAttack:ThorAttackCommand')
+manualAdd('DRON','Terror Drone ','na veh t1','drncicon.png','Name:Terror Drone<br>ini:DRON<br>VoiceAttack:TerrorDroneAttackCommand')
+manualAdd('HTK','Halftrack ','na veh t1','htkicon.png','Name:Halftrack<br>ini:HTK<br>VoiceAttack:FlakTrackAttackCommand')
+manualAdd('SCAR','Tigr APC ','na veh t1','lynxicon.png','Name:Tigr APC<br>ini:SCAR<br>VoiceAttack:TigrAttackCommand')
+manualAdd('HTNK','Rhino Heavy Tank ','na veh t1','htnkicon.png','Name:Rhino Heavy Tank<br>ini:HTNK<br>VoiceAttack:GenSovVehicleAttackCommand')
+manualAdd('CTNK','Qilin Heavy Tank ','na veh t1','qtnkicon.png','Name:Qilin Heavy Tank<br>ini:CTNK<br>VoiceAttack:TigerTankAttackCommand')
+manualAdd('JTNK','Jaguar Battle Tank ','na veh t1','jtnkicon.png','Name:Jaguar Battle Tank<br>ini:JTNK<br>VoiceAttack:JaguarTankAttackCommand')
+manualAdd('SAPC','Zubr Transport ','na veh t1','sapcicon.png','Name:Zubr Transport<br>ini:SAPC<br>VoiceAttack:HoverSovietMove')
+manualAdd('V3','Scud Launcher ','na veh t3','v3icon.png','Name:Scud Launcher<br>ini:V3<br>VoiceAttack:V3AttackCommand')
+manualAdd('TTNK','Tesla Cruiser ','na veh t3','ttnkicon.png','Name:Tesla Cruiser<br>ini:TTNK<br>VoiceAttack:TeslaTankAttackCommand')
+manualAdd('FDRON','Fury Drone ','na veh t3','fdrnicon.png','Name:Fury Drone<br>ini:FDRON<br>VoiceAttack:FuryDroneAttackCommand')
+manualAdd('SCHP','Vulture ','na veh t3','schpicon.png','Name:Vulture<br>ini:SCHP<br>VoiceAttack:SeigeChopperAttackAir')
+manualAdd('EDRN','Dragonfly ','na veh t3','edrnicon.png','Name:Dragonfly<br>ini:EDRN<br>VoiceAttack:DragonflyMove')
+manualAdd('WOLF','Wolfhound ','na veh t3','wolficon.png','Name:Wolfhound<br>ini:WOLF<br>VoiceAttack:WolfhoundAttackCommand')
+manualAdd('ZEP','Kirov Airship ','na veh t3','zepicon.png','Name:Kirov Airship<br>ini:ZEP<br>VoiceAttack:KirovAttackCommand')
+manualAdd('SENT','Sentinel ','na veh t3','senticon.png','Name:Sentinel<br>ini:SENT<br>VoiceAttack:SentinelAttackCommand')
+manualAdd('EMPR','Nuwa Cannon ','na veh t3','empricon.png','Name:Nuwa Cannon<br>ini:EMPR<br>VoiceAttack:DragonAttackCommand')
+manualAdd('BOREK','Borillo ','na veh t2','boriicon.png','Name:Borillo<br>ini:BOREK<br>VoiceAttack:BorilloAttackCommand')
+manualAdd('ARMA','Armadillo ','na veh t2','armaicon.png','Name:Armadillo<br>ini:ARMA<br>VoiceAttack:BorilloAttackCommand')
+manualAdd('DUST','Dustdevil ','na veh t2','dusticon.png','Name:Dustdevil<br>ini:DUST<br>VoiceAttack:DustdevilAttackCommand')
+manualAdd('FOX','Foxtrot ','na veh t2','foxicon.png','Name:Foxtrot<br>ini:FOX<br>VoiceAttack:MIGAttackCommand')
+manualAdd('CNTR','Centurion Siege Crawler ','na veh t3','centicon.png','Name:Centurion Siege Crawler<br>ini:CNTR<br>VoiceAttack:CenturionAttackCommand')
+manualAdd('SMCV','Soviet Construction Vehicle ','na veh t2','smcvicon.png','Name:Soviet Construction Vehicle<br>ini:SMCV<br>VoiceAttack:MCVSovietMove')
+manualAdd('MWF','Stalin\'s Fist ','na veh t3','mwficon.png','Name:Stalin\'s Fist<br>ini:MWF<br>VoiceAttack:MWFAttackCommand')
+manualAdd('SWLF','Seawolf ','na veh t2','swlficon.png','Name:Seawolf<br>ini:SWLF<br>VoiceAttack:SeawolfAttackGround')
+manualAdd('SUB','Typhoon Attack Sub ','na veh t1','subicon.png','Name:Typhoon Attack Sub<br>ini:SUB<br>VoiceAttack:TyphoonSubAttackCommand')
+manualAdd('DRED','Dreadnought ','na veh t3','dredicon.png','Name:Dreadnought<br>ini:DRED<br>VoiceAttack:GenSovWaterAttackCommand')
+manualAdd('AKULA','Akula Missile Sub ','na veh t3','akulicon.png','Name:Akula Missile Sub<br>ini:AKULA<br>VoiceAttack:AkulaAttackCommand')
+manualAdd('HARV','War Miner ','na veh t1','harvicon.png','Name:War Miner<br>ini:HARV<br>VoiceAttack:WarMinerAttackCommand')
+manualAdd('BURA','Buratino ','na veh t3','buraicon.png','Name:Buratino<br>ini:BURA<br>VoiceAttack:BuratinoAttackCommand')
+manualAdd('APOC','Catastrophe Tank ','na veh t3','cataicon.png','Name:Catastrophe Tank<br>ini:APOC<br>VoiceAttack:CatastropheAttackCommand')
+manualAdd('BGGY','Bomb Buggy ','na veh t2','bggyicon.png','Name:Bomb Buggy<br>ini:BGGY<br>VoiceAttack:DemoBuggyAttackCommand')
+manualAdd('DTRUCK','Demolition Truck ','na veh t2','trkaicon.png','Name:Demolition Truck<br>ini:DTRUCK<br>VoiceAttack:DemoTruckAttackCommand')
+manualAdd('LTNK','Lasher Light Tank ','ya veh t1','ltnkicon.png','Name:Lasher Light Tank<br>ini:LTNK<br>VoiceAttack:LasherTankAttackCommand')
+manualAdd('QTNK','Mantis Light Tank ','ya veh t1','manticon.png','Name:Mantis Light Tank<br>ini:QTNK<br>VoiceAttack:MantisTankAttackCommand')
+manualAdd('STNK','Opus Custom Tank ','ya veh t1','stnkicon.png','Name:Opus Custom Tank<br>ini:STNK<br>VoiceAttack:OpusAttackCommand')
+manualAdd('TRIKE','Speeder Trike ','ya veh t2','trikicon.png','Name:Speeder Trike<br>ini:TRIKE<br>VoiceAttack:SpeederAttackCommand')
+manualAdd('COYO','Oxidizer ','ya veh t3','oxidicon.png','Name:Oxidizer<br>ini:COYO<br>VoiceAttack:OxidizerAttackCommand')
+manualAdd('STING','Stinger ','ya veh t1','stngicon.png','Name:Stinger<br>ini:STING<br>VoiceAttack:StingerAttackCommand')
+manualAdd('YTNK','Gatling Tank ','ya veh t1','ytnkicon.png','Name:Gatling Tank<br>ini:YTNK<br>VoiceAttack:GattlingTankAttackCommand')
+manualAdd('QUAD','Hazequad ','ya veh t3','hzqdicon.png','Name:Hazequad<br>ini:QUAD<br>VoiceAttack:HazequadMove')
+manualAdd('DRIL','Driller APC ','ya veh t2','drilicon.png','Name:Driller APC<br>ini:DRIL<br>VoiceAttack:DrillerMove')
+manualAdd('TELE','Magnetron ','ya veh t3','teleicon.png','Name:Magnetron<br>ini:TELE<br>VoiceAttack:MagnetronAttackCommand')
+manualAdd('MIND','Mastermind ','ya veh t3','mindicon.png','Name:Mastermind<br>ini:MIND<br>VoiceAttack:MasterMindAttackCommand')
+manualAdd('DEVO','Colossus ','ya veh t3','colsicon.png','Name:Colossus<br>ini:DEVO<br>VoiceAttack:DevourerAttackCommand')
+manualAdd('YAHCR','Gehenna Platform ','ya veh t3','gehnicon.png','Name:Gehenna Platform<br>ini:YAHCR<br>VoiceAttack:GaiaPlatformAttackCommand')
+manualAdd('PLAG','Plague Splatter ','ya veh t3','plagicon.png','Name:Plague Splatter<br>ini:PLAG<br>VoiceAttack:PlagueSplatterAttackCommand')
+manualAdd('SHADOW','Shadow Tank ','ya veh t2','shdwicon.png','Name:Shadow Tank<br>ini:SHADOW<br>VoiceAttack:ShadowAttackCommand')
+manualAdd('DISK','Invader ','ya veh t2','diskicon.png','Name:Invader<br>ini:DISK<br>VoiceAttack:FloatingDiscAttackCommand')
+manualAdd('BLIGHT','Dybbuk-Attacker ','ya veh t2','bligicon.png','Name:Dybbuk-Attacker<br>ini:BLIGHT<br>VoiceAttack:BlightAttackCommand')
+manualAdd('VENOM','Dybbuk-Evolver ','ya veh t3','evolicon.png','Name:Dybbuk-Evolver<br>ini:VENOM<br>VoiceAttack:PurgerAttackCommand')
+manualAdd('BASIL','Basilisk ','ya veh t3','basiicon.png','Name:Basilisk<br>ini:BASIL<br>VoiceAttack:BasiliskAttackCommand')
+manualAdd('GOTTER','Aerial Fortress Irkalla ','ya veh t3','irklicon.png','Name:Aerial Fortress Irkalla<br>ini:GOTTER<br>VoiceAttack:IrkallaAttackCommand')
+manualAdd('PCV','Epsilon Construction Vehicle ','ya veh t2','ypcvicon.png','Name:Epsilon Construction Vehicle<br>ini:PCV<br>VoiceAttack:MCVYuriMove')
+manualAdd('YHVR','Mandjet Transport ','ya veh t1','yhvricon.png','Name:Mandjet Transport<br>ini:YHVR<br>VoiceAttack:HoverYuriMove')
+manualAdd('SLED','Piranha Minisub ','ya veh t1','ysubicon.png','Name:Piranha Minisub<br>ini:SLED<br>VoiceAttack:PiranhaAttackCommand')
+manualAdd('SQD','Giant Squid ','ya veh t2','sqdicon.png','Name:Giant Squid<br>ini:SQD<br>VoiceAttack:SquidAttackCommand')
+manualAdd('BSUB','Resheph ','ya veh t3','reshicon.png','Name:Resheph<br>ini:BSUB<br>VoiceAttack:ReshephAttackCommand')
+manualAdd('NAUT','Nautilus ','ya veh t3','nauticon.png','Name:Nautilus<br>ini:NAUT<br>VoiceAttack:NautilusAttackCommand')
+manualAdd('YMIN','Ghost Miner ','ya veh t1','yminicon.png','Name:Ghost Miner<br>ini:YMIN<br>VoiceAttack:GhostMinerMove')
+manualAdd('SCAV','Tyrant ','ya veh t3','scavicon.png','Name:Tyrant<br>ini:SCAV<br>VoiceAttack:ScavengerAttackCommand')
+manualAdd('MARA','Marauder ','ya veh t2','maraicon.png','Name:Marauder<br>ini:MARA<br>VoiceAttack:MarauderAttackCommand')
+manualAdd('ROACH','Bison Tank ','fa veh t1','roacicon.png','Name:Bison Tank<br>ini:ROACH<br>VoiceAttack:BisonTankAttackCommand')
+manualAdd('LEVI','Leviathan ','fa veh t3','leviicon.png','Name:Leviathan<br>ini:LEVI<br>VoiceAttack:LeviathanAttackCommand')
+manualAdd('DRACO','Draco Light Tank ','fa veh t1','dracicon.png','Name:Draco Light Tank<br>ini:DRACO<br>VoiceAttack:DracoTankAttackCommand')
+manualAdd('JACKAL','Jackal Racer ','fa veh t1','jackicon.png','Name:Jackal Racer<br>ini:JACKAL<br>VoiceAttack:JackalAttackCommand')
+manualAdd('TERA','Teratorn ','fa veh t1','teraicon.png','Name:Teratorn<br>ini:TERA<br>VoiceAttack:LilZapperAttackCommand')
+manualAdd('BUZZ','Buzzard ','fa veh t2','buzzicon.png','Name:Buzzard<br>ini:BUZZ<br>VoiceAttack:BuzzardAttackCommand')
+manualAdd('RACC','Raccoon ','fa veh t2','raccicon.png','Name:Raccoon<br>ini:RACC<br>VoiceAttack:RaccoonAttackCommand')
+manualAdd('MSA','SODAR Array ','fa veh t2','sodaicon.png','Name:SODAR Array<br>ini:MSA<br>VoiceAttack:MSAMove')
+manualAdd('TARCHIA','Tarchia Cannon ','fa veh t3','tarcicon.png','Name:Tarchia Cannon<br>ini:TARCHIA<br>VoiceAttack:TarchiaAttackCommand')
+manualAdd('MAD','M.A.D.M.A.N. ','fa veh t3','mdmnicon.png','Name:M.A.D.M.A.N.<br>ini:MAD<br>VoiceAttack:MADMANMove')
+manualAdd('SHRAY','Shadray Sonic Tank ','fa veh t3','shryicon.png','Name:Shadray Sonic Tank<br>ini:SHRAY<br>VoiceAttack:BasswaveAttackCommand')
+manualAdd('FMCV','Foehn Construction Vehicle ','fa veh t2','fmcvicon.png','Name:Foehn Construction Vehicle<br>ini:FMCV<br>VoiceAttack:MCVFoehnMove')
+manualAdd('VIPER','Pteranodon ','fa veh t3','ptericon.png','Name:Pteranodon<br>ini:VIPER<br>VoiceAttack:PteranodonAttackCommand')
+manualAdd('DIVER','Diverbee ','fa veh t3','divricon.png','Name:Diverbee<br>ini:DIVER<br>VoiceAttack:DiverbeeAttackCommand')
+manualAdd('SEAT','Warturtle Transport ','fa veh t1','seaticon.png','Name:Warturtle Transport<br>ini:SEAT<br>VoiceAttack:WarturtleMove')
+manualAdd('SWORD','Swordfish ','fa veh t1','swrdicon.png','Name:Swordfish<br>ini:SWORD<br>VoiceAttack:SwordfishAttackCommand')
+manualAdd('SHARK','Angelshark ','fa veh t2','shrkicon.png','Name:Angelshark<br>ini:SHARK<br>VoiceAttack:AngelsharkAttackCommand')
+manualAdd('MANTA','Whipray ','fa veh t2','whipicon.png','Name:Whipray<br>ini:MANTA<br>VoiceAttack:MantaAttackCommand')
+manualAdd('MEGA','Megalodon ','fa veh t3','mgldicon.png','Name:Megalodon<br>ini:MEGA<br>VoiceAttack:MegalodonAttackCommand')
+manualAdd('ROADR','Roadrunner ','fa veh t3','rdrnicon.png','Name:Roadrunner<br>ini:ROADR<br>VoiceAttack:RoadrunnerAttackCommand')
+manualAdd('PROME','Mastodon ','fa veh t3','masticon.png','Name:Mastodon<br>ini:PROME<br>VoiceAttack:MastodonAttackCommand')
+manualAdd('BOID','Boidmachine ','fa veh t3','boidicon.png','Name:Boidmachine<br>ini:BOID<br>VoiceAttack:BoidmachineAttackCommand')
+manualAdd('GHTNK','Gharial ','fa veh t3','gharicon.png','Name:Gharial<br>ini:GHTNK<br>VoiceAttack:GharialAttackCommand')
+manualAdd('CYCL','Cyclops Walker ','fa veh t1','ccloicon.png','Name:Cyclops Walker<br>ini:CYCL<br>VoiceAttack:CyclopsAttackCommand')
+manualAdd('NMIN','Minermite ','fa veh t1','nminicon.png','Name:Minermite<br>ini:NMIN<br>VoiceAttack:MinermiteRepair')
+manualAdd('SWPR','Sweeper ','fa veh t2','swpricon.png','Name:Sweeper<br>ini:SWPR<br>VoiceAttack:SweeperAttackCommand')
+manualAdd('CONF','Irritator ','fa veh t2','irrticon.png','Name:Irritator<br>ini:CONF<br>VoiceAttack:IrritatorAttackCommand')
+manualAdd('HURR','Alanqa Skystation ','fa veh t3','alnqicon.png','Name:Alanqa Skystation<br>ini:HURR<br>VoiceAttack:AlanqaAttackCommand')
+manualAdd('QUETZ','Quetzal ','fa veh t3','qutzicon.png','Name:Quetzal<br>ini:QUETZ<br>VoiceAttack:QuetzalcoatlAttackCommand')
+}
+//common
+initiate();
+
+//stolen tech
+manualAdd('QUICK','Quickshifter ','ga veh t4','quikicon.png','Name:Quickshifter<br>ini:QUICK<br>VoiceAttack:QuickshifterAttackCommand')
+manualAdd('LIONH','Lionheart Bomber ','ga veh t4','lionicon.png','Name:Lionheart Bomber<br>ini:LIONH<br>VoiceAttack:LionheartAttackCommand')
+manualAdd('CHRP','Chrono Prison ','ga veh t4','chrpicon.png','Name:Chrono Prison<br>ini:CHRP<br>VoiceAttack:ChronoPrisonAttackCommand')
+manualAdd('AHVYBOT2','Future Tank Alpha ','ga veh t4','hev2icon.png','Name:Future Tank Alpha<br>ini:AHVYBOT2<br>VoiceAttack:FTank2AttackCommand')
+manualAdd('GRUMBLE','Grumble ','na veh t4','grumicon.png','Name:Grumble<br>ini:GRUMBLE<br>VoiceAttack:GrumbleMove')
+manualAdd('MAMM','Apocalypse Tank ','na veh t4','apocicon.png','Name:Apocalypse Tank<br>ini:MAMM<br>VoiceAttack:ApocalypseAttackCommand')
+manualAdd('SYCKLE','Syckle ','na veh t4','syckicon.png','Name:Syckle<br>ini:SYCKLE<br>VoiceAttack:SyckleAttackCommand')
+manualAdd('IDRAG','Iron Dragon ','na veh t4','idrgicon.png','Name:Iron Dragon<br>ini:IDRAG<br>VoiceAttack:IronDragonAttackCommand')
+manualAdd('TRACTOR','Scavenger ','ya veh t4','trcticon.png','Name:Scavenger<br>ini:TRACTOR<br>VoiceAttack:ScavengerNewAttackCommand')
+manualAdd('WORMQ','Wormqueen ','ya veh t4','wrmqicon.png','Name:Wormqueen<br>ini:WORMQ<br>VoiceAttack:WormqueenAttackCommand')
+manualAdd('SEIZER','Dybbuk-Seizer ','ya veh t4','seizicon.png','Name:Dybbuk-Seizer<br>ini:SEIZER<br>VoiceAttack:YuriCloneAttackCommand')
+manualAdd('SALA','Salamander ','ya veh t4','salaicon.png','Name:Salamander<br>ini:SALA<br>VoiceAttack:SalamanderAttackCommand')
+manualAdd('PHNT','Phantasm MLRS ','fa veh t4','phnticon.png','Name:Phantasm MLRS<br>ini:PHNT<br>VoiceAttack:PhantasmAttackCommand')
+manualAdd('SEITAAD','Seitaad Ballista ','fa veh t4','seiticon.png','Name:Seitaad Ballista<br>ini:SEITAAD<br>VoiceAttack:SeitaadAttackCommand')
+manualAdd('ARCH','Archelon ','fa veh t4','arclicon.png','Name:Archelon<br>ini:ARCH<br>VoiceAttack:ArchelonAttackCommand')
+manualAdd('RAMW','Ramwagon ','fa veh t4','ramwicon.png','Name:Ramwagon<br>ini:RAMW<br>VoiceAttack:RamwagonAttackCommand')
+//not buildable
+manualAdd('CYBO','Cyborg Vanguard ','na inf t5','cyboicon.png','Name:Cyborg Vanguard<br>ini:CYBO<br>VoiceAttack:CyborgAttackCommand')
+manualAdd('BEETLE','Animal Giant Beetle ','inf t5','','Name:Animal Giant Beetle<br>ini:BEETLE<br>VoiceAttack:')
+manualAdd('DNOA','Animal T-Rex ','inf t5','','Name:Animal T-Rex<br>ini:DNOA<br>VoiceAttack:TrexMove')
+manualAdd('CYCOM','Cyborg Commando ','inf t5','ccomicon.png','Name:Cyborg Commando<br>ini:CYCOM<br>VoiceAttack:KinAdAttackCommand')
+manualAdd('LUNR','Cosmonaut ','inf t5','','Name:Cosmonaut<br>ini:CYCOM<br>VoiceAttack:LaserCosmoAttackCommand')
+manualAdd('BIKE','Bomb Biker ','na inf t5','quadicon.png','Name:Bomb Biker<br>ini:BIKE<br>VoiceAttack:TerroristAttackCommand')
+manualAdd('REZNOV','Col. Reznov ','na inf t5','reznicon.png','Name:Col. Reznov<br>ini:REZNOV<br>VoiceAttack:ReznovAttackCommand')
+manualAdd('KRUKOV','Col. Krukov ','na inf t5','krukicon.png','Name:Col. Krukov<br>ini:KRUKOV<br>VoiceAttack:KrukovAttackCommand')
+manualAdd('CBRIS','Space Commando ','ya inf t5','','Name:Space Commando<br>ini:CBRIS<br>VoiceAttack:CBorisAttackCommand')
+manualAdd('YURIX','Yuri ','ya inf t5','','Name:Yuri<br>ini:YURIX<br>VoiceAttack:YuriPrimeAttackCommand')
+manualAdd('RHAD','Rashidi ','ya inf t5','','Name:Rashidi<br>ini:RHAD<br>VoiceAttack:')
+manualAdd('LIBRC','Libra Clone','ya inf t5','liclicon.png','Name:Libra Clone<br>ini:LIBRC<br>VoiceAttack:')
+manualAdd('STLN','Sammy Stallion','inf t5','','Name:Sammy Stallion<br>ini:STLN<br>VoiceAttack:SlyAttackCommand')
+manualAdd('ARND','Arnie Frankfurter','inf t5','','Name:Arnie Frankfurter<br>ini:ARND<br>VoiceAttack:ArnoldAttackCommand')
+manualAdd('CLNT','Flint Westwood','inf t5','','Name:Flint Westwood<br>ini:STLN<br>VoiceAttack:SlyAttackCommand')
+manualAdd('AHMV','Airborne Humvee ','ga veh t5','ahmvicon.png','Name:Airborne Humvee<br>ini:AHMV<br>VoiceAttack:HumveeAttackCommand')
+manualAdd('XPCV','Fake Epsilon MCV ','ya veh t5','fpcvicon.png','Name:Fake Epsilon MCV<br>ini:XPCV<br>VoiceAttack:MCVYuriMove')
+manualAdd('DRACOD','Draco Turret ','fa veh t5','','Name:Draco Turret<br>ini:DRACOD<br>VoiceAttack:DracoTurretAttackCommand')
+manualAdd('PERUN','Perun Flagship ','na veh t5','','Name:Perun Flagship<br>ini:PERUN<br>VoiceAttack:PerunAttackCommand')
+manualAdd('STARDUSTB','The Paradox Engine ','ga veh t5','','Name:The Paradox Engine<br>ini:STARDUSTB<br>VoiceAttack:')
+manualAdd('ICBM','Topol-M ','na veh t5','','Name:Topol-M<br>ini:ICBM<br>VoiceAttack:V3AttackCommand')
+manualAdd('MECHA','Mecha Tengu ','ga veh t5','http://mentalomega.com/ch/images/cameo/','Name:Mecha Tengu<br>ini:MECHA<br>VoiceAttack:RobotTankAttackCommand')
+manualAdd('PANTHER','Paladin Tank Destroyer ','ga veh t5','','Name:Paladin Tank Destroyer<br>ini:PANTHER<br>VoiceAttack:TankDestroyerAttackCommand')
+manualAdd('AHVYBOT','Future Tank X-0 ','ga veh t5','hevyicon.png','Name:Future Tank X-0<br>ini:AHVYBOT<br>VoiceAttack:FTankAttackCommand')
+manualAdd('POST','Windbelt Core ','fa veh t5','','Name:Windbelt Core<br>ini:POST<br>VoiceAttack:WindbeltCoreMove')
+manualAdd('RAVA','Drakuv Prison Vehicle ','na veh t5','ravaicon.png','Name:Drakuv Prison Vehicle<br>ini:RAVA<br>VoiceAttack:DrakuvAttackCommand')
+manualAdd('SDRN','Repair Drone ','na veh t5','rpdrnicon.png','Name:Repair Drone<br>ini:SDRN<br>VoiceAttack:ChaosDroneMove')
+
+
+manualAdd('KINGS','Kingsframe ','fa inf sy','','Name:Kingsframe<br>ini:KINGS<br>VoiceAttack:KnightframeAttackCommand2')
+manualAdd('RAIL','Railguneer ','fa inf sy','','Name:Railguneer<br>ini:RAIL<br>VoiceAttack:LancerAttackCommandB')
+manualAdd('DUPL','Duplicant ','fa inf sy','','Name:Duplicant<br>ini:DUPL<br>VoiceAttack:DuplicantAttackCommand')
+manualAdd('DEVI','Deviatress ','fa inf sy','','Name:Deviatress<br>ini:DEVI<br>VoiceAttack:HuntressAttackCommandB')
+manualAdd('SYNC_N','Syncronaut ','fa inf sy','','Name:Syncronaut<br>ini:SYNC_N<br>VoiceAttack:SyncroninAttackCommand')
+manualAdd('ZORB_N','Zorbfloater ','fa inf sy','','Name:Zorbfloater<br>ini:ZORB_N<br>VoiceAttack:ZorbtrotterAttackCommand')
+manualAdd('BANE_N','Godsbane ','fa inf sy','baneicon.png','Name:Godsbane<br>ini:BANE_N<br>VoiceAttack:GiantsbaneAttackCommandB')
+
+var flag=0;
+var t3="";
+var mX=0;
+var mY=0;
+var flag2=1;
+//$("#mc").css({'margin-top',$("#myBtnContainer").height()});
+
+var ss="";
+filterSelection("all");
+var foco="tf1";
+var globalIndex=4;
+
+$(document).mousemove(function(e){
+	mX=e.clientX;
+	mY=e.clientY;
+});
+
+$(document).keypress(function(e){
+	if(document.activeElement.className!="tfname" && document.activeElement.className!="textbox" && document.getElementById("bbb").style.display!="block"){
+		switch(e.which){
+			case 116:addTaskforce();   break;
+			case  49:activeBtn('na');  break;
+			case  50:activeBtn('ga');  break;
+			case  51:activeBtn('ya');  break;
+			case  52:activeBtn('fa');  break;
+			case 113:activeBtn('veh'); break;
+			case 119:activeBtn('inf'); break;
+			case  97:activeBtn('t1');  break;
+			case 115:activeBtn('t2');  break;
+			case 100:activeBtn('t3');  break;
+			case 102:activeBtn('t4');  break;
+			case 103:activeBtn('t5');  break;
+			case 104:activeBtn('sy');  break;
+			case  32:activeBtn('all'); break;
+			case 122:nextTaskforce();  break;
+			case 120:prevTaskforce();  break;
+			case  99:collapseAll();    break;
+			case 118:foldAll();        break;
+			case 112:displayHelp();    break;
+			case  96:
+				if(foco!="")
+					if(document.getElementById(foco).getElementsByClassName("collapseBtn")[0].innerHTML==" + ")
+						collapse(foco);
+					else
+						fold(foco);
+			break;
+			
+		}
+		
+	}else if(document.activeElement.className!="tfname" && document.activeElement.className!="textbox" && document.getElementById("bbb").style.display=="block" && e.which==112)
+		hideBox();
+	
+	
+});
+				
+$(document).keydown(function(e){
+
+	if(e.key=="Escape")
+		hideBox();
+	if(document.activeElement.className!="tfname" && document.activeElement.className!="textbox")
+		if(e.key=="Backspace"){
+			clearTaskforce(foco);
+			if(e.ctrlKey)
+				deleteTaskforce(foco);
+		}
+});
+function nextTaskforce(){
+	if(foco!="")
+	{
+		var temp=document.getElementById(foco);
+		if(temp.nextElementSibling!=null)
+			foco=temp.nextElementSibling.id;
+		else
+			foco=temp.parentElement.getElementsByClassName("taskforce")[0].id;
+		updateFocus();
+	}
+}
+function prevTaskforce(){
+	if(foco!="")
+	{
+		var temp=document.getElementById(foco);
+		if(temp.previousElementSibling!=null)
+			foco=temp.previousElementSibling.id;
+		else{
+			temp2=temp.parentElement.getElementsByClassName("taskforce");
+			foco=temp2[temp2.length-1].id;
+		}
+		updateFocus();
+	}
+}
+
+
+function activeBtn(id)
+{
+	filterSelection(id);
+	if(id!="all"){
+		var temp=document.getElementById(id);
+		var p=temp.parentElement.getElementsByClassName("btn");
+		for(i=0;i<p.length;i++)
+			if(p[i].id!=temp.id){
+				if(p[i].className.includes("active")){
+					p[i].className=temp.className.replace(" active","");
+					filterSelection(p[i].id);
+				}
+			}
+				
+		if(temp.className.includes("active")) 
+			temp.className=temp.className.replace(" active","");
+		else 
+			temp.className+=" active";
+	}else{
+    	for(var j=0;j<btns.length;j++)  
+			btns[j].className=btns[j].className.replace(" active","");
+    }	
+	
+}
+
+$(".container").height(window.innerHeight-$("#myBtnContainer").height()-35);
+$(".taskforce").width(window.innerWidth*0.47-20);
+$(window).resize(function(){
+$(".container").height(window.innerHeight-$("#myBtnContainer").height()-35);
+	$(".taskforce").width(window.innerWidth*0.47-20);
+});
+var arr = { "one": 1, "two": 2, "three": 3 }; 
+$(".container").contextmenu(function(){return false;});
+$(".taskforce").click(function(e){
+	if(foco==$(this).attr("id"))
+		collapse(foco);
+	foco=$(this).attr("id");
+	
+	updateFocus();
+
+});
+$(".taskforce").contextmenu(function(e){
+
+	return false;
+});
+
+$(".collapseBtn").click(function(e){
+	e.stopPropagation();
+	var id=this.parentElement.parentElement.id;
+	if(this.innerHTML==" - ") fold(id);
+	else collapse(id);
+});
+$(".deleteBtn").click(function(e){
+	e.stopPropagation();
+	var id=this.parentElement.parentElement.id;
+	clearTaskforce(id);
+	if(e.ctrlKey) deleteTaskforce(id);
+});
+
+function clearTaskforce(id)
+{
+	var tfimg=document.getElementById(id).getElementsByClassName("tfimg");
+	var l=tfimg.length;
+	for(i=0;i<l;i++) tfimg[0].remove();
+	flag=0;
+	updateNum();
+}
+function deleteTaskforce(id)
+{
+	if(foco==id)
+	{
+		var next=document.getElementById(id).nextElementSibling;
+		var prev=document.getElementById(id).previousElementSibling;
+		if(next!=null)
+		{
+			foco=next.id;
+		}else if(prev!=null){
+			foco=prev.id;
+		}else{
+			foco="";
+		}
+		updateFocus();
+	}
+	
+	document.getElementById(id).remove();
+	flag=0;
+}
+
+function fold(id)
+{
+	var tfimg=document.getElementById(id).getElementsByClassName("tfimg");
+	var fil=document.getElementById(id).getElementsByClassName("filler")[0];
+	var cbtn=document.getElementById(id).getElementsByClassName("collapseBtn")[0];
+	var tft=document.getElementById(id).getElementsByClassName("tftitle")[0];
+	tft.style.borderBottomStyle="none";
+
+	cbtn.innerHTML=" + ";
+	for(var i=0;i<tfimg.length;i++)
+	{
+		tfimg[i].style.display="none";
+	}
+	fil.style.display="none";
+}
+function foldAll()
+{	
+
+	var tf=document.getElementsByClassName("taskforce");
+	
+	for(var i=0;i<tf.length;i++)
+	{
+		fold(tf[i].id);
+	}
+}
+function collapse(id)
+{
+	var tfimg=document.getElementById(id).getElementsByClassName("tfimg");
+	var fil=document.getElementById(id).getElementsByClassName("filler")[0];
+	var cbtn=document.getElementById(id).getElementsByClassName("collapseBtn")[0];
+	var tft=document.getElementById(id).getElementsByClassName("tftitle")[0];
+	tft.style.borderBottomStyle="solid";
+
+	cbtn.innerHTML=" - ";
+	for(var i=0;i<tfimg.length;i++)
+	{
+		tfimg[i].style.display="block";
+	}
+	fil.style.display="block";
+}
+function collapseAll()
+{
+	var tf=document.getElementsByClassName("taskforce");
+	
+	for(i=0;i<tf.length;i++)
+	{
+		collapse(tf[i].id);
+	}
+}
+
+
+setInterval(function(){tooltipF();},10);
+function btnmsg()
+{
+	alert(this.innerHTML);
+}
+function tooltipF()
+{
+	if(flag){
+		$("#tooltip").show();
+		if(mX<window.innerWidth-$("#tooltip").width()-32)
+		{
+			$("#tooltip").css({left:mX+30});
+		}else{
+			$("#tooltip").css({left:mX-$("#tooltip").width()-30});
+		}
+		if(1)
+		{
+			$("#tooltip").css({top:mY-20});
+		}else{
+			//$("#tooltip").css({top:mY-10});
+		}
+		$("#tooltip").text(t3);
+	}
+	else
+	{
+		$("#tooltip").hide();
+	}
+}
+
+$(".filt").hover(function(){
+	flag=1;
+	
+},function(){
+	flag=0;
+});
+
+function manualAdd2(id,name,filter,source="Resources/bbtzicon.png",text=id)
+{
+	var frame=document.getElementById("mc");
+	var d=document.createElement("DIV");
+	d.className="tooltip";
+	var im=document.createElement("IMG");
+	//var ttt=document.createElement("SPAN");
+	//ttt.innerHTML=name;
+	//ttt.className="tooltiptext";
+	im.src=source;
+	im.alt="";
+	
+	
+	im.addEventListener("click",function(){
+	myFunc(text);}
+	);
+	im.className="filt "+filter;
+	
+	d.appendChild(im);
+	//d.appendChild(ttt);
+	frame.appendChild(d);
+}
+
+function manualAdd(id,name,filter,source="Resources/bbtzicon.png",text=id,al="top left")
+{
+	var frame=document.getElementById("mc");
+	var d=document.createElement("DIV");
+	d.className="tooltip filt "+filter;
+	if(filter.includes("na"))
+	{
+		d.style.borderColor="red";
+	}
+	if(filter.includes("ga"))
+	{
+		d.style.borderColor="blue";
+	}
+	if(filter.includes("ya"))
+	{
+		d.style.borderColor="magenta";
+	}
+	if(filter.includes("fa"))
+	{
+		d.style.borderColor="teal";
+	}
+	//http://mentalomega.com/ch/images/cameo/
+	d.style.backgroundImage="url('"+"http://mentalomega.com/images/cameo/"+source+"')";
+	d.style.backgroundPosition=al;
+	d.id=id;
+	p=document.createElement("DIV");
+	
+	
+	p.counter=0;
+	p.className="counter";
+	
+	
+	//var ttt=document.createElement("SPAN");
+	//ttt.innerHTML=name;
+	//ttt.className="tooltiptext";
+	
+	d.Iname=name;
+	d.Itext=text;
+	d.appendChild(p);
+	//d.appendChild(ttt);
+	frame.appendChild(d);
+	d.addEventListener("mouseover",function(){
+	t3=name;
+	myFunc(text);});
+	d.addEventListener("click",function(e){
+		addUnit(id,1);
+		if(e.ctrlKey  ||e.shiftKey)
+			addUnit(id,4);
+		}
+	);
+	d.oncontextmenu=function(e){
+	addUnit(id,-1);
+	if(e.ctrlKey  || e.shiftKey)
+	{
+		addUnit(id,-4);
+	}
+	return false};
+	
+}
+
+function displayText()
+{
+	$("#bbb").show();
+	$(".textbox").show();
+}
+function displayHelp()
+{
+	$("#bbb").show();
+	$(".helpbox").show();
+}
+
+function hideBox()
+{
+	$("#bbb").hide();
+	$(".textbox").hide();
+	$(".helpbox").hide();
+}
+
+$(".textbox").click(function(e){ e.stopPropagation();});
+function suppressMenu()
+{
+	return false;
+}
+
+function idGenerator(j)
+{
+	var base=1550000+j;
+	return "T"+base;
+}
+
+function generateTaskforce()
+{
+	var tf=document.getElementsByClassName("taskforce");
+	if(tf.length>0)
+	{
+		var result="[TaskForces]";
+		len=tf.length;
+		for(i=0;i<len;i++)
+		{
+			result=result+"\n" + (1000+i) +"="+idGenerator(i);
+		}
+		for(i=0;i<len;i++)
+		{
+			result=result+"\n\n["+idGenerator(i)+"]" ;
+			
+			var tfimg=tf[i].getElementsByClassName("tfimg");
+			for(j=0;j<tfimg.length;j++)
+			{
+				var temp=tfimg[j].className;
+				var numb=tfimg[j].getElementsByClassName("counter")[0].num;
+				temp=temp.substr(6,temp.length);
+				result=result+"\n"+j+"="+temp+","+numb;
+			}
+			result=result+"\nName="+tf[i].getElementsByClassName("tfname")[0].value;
+			result=result+"\nGroup=-1";
+		}
+		document.getElementsByClassName("textbox")[0].value=result;
+	}else{
+		
+		$(".textbox").text("NO task force available!!");
+	}
+	displayText();
+}
+function addTaskforce()
+{
+	var div=document.createElement("DIV");
+	div.id="tf"+globalIndex;
+	div.className="taskforce";
+	var tftitle=document.createElement("DIV");
+	var filler=document.createElement("DIV");
+	var tfname=document.createElement("INPUT");
+	tfname.value="Taskforce "+globalIndex;
+	filler.className="filler";
+	tftitle.id=div.name+"t";
+	tftitle.className="tftitle";
+	tftitle.appendChild(tfname);
+	tfname.className="tfname";
+	tfname.size=tfname.value.length+2;
+	tfname.maxLength=32;
+	
+	var cbtn=document.createElement("BUTTON");
+	cbtn.className="collapseBtn";
+	cbtn.innerHTML=" - ";
+	var dbtn=document.createElement("BUTTON");
+	dbtn.className="deleteBtn";
+	dbtn.innerHTML=" x ";
+	dbtn.title="Clear (Ctrl click to delete)";
+	div.appendChild(tftitle);
+	div.appendChild(filler);
+	tftitle.appendChild(dbtn);
+	tftitle.appendChild(cbtn);
+	
+
+	$("#tf").append(div);
+	$(".taskforce").width(window.innerWidth*0.47-20);
+	
+	cbtn.addEventListener("click",function(e){
+		e.stopPropagation();
+
+		if(this.innerHTML==" - ") fold(div.id);
+		else collapse(div.id);
+	});
+	
+	tfname.addEventListener("keypress",function(){
+		tfname.size=tfname.value.length+2;
+	});
+	
+	dbtn.addEventListener("click",function(e){
+		e.stopPropagation();
+		clearTaskforce(div.id);
+		if(e.ctrlKey) deleteTaskforce(div.id);
+		
+	});
+	div.addEventListener("click",function(e){
+		if(foco==div.id)
+			collapse(foco);
+		foco=div.id;
+		updateFocus();
+		
+	});
+	div.oncontextmenu=function(){return false};
+	foco=div.id;
+
+	updateFocus();
+	globalIndex++;
+}
+
+function addUnit(id,numb){
+	var ct=document.getElementById(id);
+	var tfimg=document.createElement("DIV");
+	var counter;
+	var existing=document.getElementById(foco).getElementsByClassName(id);
+	if(existing.length==0 && numb>0) {
+	
+		tfimg.className="tfimg "+id;
+		tfimg.style.backgroundImage=ct.style.backgroundImage;
+		tfimg.style.borderColor=ct.style.borderColor;
+		tfimg.addEventListener("mouseover",function(){
+		t3=ct.Iname;
+		myFunc(ct.Itext);
+		flag=1;});
+		tfimg.addEventListener("mouseout",function(){flag=0;});
+		counter=document.createElement("DIV");
+		counter.className="counter";
+		counter.num=0;
+		
+		
+		tfimg.appendChild(counter);
+		tfimg.addEventListener("click",function(e){
+			foco=tfimg.parentElement.id;
+			updateFocus();
+
+			addUnit(id,1);
+			if(e.ctrlKey  ||e.shiftKey)
+				addUnit(id,4);
+		}
+		);
+		tfimg.oncontextmenu=function(e){
+			foco=tfimg.parentElement.id;
+			updateFocus();
+			
+			addUnit(id,-1);
+			if(e.ctrlKey  || e.shiftKey)
+				addUnit(id,-4);
+		return false
+		};
+		$("#"+foco).append(tfimg);
+	}else{
+		counter=existing[0].getElementsByClassName("counter")[0];
+		
+	}
+	counter.num+=numb;
+	if(counter.num>99) counter.num=99;
+	if(counter.num>0)
+		counter.innerHTML=counter.num;
+	else{
+		
+		existing[0].remove();
+		flag=0;
+	}
+	updateNum();
+	updateFocus();
+	collapse(foco);
+	
+}
+updateFocus();
+function updateFocus(){
+	if(foco!=""){
+		$('.taskforce .tftitle').css("background-color", "#888");
+		$("#"+foco).find('.tftitle').css("background-color", "yellow");
+		document.getElementById(foco).scrollIntoView({block: "nearest",behvior:"smooth"});
+		
+		updateNum();
+	}else{
+		$(".filt .counter").text("");
+		
+	}
+}
+
+function updateNum(){
+	$(".filt .counter").text("");
+	var ele=document.getElementById(foco).getElementsByClassName("tfimg");
+	for(i=0;i<ele.length;i++)
+	{
+		var temp=ele[i].className;
+		
+			temp=temp.substr(6,temp.length);
+		var ct=document.getElementById(temp);
+		
+		ct.getElementsByClassName("counter")[0].innerHTML=ele[i].getElementsByClassName("counter")[0].innerHTML;
+	}
+	
+}
+
+
+
+function addNum(id,numb){
+	var ct=document.getElementById(id).getElementsByClassName("counter")[0];
+	ct.counter+=numb;
+	if(ct.counter<0)
+	{
+		ct.counter=0;
+	}
+	if(ct.counter>99)
+	{
+		ct.counter=99;
+	}
+	ct.innerHTML=ct.counter;
+	if(ct.counter==0)
+	{
+		ct.innerHTML="";
+	}
+}
+function myFunc(text){ 
+	document.getElementById("infobox").innerHTML = text;
+}
+function filterSelection(c) {
+if(c=="all")
+ss="";
+else
+  if(ss.includes(c)) ss=ss.replace("."+c,"");
+  else ss+="."+c;
+  
+  //document.getElementById("sss").innerHTML = ss;
+  //showClass();
+  newShow();
+}
+
+
+function showClass()
+{
+var el=document.getElementsByClassName("filt");
+var tl;
+if(ss=="") tl=document.getElementsByClassName("filt");
+else
+tl=document.querySelectorAll(ss);
+
+for(var i=0;i<el.length;i++)
+el[i].className=el[i].className.replace(" show","");
+for(var i=0;i<tl.length;i++)
+tl[i].className+=" show";
+	
+
+}
+
+function newShow()
+{
+var el=document.getElementsByClassName("filt");
+var tl;
+if(ss=="") tl=document.getElementsByClassName("filt");
+else
+tl=document.querySelectorAll(ss);
+
+for(var i=0;i<el.length;i++)
+el[i].style.display='none';
+for(var i=0;i<tl.length;i++)
+tl[i].style.display='block';
+	
+
+}
+
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+var allbtn=btnContainer.getElementsByClassName("all");
+for(var i=0;i<13;i++){
+	if(btns[i].id!="help")
+		btns[i].addEventListener("click", function(){
+			activeBtn(this.id);
+		});
+}
+</script>
+</html>

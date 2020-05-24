@@ -481,8 +481,11 @@ margin-bottom: 0.1em;
   width: 100px;
   height: 80px;
   text-align: center;
-  margin: 2px;
   display: none;
+  border-style:solid;
+  border-width:3px;
+  border-radius:12px;
+  margin:1px;
 }
 
 .show {
@@ -581,16 +584,16 @@ margin-bottom: 0.1em;
 
 	
 <div id="myBtnContainer">
-<h2>Faction</h2>
+<h2>阵营</h2>
 <button class="btn" onClick="filterSelection('na')"> 苏联</button>
 <button class="btn" onClick="filterSelection('ga')"> 盟军</button>
 <button class="btn" onClick="filterSelection('ya')"> 厄普西隆</button>
 <button class="btn" onClick="filterSelection('fa')"> 焚风</button>
-<h2>Type</h2>
+<h2>类型</h2>
 <button class="btn" onClick="filterSelection('veh')"> 车辆</button>
 <button class="btn" onClick="filterSelection('inf')"> 步兵</button>
 <button class="btn" onClick="filterSelection('bud')"> 建筑</button>
-<h2>Tech Level</h2>
+<h2>科技等级</h2>
 <button class="btn" onClick="filterSelection('t1')"> T1</button>
 <button class="btn" onClick="filterSelection('t2')"> T2</button>
 <button class="btn" onClick="filterSelection('t3')"> T3</button>
@@ -922,22 +925,22 @@ manualAdd('YAVNMM','基因地雷 ','ya bud t3','http://mentalomega.com/ch/images
 
 
 //stolen tech
-manualAdd('QUICK','跃迁载具 ','fa veh t3','http://mentalomega.com/ch/images/cameo/quikicon.png','名称:跃迁载具<br>ini名称:QUICK<br>攻击指令:QuickshifterAttackCommand')
-manualAdd('LIONH','狮心王轰炸机 ','fa veh t3','http://mentalomega.com/ch/images/cameo/lionicon.png','名称:狮心王轰炸机<br>ini名称:LIONH<br>攻击指令:LionheartAttackCommand')
-manualAdd('CHRP','超时空监狱 ','fa veh t3','http://mentalomega.com/ch/images/cameo/chrpicon.png','名称:超时空监狱<br>ini名称:CHRP<br>攻击指令:ChronoPrisonAttackCommand')
-manualAdd('AHVYBOT2','未来坦克阿尔法 ','fa veh t3','http://mentalomega.com/ch/images/cameo/hev2icon.png','名称:未来坦克阿尔法<br>ini名称:AHVYBOT2<br>攻击指令:FTank2AttackCommand')
-manualAdd('GRUMBLE','轰鸣防空导弹 ','fa veh t3','http://mentalomega.com/ch/images/cameo/grumicon.png','名称:轰鸣防空导弹<br>ini名称:GRUMBLE<br>攻击指令:GrumbleMove')
-manualAdd('MAMM','天启坦克 ','fa veh t3','http://mentalomega.com/ch/images/cameo/apocicon.png','名称:天启坦克<br>ini名称:MAMM<br>攻击指令:ApocalypseAttackCommand')
-manualAdd('SYCKLE','镰刃摩托车 ','fa veh t3','http://mentalomega.com/ch/images/cameo/syckicon.png','名称:镰刃摩托车<br>ini名称:SYCKLE<br>攻击指令:SyckleAttackCommand')
-manualAdd('IDRAG','铁龙坦克 ','fa veh t3','http://mentalomega.com/ch/images/cameo/idrgicon.png','名称:铁龙坦克<br>ini名称:IDRAG<br>攻击指令:IronDragonAttackCommand')
-manualAdd('TRACTOR','清道夫坦克 ','fa veh t3','http://mentalomega.com/ch/images/cameo/trcticon.png','名称:清道夫坦克<br>ini名称:TRACTOR<br>攻击指令:ScavengerNewAttackCommand')
-manualAdd('WORMQ','虫群女王 ','fa veh t3','http://mentalomega.com/ch/images/cameo/wrmqicon.png','名称:虫群女王<br>ini名称:WORMQ<br>攻击指令:WormqueenAttackCommand')
-manualAdd('SEIZER','恶灵摄魂师 ','fa veh t3','http://mentalomega.com/ch/images/cameo/seizicon.png','名称:恶灵摄魂师<br>ini名称:SEIZER<br>攻击指令:YuriCloneAttackCommand')
-manualAdd('SALA','火蜥蜴空中战舰 ','fa veh t3','http://mentalomega.com/ch/images/cameo/salaicon.png','名称:火蜥蜴空中战舰<br>ini名称:SALA<br>攻击指令:SalamanderAttackCommand')
-manualAdd('PHNT','幻光多管火箭炮 ','fa veh t3','http://mentalomega.com/ch/images/cameo/phnticon.png','名称:幻光多管火箭炮<br>ini名称:PHNT<br>攻击指令:PhantasmAttackCommand')
-manualAdd('SEITAAD','塞泰龙弩炮 ','fa veh t3','http://mentalomega.com/ch/images/cameo/seiticon.png','名称:塞泰龙弩炮<br>ini名称:SEITAAD<br>攻击指令:SeitaadAttackCommand')
-manualAdd('ARCH','恐龟加农炮 ','fa veh t3','http://mentalomega.com/ch/images/cameo/arclicon.png','名称:恐龟加农炮<br>ini名称:ARCH<br>攻击指令:ArchelonAttackCommand')
-manualAdd('RAMW','公羊 ','fa veh t3','http://mentalomega.com/ch/images/cameo/ramwicon.png','名称:公羊<br>ini名称:RAMW<br>攻击指令:RamwagonAttackCommand')
+manualAdd('QUICK','跃迁载具 ','ga veh t4','http://mentalomega.com/ch/images/cameo/quikicon.png','名称:跃迁载具<br>ini名称:QUICK<br>攻击指令:QuickshifterAttackCommand')
+manualAdd('LIONH','狮心王轰炸机 ','ga veh t4','http://mentalomega.com/ch/images/cameo/lionicon.png','名称:狮心王轰炸机<br>ini名称:LIONH<br>攻击指令:LionheartAttackCommand')
+manualAdd('CHRP','超时空监狱 ','ga veh t4','http://mentalomega.com/ch/images/cameo/chrpicon.png','名称:超时空监狱<br>ini名称:CHRP<br>攻击指令:ChronoPrisonAttackCommand')
+manualAdd('AHVYBOT2','未来坦克阿尔法 ','ga veh t4','http://mentalomega.com/ch/images/cameo/hev2icon.png','名称:未来坦克阿尔法<br>ini名称:AHVYBOT2<br>攻击指令:FTank2AttackCommand')
+manualAdd('GRUMBLE','轰鸣防空导弹 ','na veh t4','http://mentalomega.com/ch/images/cameo/grumicon.png','名称:轰鸣防空导弹<br>ini名称:GRUMBLE<br>攻击指令:GrumbleMove')
+manualAdd('MAMM','天启坦克 ','na veh t4','http://mentalomega.com/ch/images/cameo/apocicon.png','名称:天启坦克<br>ini名称:MAMM<br>攻击指令:ApocalypseAttackCommand')
+manualAdd('SYCKLE','镰刃摩托车 ','na veh t4','http://mentalomega.com/ch/images/cameo/syckicon.png','名称:镰刃摩托车<br>ini名称:SYCKLE<br>攻击指令:SyckleAttackCommand')
+manualAdd('IDRAG','铁龙坦克 ','na veh t4','http://mentalomega.com/ch/images/cameo/idrgicon.png','名称:铁龙坦克<br>ini名称:IDRAG<br>攻击指令:IronDragonAttackCommand')
+manualAdd('TRACTOR','清道夫坦克 ','ya veh t4','http://mentalomega.com/ch/images/cameo/trcticon.png','名称:清道夫坦克<br>ini名称:TRACTOR<br>攻击指令:ScavengerNewAttackCommand')
+manualAdd('WORMQ','虫群女王 ','ya veh t4','http://mentalomega.com/ch/images/cameo/wrmqicon.png','名称:虫群女王<br>ini名称:WORMQ<br>攻击指令:WormqueenAttackCommand')
+manualAdd('SEIZER','恶灵摄魂师 ','ya veh t4','http://mentalomega.com/ch/images/cameo/seizicon.png','名称:恶灵摄魂师<br>ini名称:SEIZER<br>攻击指令:YuriCloneAttackCommand')
+manualAdd('SALA','火蜥蜴空中战舰 ','ya veh t4','http://mentalomega.com/ch/images/cameo/salaicon.png','名称:火蜥蜴空中战舰<br>ini名称:SALA<br>攻击指令:SalamanderAttackCommand')
+manualAdd('PHNT','幻光多管火箭炮 ','fa veh t4','http://mentalomega.com/ch/images/cameo/phnticon.png','名称:幻光多管火箭炮<br>ini名称:PHNT<br>攻击指令:PhantasmAttackCommand')
+manualAdd('SEITAAD','塞泰龙弩炮 ','fa veh t4','http://mentalomega.com/ch/images/cameo/seiticon.png','名称:塞泰龙弩炮<br>ini名称:SEITAAD<br>攻击指令:SeitaadAttackCommand')
+manualAdd('ARCH','恐龟加农炮 ','fa veh t4','http://mentalomega.com/ch/images/cameo/arclicon.png','名称:恐龟加农炮<br>ini名称:ARCH<br>攻击指令:ArchelonAttackCommand')
+manualAdd('RAMW','公羊 ','fa veh t4','http://mentalomega.com/ch/images/cameo/ramwicon.png','名称:公羊<br>ini名称:RAMW<br>攻击指令:RamwagonAttackCommand')
 //not buildable
 manualAdd('CYBO','半机械人先驱 ','na inf t5','http://mentalomega.com/ch/images/cameo/cyboicon.png','名称:半机械人先驱<br>ini名称:CYBO<br>攻击指令:CyborgAttackCommand')
 manualAdd('BEETLE','巨型甲虫 ','inf t5','http://mentalomega.com/ch/images/cameo/','名称:巨型甲虫<br>ini名称:BEETLE<br>攻击指令:')
@@ -950,6 +953,7 @@ manualAdd('KRUKOV','库可夫 ','na inf t5','http://mentalomega.com/ch/images/ca
 manualAdd('CBRIS','太空特种兵 ','inf t5','http://mentalomega.com/ch/images/cameo/','名称:太空特种兵<br>ini名称:CBRIS<br>攻击指令:')
 manualAdd('YURIX','尤里 ','ya inf t5','http://mentalomega.com/ch/images/cameo/','名称:尤里<br>ini名称:YURIX<br>攻击指令:YuriPrimeAttackCommand')
 manualAdd('RHAD','拉什迪 ','ya inf t5','http://mentalomega.com/ch/images/cameo/','名称:拉什迪<br>ini名称:RHAD<br>攻击指令:YuriPrimeAttackCommand')
+manualAdd('LIBRC','天秤复制人','ya inf t5','http://mentalomega.com/ch/images/cameo/liclicon.png','名称:天秤复制人<br>ini名称:LIBRC<br>攻击指令:')
 manualAdd('STLN','蓝波 ','inf t5','http://mentalomega.com/ch/images/cameo/','名称:蓝波<br>ini名称:STLN<br>攻击指令:SlyAttackCommand')
 manualAdd('ARND','终结者 ','inf t5','http://mentalomega.com/ch/images/cameo/','名称:终结者<br>ini名称:ARND<br>攻击指令:ArnoldAttackCommand')
 manualAdd('CLNT','Westwood 之星 ','inf t5','http://mentalomega.com/ch/images/cameo/','名称:Westwood 之星<br>ini名称:CLNT<br>攻击指令:ClintAttackCommand')
@@ -964,7 +968,7 @@ manualAdd('PANTHER','圣骑士歼击坦克 ','ga veh t5','http://mentalomega.com
 manualAdd('AHVYBOT','未来坦克X-0 ','ga veh t5','http://mentalomega.com/ch/images/cameo/hevyicon.png','名称:未来坦克X-0<br>ini名称:AHVYBOT<br>攻击指令:FTankAttackCommand')
 manualAdd('NAFTUR','烈焰炮台 ','na bud t5','http://mentalomega.com/ch/images/cameo/ftowicon.png','名称:烈焰炮台<br>ini名称:NAFTUR')
 manualAdd('FAPOST','焚风发电风带 ','fa bud t5','http://mentalomega.com/ch/images/cameo/wblticon.png','名称:焚风发电风带<br>ini名称:FAPOST')
-manualAdd('POST','风带核心 ','fa veh t3','http://mentalomega.com/ch/images/cameo/','名称:风带核心<br>ini名称:POST<br>攻击指令:WindbeltCoreMove')
+manualAdd('POST','风带核心 ','fa veh t5','http://mentalomega.com/ch/images/cameo/','名称:风带核心<br>ini名称:POST<br>攻击指令:WindbeltCoreMove')
 manualAdd('RAVA','德拉库夫机动监狱 ','na veh t5','http://mentalomega.com/ch/images/cameo/ravaicon.png','名称:德拉库夫机动监狱<br>ini名称:RAVA<br>攻击指令:DrakuvAttackCommand')
 manualAdd('SDRN','维修无人机 ','na veh t5','http://mentalomega.com/ch/images/cameo/rpdrnicon.png','名称:维修无人机<br>ini名称:SDRN<br>攻击指令:ChaosDroneMove')
 
@@ -978,27 +982,7 @@ manualAdd('ZORB_N','气压球晋升者 ','fa inf sy','http://mentalomega.com/ch/
 manualAdd('BANE_N','天神克星 ','fa inf sy','http://mentalomega.com/ch/images/cameo/baneicon.png','名称:天神克星<br>ini名称:BANE_N<br>攻击指令:GiantsbaneAttackCommandB')
 
 
-function manualAdd2(id,name,filter,source="http://mentalomega.com/ch/images/cameo/bbtzicon.png",text=id)
-{
-	var frame=document.getElementById("mc");
-	var d=document.createElement("DIV");
-	d.className="tooltip";
-	var im=document.createElement("IMG");
-	var ttt=document.createElement("SPAN");
-	ttt.innerHTML=name;
-	ttt.className="tooltiptext";
-	im.src=source;
-	im.alt="";
-	
-	
-	im.addEventListener("click",function(){
-	myFunc(text);}
-	);
-	im.className="filt "+filter;
-	d.appendChild(im);
-	d.appendChild(ttt);
-	frame.appendChild(d);
-}
+
 
 function manualAdd(id,name,filter,source="http://mentalomega.com/ch/images/cameo/bbtzicon.png",text=id,al="top left")
 {
@@ -1012,7 +996,22 @@ function manualAdd(id,name,filter,source="http://mentalomega.com/ch/images/cameo
 	var ttt=document.createElement("SPAN");
 	ttt.innerHTML=name;
 	ttt.className="tooltiptext";
-	
+	if(filter.includes("na"))
+	{
+		d.style.borderColor="red";
+	}
+	if(filter.includes("ga"))
+	{
+		d.style.borderColor="blue";
+	}
+	if(filter.includes("ya"))
+	{
+		d.style.borderColor="magenta";
+	}
+	if(filter.includes("fa"))
+	{
+		d.style.borderColor="teal";
+	}
 	
 	d.addEventListener("click",function(){
 	myFunc(text);}
